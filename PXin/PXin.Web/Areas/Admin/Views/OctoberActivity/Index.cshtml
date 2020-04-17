@@ -1,0 +1,171 @@
+﻿@using MvcPaging
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "十月活动送手机";
+    MvcPaging.IPagedList<PXin.Facade.Models.Dto.OctoberActivityDto2> Dtos = ViewBag.Dtos as MvcPaging.IPagedList<PXin.Facade.Models.Dto.OctoberActivityDto2>;
+}
+
+
+<div class="sys container">
+    <h3 class="text-center">十月活动送手机</h3>
+    <!--查询-->
+    <div class="search">
+        <form class="form-inline">
+            <div class="form-group">
+                <label>昵称</label>
+                <input type="text" class="form-control" id="Nodename" value="" placeholder="昵称">
+            </div>
+
+            <div class="form-group">
+                <label>账号</label>
+                <input type="text" class="form-control" id="Nodecode" value="" placeholder="账号">
+            </div>
+            <div class="form-group">
+                <label>手机号</label>
+                <input type="text" class="form-control" id="Mobile" value="" placeholder="手机号">
+            </div>
+            @*<div class="form-group">
+                <select id="TypeId">
+                    <option value="0">请选择</option>
+                </select>
+            </div>*@
+            <button type="button" class="btn btn-info m-t-10" id="btnQuery">查询</button>
+        </form>
+    </div>
+    <div class="con">
+        <div class="panel panel-default">
+            <table class="table table-bordered">
+                <tr>
+                    <th>昵称</th>
+                    <th>账号</th>
+                    <th>手机号</th>
+                    <th>参与活动</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+
+                @{
+                    foreach (var item in Dtos)
+                    {
+                        <tr>
+                            <td>@item.Nodename</td>
+                            <td>@item.Nodecode</td>
+                            <td>@item.Mobile</td>
+                            <td>@item.Note</td>
+                            <td>@(item.Status==2?"已支付":"已发货")</td>
+                            <td>
+                                @if (item.Status == 2)
+                                {
+                                    <button class="btn btn-xs btn-info express" data-id="@item.Id" data-status="@item.Status">发货</button>
+                                }
+                                    <a class="btn btn-xs btn-info detail" target="_blank" href="/Admin/OctoberActivity/detail?id=@item.Id">详情</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+        <!--页码-->
+        @Html.Pager(Dtos.PageInfo)
+
+    </div>
+</div>
+
+
+<!--弹窗-->
+<div class="modal fade" tabindex="-1" role="dialog" id="operateModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">发货</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group clearfix">
+                    <label class="col-sm-2 control-label"><span class="text-danger">*</span>物流单号</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="expressNo" placeholder="请输入物流单号" maxlength="20"  />
+                        <span class="info text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info" id="operateSure">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹窗-->
+
+
+
+<script type="text/javascript">
+    var dataid = 0;
+    $(function () {
+        $("#Nodename").val(getUrlParam("Nodename"));
+        $("#Nodecode").val(getUrlParam("Nodecode"));
+        $("#Mobile").val(getUrlParam("Mobile"));
+
+        $("#btnQuery").click(function () {
+            location.href = "/Admin/OctoberActivity/Index?Nodename=" + encodeURI($("#Nodename").val()) + "&Nodecode=" + encodeURI($("#Nodecode").val()) + "&Mobile=" + encodeURI($("#Mobile").val()) + "";
+            return false;
+        });
+
+        //同意
+        $('.express').click(function () {
+            $('.info').html('');
+            dataid = $(this).attr("data-id");
+            $('.info').html('');
+            $('#operateModal').modal();
+        });
+
+
+        $("#operateSure").click(function () {
+            if ($("#expressNo").val() == '') {
+                $(".info").text("请输入物流单号");
+                return false;
+            } else {
+                $(".info").text("");
+            }
+            express();
+        });
+    });
+
+
+
+    function express() {
+        $("#operateSure").attr("disabled", "disabled");
+        var expressNo = $.trim($("#expressNo").val());
+        $.ajax({
+            type: "post",
+            url: "/Admin/OctoberActivity/express",
+            data: { id: dataid, expressNo: expressNo },
+            dataType: "json",
+            success: function (data) {
+                $("#operateSure").removeAttr("disabled");
+                if (data) {
+                    if (!data.Result) {
+                        $(".info").text(data.Msg);
+                    } else  {
+                        window.location.reload();
+                    }
+                }
+            },
+            error: function () {
+                $("#operateSure").removeAttr("disabled");
+                alert('服务器忙,请稍候重试');
+            }
+        });
+    }
+
+
+    //获取url上传过来的参数
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return decodeURI(r[2]); return null; //返回参数值
+    }
+</script>

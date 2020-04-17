@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <title></title>
+    <script src="Scripts/jquery-1.8.2.min.js"></script>
+    <script>
+        var testurl = "/App/Believe/index.htm";
+        $(function () {
+            //$("#btnRegister").click(function () {
+            //    var testTrade = function (response) {
+            //        location.href = "/App/Register/index.htm?" + response;
+            //    }
+            //    test(testTrade);
+            //});
+
+            $("#btnRegister").click(function () {
+                window.open("/App/Register/index.html");
+            });
+
+            $("#btnRechargeCode").click(function () {
+                var testTrade = function (response) {
+                    window.open("/App/Believe/index.html?" + response + "#/RechargeCode");
+                }
+                test(testTrade);
+            });
+
+            $("#btnAuction").click(function () {
+                var testTrade = function (response) {
+                    window.open("http://localhost:1328/App/Auction/index.html?" + response + "#/");
+                }
+                test(testTrade);
+            });
+
+            $("#btnBindex").click(function () {
+                var testTrade = function (response) {
+                    window.open("/App/Believe/index.html?" + response + "#/bindex");
+                }
+                test(testTrade);
+            });
+
+            $("#btnExchange").click(function () {
+                var testTrade = function (response) {
+                    window.open("/App/Believe/index.html?" + response + "#/exchange");
+                }
+                test(testTrade);
+            });
+            $("#btnFbap").click(function () {
+                var testTrade = function (response) {
+                    window.open("/App/Believe/index.html?" + response + "#/fbap");
+                }
+                test(testTrade);
+            });
+            $("#btnLuckdraw").click(function () {
+                var testTrade = function (response) {
+                    window.open("/App/Luckdraw/index.html?" + response);
+                }
+                test(testTrade);
+            });
+            //绑定ue
+            $("#btnBindingUe").click(function () {
+                var testTrade = function (response) {
+                    window.open("/App/Believe/index.html?" + response + "#/bindaccount");
+                }
+                test(testTrade);
+            });
+            //相信邀请码
+            $("#btnInvite").click(function () {
+                var testTrade = function (response) {
+                    window.location.href = "/App/Believe/index.html?" + response + "#/InvitationCode";
+                }
+                test(testTrade);
+            });
+            //领取红包
+            $("#btnRed").click(function () {
+                var testTrade = function (response) {
+                    window.location.href = "/App/Believe/index.html?" + response + "#/Receive";
+                }
+                test(testTrade);
+            });
+            //绑定ue
+            $("#btnCas").click(function () {
+                var testTrade = function (response) {
+                    //window.open("/App/Cas/index.html?" + response);
+                    window.location.href = "/App/Cas/index.html?" + response;
+                    //window.open("http://localhost:8080/?" + response);
+                }
+                test(testTrade);
+            });
+
+            //十月送手机
+            $("#btnOtcActivity").click(function () {
+                var testTrade = function (response) {
+                    window.location.href = "/App/Believe/index.html?" + response + "#/OtcActivity";
+                }
+                test(testTrade);
+            });
+
+            $("#wise").click(function () {
+                var testTrade = function (response) {
+                    window.location.href = "/App/daren/index.html?" + response + "#/";
+                }
+                test(testTrade);
+            });
+
+            //发票
+            $("#btnInvioce").click(function () {
+                var testTrade = function (response) {
+                    window.location.href = "/App/Invioce/index.html?" + response + "#/";
+                }
+                test(testTrade);
+            });
+            
+        });
+
+        function test(func) {
+            //func("nodeid=" + $("#nodeid").val() + "&sid=81127&tm=20191009164001&sign=269adda5075090541a90483181a1dc8b");
+            $.ajax({
+                type: "Get",
+                url: "http://client.be.sulink.cn/Home/GetParam?nodeid=" + $("#nodeid").val(),
+                success: function (response) {
+                    console.info(response);
+                    func(response);
+                }
+            });
+        }
+        function  test_k() {
+            //http://client.be.sulink.cn/api/Sys/CheckSign
+
+            $.ajax({
+                type: "POST",
+                url: "http://client.be.sulink.cn/api/Sys/CheckSign",
+                data:"nodeid=3434909&sid=81127&tm=20191010153031&sign=b4a6b3f9a03d05d4e39a49704f63985b",
+                success: function (response) {
+                    console.info(response);
+                }
+            });
+        }
+        $(function () {
+            test_k();
+        });
+    </script>
+</head>
+<body>
+    <div><a href="/Test/Index">P信</a></div>
+    <div><a href="/swagger/ui/index">WebApi接口</a></div>
+    <div>nodie:<input type="text" id="nodeid" name="nodeid" value="3434909" /></div>
+    <button type="button" id="btnRegister">邀请注册</button>
+    <button type="button" id="btnRechargeCode">充值码</button>
+    <button type="button" id="btnAuction">A点竟拍</button>
+    <button type="button" id="btnBindex">B指数</button>
+    <button type="button" id="btnExchange">兑换专区</button>
+    <button type="button" id="btnBindingUe">绑定ue</button>
+    <button type="button" id="btnCas">相信CAS</button>
+    <button type="button" id="btnInvite">相信邀请码</button>
+    <button type="button" id="btnLuckdraw">竟拍抽奖</button>
+    <button type="button" id="btnRed">领取红包</button>
+    <button type="button" id="btnOtcActivity">十月送手机</button>
+    <button type="button" id="wise">相信达人</button>
+    <button type="button" id="btnInvioce">相信发票</button>
+
+    <fieldset>
+        <legend>充值商</legend>
+        <button type="button" id="btnFbap">充值商</button>
+    </fieldset>
+
+</body>
+</html>

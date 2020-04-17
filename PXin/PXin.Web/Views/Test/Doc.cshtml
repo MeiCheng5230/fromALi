@@ -1,0 +1,3162 @@
+<head>
+    <style type="text/css">
+        .auto-style1 {
+            width: 96px;
+        }
+    </style>
+</head>
+<div>
+    <div>
+        <h1>&nbsp;P信接口说明文档</h1>
+    </div>
+    <div>
+        <table border="1">
+            <tr>
+                <td style="width: 150px;">总体说明
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>所有接口地址都包含以下四个参数
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <table border="1">
+                        <tr>
+                            <td>参数名
+                            </td>
+                            <td>参数类型
+                            </td>
+                            <td class="style1">参数说明
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>nodecode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">NodeCode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>nonce</td>
+                            <td>string</td>
+                            <td class="style1">随机数</td>
+                        </tr>
+                        <tr>
+                            <td>timestamp
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">时间戳 【从1970年1月1日0点0分0秒开始到现在的秒数】
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>signature
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">签名[MD5(nodecode + nonce + timestamp + 密码)]
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：</td>
+                <td>
+                    <div>
+                        返回值为JSON格式，例：{"Result":true,"Msg":"加入群组成功","Data":null}
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Result
+                            </td>
+                            <td>bool
+                            </td>
+                            <td class="style1">true-成功，false-失败
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Msg
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">调用结果描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>dync
+                            </td>
+                            <td class="style1">不同接口不一样，可能是一个结构体也可能是简单的数据类型，下面的接口说明只对Data作出说明
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+
+            <tr>
+                <td>获取本人用户信息地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/Login
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>gtclientid
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">个推clientid
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>deviceToken
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">ios专用
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"NodeId":3434909,"NodeCode":"15000000","NodeName":"有一","Token":"ETYRuMkL
++pGLHrh8aXVJAm/DImKHq0GgaxKNUGB5zcFXI3G6vUeKGu1xPFzq78TD3qOb7LKAnk9hpz1pyt63tg==","AppPhoto":""}}                   
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>nodecode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">nodecode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>nodename
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">姓名
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nickname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">用户昵称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Remarks
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">用户备注
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Token
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">token值，聊天用，具体参看融云说明
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>AppPhoto
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">用户头像地址
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GradeId
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">用户等级
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GradeName
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">用户等级名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sex</td>
+                            <td>string
+                            </td>
+                            <td class="style1">性别</td>
+                        </tr>
+                        <tr>
+                            <td>Provinceid</td>
+                            <td>string
+                            </td>
+                            <td class="style1">省</td>
+                        </tr>
+                        <tr>
+                            <td>Provincename</td>
+                            <td>string
+                            </td>
+                            <td class="style1">省</td>
+                        </tr>
+                        <tr>
+                            <td>Cityid</td>
+                            <td>string
+                            </td>
+                            <td class="style1">市</td>
+                        </tr>
+                        <tr>
+                            <td>Cityname</td>
+                            <td>string
+                            </td>
+                            <td class="style1">市
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Personalsign</td>
+                            <td>string
+                            </td>
+                            <td class="style1">个性签名</td>
+                        </tr>
+                        <tr>
+                            <td>Showrealname</td>
+                            <td>string
+                            </td>
+                            <td class="style1">显示真实姓名 1-显示，0-不显示</td>
+                        </tr>
+                        <tr>
+                            <td>Remarks</td>
+                            <td>string
+                            </td>
+                            <td class="style1">好友备注</td>
+                        </tr>
+                        <tr>
+                            <td>Allowviewmedynamic</td>
+                            <td>string
+                            </td>
+                            <td class="style1">是否允许查看我的动态，1-允许，0-不充许</td>
+                        </tr>
+                        <tr>
+                            <td>Viewhedynamic</td>
+                            <td>string
+                            </td>
+                            <td class="style1">是否查看他的动态，1-看，0-不看</td>
+                        </tr>
+                        <tr>
+                            <td>TxUserSig</td>
+                            <td>string
+                            </td>
+                            <td class="style1">腾讯usersig</td>
+                        </tr>
+                        <tr>
+                            <td>Config
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">相关配置属性，CreateGroupMinGrade-创建群组需要的最小等级，GroupMaxQuantity-创建群组最大数量，DiscussionMaxQuantity-创建讨论组最大数量,CreateGroupAmount-创建默认群扣费金额,CreateChatRoomAmount-创建聊天室扣费金额，DefaultPublic-需要默认关注的公众号,多个用逗号隔开，LiveSendBarrageGiftId-直播间发送弹幕对应礼物ID，LiveRoomTip-直播间系统提示文字
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>修改我的基本信息地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/UpdateMyInfo</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>paramType</td>
+                            <td>int
+                            </td>
+                            <td class="style1">类型，1-昵称，2-性名，3-所在地[省市id逗号隔开]，4-个性签名，5-显示真实姓名[0-不显示，1-显示]</td>
+                        </tr>
+                        <tr>
+                            <td>paramValue</td>
+                            <td>string
+                            </td>
+                            <td class="style1">修改值</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":null}                    
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>修改我的昵称地址[停止使用]:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/UpdateMyNick</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>nickname</td>
+                            <td>string
+                            </td>
+                            <td class="style1">昵称&nbsp;</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":null}                    
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>根据userid获取用户信息地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/QueryUserInfo
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>userids
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">对应融云的userid,多个用逗号隔开，比如:123,345,324
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"Item":[{"NodeId":3434916,"NodeCode":"15000568","NodeName":"童森栋竟买"
+,"Token":null,"AppPhoto":null}]}}                    
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">参看获取用户信息返回值
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>查找好友地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/QueryFriend
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>key
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">查询关键字
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageIndex
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">页码
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageSize
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">每页数量
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"Item":[{"NodeId":3434916,"NodeCode":"15000568","NodeName":"童森栋竟买"
+,"Token":null,"AppPhoto":null}],"PageInfo":{"PageCount":1,"TotalDataCount":1,"PageIndex":1,"PageSize"
+:100,"HasPreviousPage":false,"HasNextPage":false,"IsFirstPage":true,"IsLastPage":true}}}              
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Item
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">参看获取用户信息返回值
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PageInfo
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">分页信息
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PageCount
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">总页数
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TotalDataCount
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">总条数
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PageIndex
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">当前页
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>我的好友地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/MyFriend
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>无
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":[{"NodeId":3435160,"NodeCode":"15004453","NodeName":"张燕舞Test","Token"
+:"c+bdxdq1wbAaJ/+3AKG7z5bbJQsGU0kQE8VcE1z1CxZ3dK5KDiHu27RNeS+zh3+kfPfCAp52h0iIBya9rEl0sgiesdpV0gaO","AppPhoto"
+:null},{"NodeId":3435127,"NodeCode":"15002721","NodeName":"童森栋Test","Token":"Q/UiRP+BZfHf+9WTHXuQ8ZbbJQsGU0kQE8VcE1z1CxZ3dK5KDiHu20wQe8I6dhrmmy
++IXwyFAgqU7nBfKgyJ/wiesdpV0gaO","AppPhoto":null},{"NodeId":3435120,"NodeCode":"15007529","NodeName":"
+邓庭强Test","Token":"x+n2tO++fsxAfCbdl9jTK/L8Rq/jVYYxQLqZnxPmZEkUUqWznVQe9OTEbpYdwP3nh++yg8LmnHkeZjIIu0cwIgwOBa
+/JJVOe","AppPhoto":"appphoto/776fd9b7-2e81-45ea-a168-ec307207937e.png"}]}             
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">参看获取用户信息返回值
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>添加好友地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/AddFriend
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>usercode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">好友nodecode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>remarks
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">备注
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"NodeId":3435160,"NodeCode":"15004453","NodeName":"张燕舞Test","Token"
+:"c+bdxdq1wbAaJ/+3AKG7z5bbJQsGU0kQE8VcE1z1CxZ3dK5KDiHu27RNeS+zh3+kfPfCAp52h0iIBya9rEl0sgiesdpV0gaO","AppPhoto"
+:""}}             
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">参看获取用户信息返回值
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>添加好友确认地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/AddFriendConfirm
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>usercode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">好友nodecode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>status
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">1-通过，2-拒绝
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>remarks
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">备注
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"NodeId":3435160,"NodeCode":"15004453","NodeName":"张燕舞Test","Token"
+:"c+bdxdq1wbAaJ/+3AKG7z5bbJQsGU0kQE8VcE1z1CxZ3dK5KDiHu27RNeS+zh3+kfPfCAp52h0iIBya9rEl0sgiesdpV0gaO","AppPhoto"
+:""}}             
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">参看获取用户信息返回值
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>修改好友信息地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/UpdateMyFriendInfo</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>paramType</td>
+                            <td>int
+                            </td>
+                            <td class="style1">类型，1-好友备注，2-是否允许查看我的动态[1-允许，0-不充许]，3-是否查看他的动态[1-看，0-不看]</td>
+                        </tr>
+                        <tr>
+                            <td>paramValue</td>
+                            <td>string
+                            </td>
+                            <td class="style1">修改值</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"删除好友成功","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <!---->
+
+            <tr>
+                <td>修改好友备注地址[停用]:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/UpdateMyFriendRemarks</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>usercode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">好友nodecode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>remarks
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">备注
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"删除好友成功","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>删除好友地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/DeleteFriend
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>usercode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">好友nodecode
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"删除好友成功","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>创建群组地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/CreateGroup
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>descript
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>grouppic
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组图片，图片base64字符串
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"Id":17,"Groupname":"tsdtest","Descript":"","Creater":3434909,"Createtime"
+:"2016-03-10T10:27:57","Groupstate":1,"Dismisstime":null}}
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">群组信息
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Id
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组Id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Groupname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Descript
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GroupPic
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组图片地址
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+
+            <!---->
+
+            <tr>
+                <td>创建群组2地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/CreateGroup2
+                </td>
+            </tr>
+            <tr>
+                <td>说明:
+                </td>
+                <td>村长及以上等级的用户可调用此方法创建群组，默认把此用户的所有下级用户加到群里面
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>descript
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>grouppic
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组图片，图片base64字符串
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"Id":17,"Groupname":"tsdtest","Descript":"","Creater":3434909,"Createtime"
+:"2016-03-10T10:27:57","Groupstate":1,"Dismisstime":null}}
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">群组信息
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Id
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组Id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Groupname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Descript
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GroupPic
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组图片地址
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>修改群组地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/UpdateGroup
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">群组id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>groupname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>descript
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>grouppic
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组图片，图片base64字符串
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"Id":17,"Groupname":"tsdtest","Descript":"","Creater":3434909,"Createtime"
+:"2016-03-10T10:27:57","Groupstate":1,"Dismisstime":null}}
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">群组信息
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Id
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组Id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Groupname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Descript
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组描述
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>找群地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/QueryGroup
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>参考查找好友
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"Item":[{"Id":17,"Groupname":"tsdtest","Descript":null,"Creater":3434909
+,"Createtime":"2016-03-10T10:27:57","Groupstate":1,PersonCount:1,"Dismisstime":null,"CreateNodecode":"15000000","CreateNodename"
+:"有一"}],"PageInfo":{"PageCount":1,"TotalDataCount":1,"PageIndex":1,"PageSize":100,"HasPreviousPage":false
+,"HasNextPage":false,"IsFirstPage":true,"IsLastPage":true}}}
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Item
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">群组信息
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Id
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组Id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Groupname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Descript
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GroupPic
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组图片地址
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PersonCount
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">群组人数
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CreateNodecode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">创建者nodecode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CreateNodename
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">创建者名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PageInfo
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">分页信息[参见查找好友]
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>我的群组地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/MyGroup
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>无
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":[{"Id":17,"Groupname":"tsdtest","Descript":null,"Creater":3434909,"Createtime"
+:"2016-03-10T10:27:57","Groupstate":1,PersonCount:1,"Dismisstime":null,"CreateNodecode":"15000000","CreateNodename"
+:"有一"},{"Id":15,"Groupname":"sd","Descript":null,"Creater":3434909,"Createtime":"2016-03-09T14:37:39"
+,"Groupstate":1,"Dismisstime":null,"CreateNodecode":"15000000","CreateNodename":"有一"}]}        
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">参看找群结构体
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>加入群组地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/JoinGroup
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">群组id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>remarks
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">请求加群备注
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"加入群组成功","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>加入群组确认地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/JoinGroupConfirm
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">群组id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>usercode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">请求入群用户nodecode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>status
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">1-通过，2-拒绝
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>remarks
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">备注
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"加入群组成功","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>群主拉人加入群组地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/JoinGroupInvitation
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">群组id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>userids
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">用户id[nodeid]列表，用逗号隔开
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>remarks
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">备注
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"加入群组成功","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>退出群组地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/QuitGroup
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">群组id
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"退出群组成功","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>移除群组成员地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/RemoveGroupUser
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">群组id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>usercode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">要移除的群组成员
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"退出群组成功","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>解散群组地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/DismissGroup
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">群组id
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"解散群组成功","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>查询群组成员:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/QueryGroupUser
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">群组id
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":[{"NodeId":3434909,"NodeCode":"15000000","NodeName":"有一","Token":"xzVlepSDd4Q8zELghMPUxvL8Rq
+/jVYYxQLqZnxPmZEkUUqWznVQe9DOqDgw5v79ai3oS2Pyj4ns1kpG10TxBawwOBa/JJVOe","AppPhoto":""},{"NodeId":3435127,"NodeCode":"15002721","NodeName"
+:"童森栋Test","Token":null,"AppPhoto":""}]}
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">参看登录结构体
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>群组禁言:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/GagUserAddGroup</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">群组id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>userids</td>
+                            <td>string
+                            </td>
+                            <td class="style1">禁言用户nodeid,多个用逗号隔开</td>
+                        </tr>
+                        <tr>
+                            <td>minute</td>
+                            <td>int
+                            </td>
+                            <td class="style1">禁言时间，单位分钟，最大值为43200分钟</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"禁言用户成功","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>群组禁言移除:
+                </td>
+                <td>http://xxx.xxx.xxxx//Rong/GagUserRemoveGroup</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">群组id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>userids</td>
+                            <td>string
+                            </td>
+                            <td class="style1">用户nodeid,多个用逗号隔开</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"移除禁言用户成功","Data":null} 
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>群组禁言查询:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/GagUserQueryGroup</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">群组id
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"查询禁言用户成功","Data":[{"time":"2016-11-24 12:00:21","userId":"3517823"}]}
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">禁言用户列表
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>time
+                            </td>
+                            <td>date
+                            </td>
+                            <td class="style1">解禁时间
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>userId
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">禁言用户id
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+
+            <!---->
+            <tr>
+                <td>创建系统聊天室地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/CreateChatRoom</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>roomname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>descript
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>roompwd
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室密码,可为空
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>roompic
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室图片,png格式，base64编码
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"Id":1022,"Roomtype":2,"Roomname":"测试","Roompwd":"","Remarks":"222"
+,"Creater":3434909,"Createtime":"2016-06-12T16:25:49","Roomstate":1,"Transferid":0}}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>备注：</td>
+                <td>nodecode=10000的用户才能创建成功</td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>创建收费聊天室地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/CreateChatRoom2
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>roomname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>descript
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>roompwd
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室密码,可为空
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style1">paypwd
+                            </td>
+                            <td class="auto-style1">string
+                            </td>
+                            <td class="auto-style1">支付密码
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>roompic
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室图片,png格式，base64编码
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"Id":1022,"Roomtype":2,"Roomname":"测试","Roompwd":"","Remarks":"222"
+,"Creater":3434909,"Createtime":"2016-06-12T16:25:49","Roomstate":1,"Transferid":0}}
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>修改聊天室信息地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/UpdateChatRoom
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>roomid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">聊天室id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>roomname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>descript
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>roompwd
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室密码,可为空
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>roompic
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室图片,png格式，base64编码
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>修改聊天室密码地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/UpdateChatRoomPwd</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>roomid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">聊天室id
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>oldpwd
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室旧密码
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>roompwd
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室密码,可为空
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>查询聊天室地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/QueryChatRoom
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>key
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">查询关键词[可为聊天室id,聊天室名称]
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>myroom
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">0-查询所有聊天室,1-查询我创建的聊天室,2-查询系统聊天室
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageIndex
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">页码
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageSize
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">每页数量
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"Item":[{"Id":1000,"Roomtype":2,"Roomname":"P客大家庭","HasPwd":0,"Remarks"
+:"P客大家庭","Creater":3481392,"Createtime":"2016-06-08T17:30:01","CreateNodecode":"10000","CreateNodename"
+:"P信官方"}],"PageInfo":{"PageCount":1,"TotalDataCount":1,"PageIndex":1,"PageSize":100,"HasPreviousPage"
+:false,"HasNextPage":false,"IsFirstPage":true,"IsLastPage":true}}}
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">聊天室信息
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Id
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室Id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Roomtype
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">0-普通聊天室，1-收费聊天室,2-系统聊天室
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Roomname
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">聊天室名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>RoomPic
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室图片地址
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Personcount
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">聊天室当前人数
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Remarks
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>HasPwd
+                            </td>
+                            <td>string
+                            </td>
+                            <td>聊天室密码，0-无密码，1-有密码
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Creater
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">创建人
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Createtime
+                            </td>
+                            <td>Date
+                            </td>
+                            <td class="style1">创建时间
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CreateNodecode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">创建人nodecode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CreateNodename
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">创建人nodename
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>加入聊天室地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/JoinChatRoom
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>roomid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">聊天室id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>roompwd
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">聊天室密码,可为空
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"","Data":null}
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>退出聊天室地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/QuitChatRoom
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>roomid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">聊天室id
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"","Data":null}
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>销毁/解散聊天室地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/DestroyChatRoom
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>roomid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">聊天室id
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"","Data":null}
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>查询聊天室当前人数:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/QueryChatRoomUserCount
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>roomid
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">聊天室id
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"","Data":0}
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">当前人数
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>查找公众号:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/QueryPublic
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>key
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">查询关键字
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":[{"Id":2,"PublicId":8,"PublicName":"优店PE","PublicType":3,"Remarks"
+:null,"Createtime":"2016-09-12T00:00:00","PublicLogo":"http://public.rongcloud.cn/static/uploadImage
+/2016/08/16/rc_80x80_ff76720c_1471316471.png"},{"Id":3,"PublicId":9,"PublicName":"优店合伙人","PublicType"
+:3,"Remarks":null,"Createtime":"2016-09-12T00:00:00","PublicLogo":"http://public.rongcloud.cn/static
+/uploadImage/2016/08/16/rc_80x80_380f1d22_1471318369.jpg"}]}             
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">公众号信息
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PublicId
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">公众号id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PublicName
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">公众号名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PublicLogo
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">公众号Logo
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>获取省份列表:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/ProvinceList</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>无
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":[{"ProvinceId":2,"PublicId":8,"ProvinceName":"湖南"}]}             
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">省份信息
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ProvinceId
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">省id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ProvinceName
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">省名称
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>获取城市列表:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/CityList
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>无
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":[{"CityId":2,"CityName":"长沙","ProvinceId":3}]}             
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">城市信息
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CityId
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">城市id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CityName
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">城市名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ProvinceId
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">省ID
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>添加关注:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/ConcernAdd</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>concernCode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">要取关注的用户nodecode
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>取消关注:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/ConcernCancel</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>concernCode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">要取消关注的用户nodecode
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"","Data":null}
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>我的粉丝列表:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/MyFans</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>pageIndex
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">页码
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageSize
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">每页数量
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"Item":[{"NodeId":3434916,"NodeCode":"15000568","NodeName":"童森栋竟买"
+,"Token":null,"AppPhoto":null}],"PageInfo":{"PageCount":1,"TotalDataCount":1,"PageIndex":1,"PageSize"
+:100,"HasPreviousPage":false,"HasNextPage":false,"IsFirstPage":true,"IsLastPage":true}}}              
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Item
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">参看获取用户信息返回值
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PageInfo
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">分页信息
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PageCount
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">总页数
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TotalDataCount
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">总条数
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PageIndex
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">当前页
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>我的关注列表:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/MyConcerns</td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>pageIndex
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">页码
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>pageSize
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">每页数量
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"Item":[{"NodeId":3434916,"NodeCode":"15000568","NodeName":"童森栋竟买"
+,"Token":null,"AppPhoto":null}],"PageInfo":{"PageCount":1,"TotalDataCount":1,"PageIndex":1,"PageSize"
+:100,"HasPreviousPage":false,"HasNextPage":false,"IsFirstPage":true,"IsLastPage":true}}}              
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Item
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">参看获取用户信息返回值
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PageInfo
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">分页信息
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PageCount
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">总页数
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>TotalDataCount
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">总条数
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PageIndex
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">当前页
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+
+            <tr>
+                <td>创建广播号地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/CreateGroup3
+                </td>
+            </tr>
+            <tr>
+                <td>说明:
+                </td>
+                <td>队长及以上等级的用户可调用此方法创建广播号，默认把此用户的所有下级用户加到广播号里面
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>descript
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>grouppic
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组头像，图片base64字符串
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>groupcode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组号
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>activecode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">广播号激活码
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"Id":17,"Groupname":"tsdtest","Descript":"","Creater":3434909,"Createtime"
+:"2016-03-10T10:27:57","Groupstate":1,"Dismisstime":null}}
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="auto-style1">群组信息
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Id
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="auto-style1">群组Id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Groupname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="auto-style1">群组名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Descript
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="auto-style1">群组描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GroupPic
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="auto-style1">群组头像
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Groupcode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="auto-style1">群组号
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Auditstate
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="auto-style1">群组审核状态，0-等待审核，1-审核通过，2-审核拒绝
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Authstate
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="auto-style1">群组认证状态，0-未认证，1-已认证
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>找广播号地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/QueryGroup3
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>参考查找好友
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":{"Item":[{"Id":17,"Groupname":"tsdtest","Descript":null,"Creater":3434909
+,"Createtime":"2016-03-10T10:27:57","Groupstate":1,PersonCount:1,"Dismisstime":null,"CreateNodecode":"15000000","CreateNodename"
+:"有一"}],"PageInfo":{"PageCount":1,"TotalDataCount":1,"PageIndex":1,"PageSize":100,"HasPreviousPage":false
+,"HasNextPage":false,"IsFirstPage":true,"IsLastPage":true}}}
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Item
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">群组信息
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Id
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组Id
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Groupname
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Descript
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组描述
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>GroupPic
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="auto-style1">群组头像
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Groupcode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="auto-style1">群组号
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Auditstate
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="auto-style1">群组审核状态，0-等待审核，1-审核通过，2-审核拒绝
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Authstate
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="auto-style1">群组认证状态，0-未认证，1-已认证
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>PersonCount
+                            </td>
+                            <td>int
+                            </td>
+                            <td class="style1">群组人数
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CreateNodecode
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">创建者nodecode
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>CreateNodename
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">创建者名称
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PageInfo
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">分页信息[参见查找好友]
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>我的广播号地址:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/MyGroup3
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>无
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功","Data":[{"Id":17,"Groupname":"tsdtest","Descript":null,"Creater":3434909,"Createtime"
+:"2016-03-10T10:27:57","Groupstate":1,PersonCount:1,"Dismisstime":null,"CreateNodecode":"15000000","CreateNodename"
+:"有一"},{"Id":15,"Groupname":"sd","Descript":null,"Creater":3434909,"Createtime":"2016-03-09T14:37:39"
+,"Groupstate":1,"Dismisstime":null,"CreateNodecode":"15000000","CreateNodename":"有一"}]}        
+                    </div>
+                    <table border="1">
+                        <tr>
+                            <td>Data
+                            </td>
+                            <td>结构体
+                            </td>
+                            <td class="style1">参看找群结构体
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+
+            <tr>
+                <td>广播号发送消息写历史:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/GoupSendMsgHis
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupid
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组id
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功"}        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+            <!---->
+            <tr>
+                <td>广播号是否允许发送消息:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/GoupAllowSendMsg
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>groupid
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">群组id
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"成功"}        
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+
+                        <!---->
+            <tr>
+                <td>上传文件:
+                </td>
+                <td>http://xxx.xxx.xxxx/Rong/UploadPic
+                </td>
+            </tr>
+            <tr>
+                <td>传入参数：
+                </td>
+                <td>
+                    <table border="1">
+                        <tr>
+                            <td>img
+                            </td>
+                            <td>string
+                            </td>
+                            <td class="style1">图片base64
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td>返回值：
+                </td>
+                <td>
+                    <div>
+                        {"Result":true,"Msg":"","Data":""}    
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+<div>
+    &nbsp;
+</div>
+

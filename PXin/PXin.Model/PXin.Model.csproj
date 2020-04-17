@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1AD43322-F3AC-4281-BAF9-995F911C8C31}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PXin.Model</RootNamespace>
+    <AssemblyName>PXin.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <LangVersion>latest</LangVersion>
+    <DocumentationFile>bin\Debug\PXin.Model.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Mvc, Version=1.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\NewDll\mvcbase\Common.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.18.3.0\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dto\TchatGroupDto.cs" />
+    <Compile Include="Dto\TchatLivegiftPurseDto.cs" />
+    <Compile Include="Dto\TchatLivegiftTypeDto.cs" />
+    <Compile Include="Dto\TchatLiveRoomDto.cs" />
+    <Compile Include="Dto\TchatRedenveOpenhisDto.cs" />
+    <Compile Include="Dto\TchatRedenvePurseDto.cs" />
+    <Compile Include="Dto\TchatRoomDto.cs" />
+    <Compile Include="Mapping\TappConfigMap.cs" />
+    <Compile Include="Mapping\TappFeedbackMap.cs" />
+    <Compile Include="Mapping\TblcCentcardAuctionHisMap.cs" />
+    <Compile Include="Mapping\TblcCentcardInvoiceMap.cs" />
+    <Compile Include="Mapping\TappH5ConfigMap.cs" />
+    <Compile Include="Mapping\TblcCentcardMap.cs" />
+    <Compile Include="Mapping\TblcBtcChargeLogMap.cs" />
+    <Compile Include="Mapping\TblcCentcardConfigMap.cs" />
+    <Compile Include="Mapping\TblcCentcardHisMap.cs" />
+    <Compile Include="Mapping\TblcUserPurseSub2Map.cs" />
+    <Compile Include="Mapping\TblUserJxsChangeMap.cs" />
+    <Compile Include="Mapping\TblUserJxsConfirmMap.cs" />
+    <Compile Include="Mapping\TblUserJxsMap.cs" />
+    <Compile Include="Mapping\TblUserJxsStockhis2Map.cs" />
+    <Compile Include="Mapping\TblUserJxsStockconfigMap.cs" />
+    <Compile Include="Mapping\TblUserJxsStockhisMap.cs" />
+    <Compile Include="Mapping\TblUserJxsXfMap.cs" />
+    <Compile Include="Mapping\TbossMeethisMap.cs" />
+    <Compile Include="Mapping\TbossMeetinfoMap.cs" />
+    <Compile Include="Mapping\TbtcActivationMap.cs" />
+    <Compile Include="Mapping\TbtcYdTransferHisExt2Map.cs" />
+    <Compile Include="Mapping\TbtcYdTransferHisMap.cs" />
+    <Compile Include="Mapping\TchatFeehisMap.cs" />
+    <Compile Include="Mapping\TchatFilterwordMap.cs" />
+    <Compile Include="Mapping\TchatFriendMap.cs" />
+    <Compile Include="Mapping\TchatFriendNickMap.cs" />
+    <Compile Include="Mapping\TchatGradeChangeMap.cs" />
+    <Compile Include="Mapping\TchatGroupMap.cs" />
+    <Compile Include="Mapping\TchatGroupSendHisMap.cs" />
+    <Compile Include="Mapping\TchatGroupUsergagMap.cs" />
+    <Compile Include="Mapping\TchatGroupUserMap.cs" />
+    <Compile Include="Mapping\TchatLiveFansMap.cs" />
+    <Compile Include="Mapping\TchatLivegiftHisMap.cs" />
+    <Compile Include="Mapping\TchatLivegiftPurseMap.cs" />
+    <Compile Include="Mapping\TchatLivegiftTypeMap.cs" />
+    <Compile Include="Mapping\TchatLiveroomFreezeHisMap.cs" />
+    <Compile Include="Mapping\TchatLiveroomMap.cs" />
+    <Compile Include="Mapping\TchatLiveroomPeriodHisMap.cs" />
+    <Compile Include="Mapping\TchatLiveroomVisitHisMap.cs" />
+    <Compile Include="Mapping\TchatLivesettleHisMap.cs" />
+    <Compile Include="Mapping\TchatPublicMap.cs" />
+    <Compile Include="Mapping\TchatPublicUserMap.cs" />
+    <Compile Include="Mapping\TchatRateMap.cs" />
+    <Compile Include="Mapping\TchatRedenveOpenhisMap.cs" />
+    <Compile Include="Mapping\TchatRedenvePurseMap.cs" />
+    <Compile Include="Mapping\TchatRedenveSendhisMap.cs" />
+    <Compile Include="Mapping\TchatRoomLogMap.cs" />
+    <Compile Include="Mapping\TchatRoomMap.cs" />
+    <Compile Include="Mapping\TchatUserFullMap.cs" />
+    <Compile Include="Mapping\TchatUserMap.cs" />
+    <Compile Include="Mapping\TcsChangeHisMap.cs" />
+    <Compile Include="Mapping\TfinBilltransMap.cs" />
+    <Compile Include="Mapping\TnetAreacodeMap.cs" />
+    <Compile Include="Mapping\TnetDriveLicLogMap.cs" />
+    <Compile Include="Mapping\TnetInvitehisMap.cs" />
+    <Compile Include="Mapping\TnetLockuserMap.cs" />
+    <Compile Include="Mapping\TnetNodeconsigneeaddrMap.cs" />
+    <Compile Include="Mapping\TnetNodeinfoMap.cs" />
+    <Compile Include="Mapping\TnetOpenInfoMap.cs" />
+    <Compile Include="Mapping\TnetPurseConfigMap.cs" />
+    <Compile Include="Mapping\TnetReginfoCodeMap.cs" />
+    <Compile Include="Mapping\TnetReginfoExtMap.cs" />
+    <Compile Include="Mapping\TnetUepayhisMap.cs" />
+    <Compile Include="Mapping\TnetUrlJumpMap.cs" />
+    <Compile Include="Mapping\TnetUserAgreementMap.cs" />
+    <Compile Include="Mapping\TnetUsergradeMap.cs" />
+    <Compile Include="Mapping\TchatGroupQuitlogMap.cs" />
+    <Compile Include="Mapping\TnetUserphotoMap.cs" />
+    <Compile Include="Mapping\TnetUserProtocalMap.cs" />
+    <Compile Include="Mapping\TnetVehicleLicLogMap.cs" />
+    <Compile Include="Mapping\TpcnIndexHisMap.cs" />
+    <Compile Include="Mapping\TpcnIndexInfoMap.cs" />
+    <Compile Include="Mapping\TpcnIndexSettleMap.cs" />
+    <Compile Include="Mapping\TpcnIndexUserMap.cs" />
+    <Compile Include="Mapping\TpcnThirdPartnerMap.cs" />
+    <Compile Include="Mapping\TpcnThirdPayhisMap.cs" />
+    <Compile Include="Mapping\TpcnUepayconfigMap.cs" />
+    <Compile Include="Mapping\TpxinActivityMap.cs" />
+    <Compile Include="Mapping\TpxinActivityThirdpartyMap.cs" />
+    <Compile Include="Mapping\TpxinAmountChangeHisMap.cs" />
+    <Compile Include="Mapping\TpxinChargeHisMap.cs" />
+    <Compile Include="Mapping\TpxinChargeProductMap.cs" />
+    <Compile Include="Mapping\TpxinCommentHisMap.cs" />
+    <Compile Include="Mapping\TpxinCommentHisUserMap.cs" />
+    <Compile Include="Mapping\TpxinDarenBrowseHisMap.cs" />
+    <Compile Include="Mapping\TpxinDarenDefaultMap.cs" />
+    <Compile Include="Mapping\TpxinDarenExt1Map.cs" />
+    <Compile Include="Mapping\TpxinDarenExt2Map.cs" />
+    <Compile Include="Mapping\TpxinDarenInfoMap.cs" />
+    <Compile Include="Mapping\TpxinDarenKnowledgeHisMap.cs" />
+    <Compile Include="Mapping\TpxinDarenKnowledgeMap.cs" />
+    <Compile Include="Mapping\TpxinDarenSearchMap.cs" />
+    <Compile Include="Mapping\TpxinDarenTypeMap.cs" />
+    <Compile Include="Mapping\TpxinDarenVideoMap.cs" />
+    <Compile Include="Mapping\TpxinEmoticonMaterialMap.cs" />
+    <Compile Include="Mapping\TpxinEmoticonOrderMap.cs" />
+    <Compile Include="Mapping\TpxinEmoticonSearchMap.cs" />
+    <Compile Include="Mapping\TpxinInvoiceLimitMap.cs" />
+    <Compile Include="Mapping\TpxinLuckDrawDetailMap.cs" />
+    <Compile Include="Mapping\TpxinLuckDrawMap.cs" />
+    <Compile Include="Mapping\TpxinMessageMap.cs" />
+    <Compile Include="Mapping\TpxinMessageUesrMap.cs" />
+    <Compile Include="Mapping\TpxinNearbyMap.cs" />
+    <Compile Include="Mapping\TpxinOctoberActivityMap.cs" />
+    <Compile Include="Mapping\TpxinPaiConfigMap.cs" />
+    <Compile Include="Mapping\TpxinPaiHisMap.cs" />
+    <Compile Include="Mapping\TpxinPaiHisOldMap.cs" />
+    <Compile Include="Mapping\TpxinPaiUserMap.cs" />
+    <Compile Include="Mapping\TpxinPayhisMap.cs" />
+    <Compile Include="Mapping\TpxinPraiseMap.cs" />
+    <Compile Include="Mapping\TpxinPushDataMap.cs" />
+    <Compile Include="Mapping\TpxinReportMap.cs" />
+    <Compile Include="Mapping\TpxinSvcLimitMap.cs" />
+    <Compile Include="Mapping\TpxinUserinfoMap.cs" />
+    <Compile Include="Mapping\TpxinYaoyiyaoMap.cs" />
+    <Compile Include="Mapping\TsmsAlitemplateMap.cs" />
+    <Compile Include="Mapping\TssoOpenUserMap.cs" />
+    <Compile Include="Mapping\TssoRegcodeMap.cs" />
+    <Compile Include="Mapping\TssoUsercodeMap.cs" />
+    <Compile Include="Mapping\Ttqm2InfoMap.cs" />
+    <Compile Include="Mapping\TueLoginHisMap.cs" />
+    <Compile Include="Mapping\TueMessageMap.cs" />
+    <Compile Include="Mapping\TzcAuthBindpcnMap.cs" />
+    <Compile Include="Mapping\TzcAuthLogMap.cs" />
+    <Compile Include="Mapping\TzcIdcardrecLogMap.cs" />
+    <Compile Include="Mapping\VblJxsPeicheMap.cs" />
+    <Compile Include="Mapping\VchatGroupMap.cs" />
+    <Compile Include="Mapping\VnetCityMap.cs" />
+    <Compile Include="Mapping\VnetProvinceMap.cs" />
+    <Compile Include="Mapping\VnetRegionMap.cs" />
+    <Compile Include="Mapping\VpxinMessageMap.cs" />
+    <Compile Include="Mapping\VpxinOctoberActivityMap.cs" />
+    <Compile Include="Mapping\VpxinPayhisMap.cs" />
+    <Compile Include="Mapping\VpxinPraiseMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TappConfig.generated.cs" />
+    <Compile Include="TappFeedback.generated.cs" />
+    <Compile Include="TappH5Config.generated.cs" />
+    <Compile Include="TblcBtcChargeLog.generated.cs" />
+    <Compile Include="TblcCentcard.generated.cs" />
+    <Compile Include="TblcCentcardAuctionHis.generated.cs" />
+    <Compile Include="TblcCentcardConfig.generated.cs" />
+    <Compile Include="TblcCentcardHis.generated.cs" />
+    <Compile Include="TblcCentcardInvoice.generated.cs" />
+    <Compile Include="TblcUserPurseSub2.generated.cs" />
+    <Compile Include="TblUserJxs.generated.cs" />
+    <Compile Include="TblUserJxsChange.generated.cs" />
+    <Compile Include="TblUserJxsConfirm.generated.cs" />
+    <Compile Include="TblUserJxsStockconfig.generated.cs" />
+    <Compile Include="TblUserJxsStockhis.generated.cs" />
+    <Compile Include="TblUserJxsXf.generated.cs" />
+    <Compile Include="TblUserJxsStockhis2.generated.cs" />
+    <Compile Include="TbossMeethis.generated.cs" />
+    <Compile Include="TbossMeetinfo.generated.cs" />
+    <Compile Include="TbtcActivation.generated.cs" />
+    <Compile Include="TbtcYdTransferHis.cs" />
+    <Compile Include="TbtcYdTransferHisExt2.cs" />
+    <Compile Include="TchatFeehis.generated.cs" />
+    <Compile Include="TchatFilterword.generated.cs" />
+    <Compile Include="TchatFriend.generated.cs" />
+    <Compile Include="TchatFriendNick.generated.cs" />
+    <Compile Include="TchatGradeChange.generated.cs" />
+    <Compile Include="TchatGroup.generated.cs" />
+    <Compile Include="TchatGroupSendHis.generated.cs" />
+    <Compile Include="TchatGroupUser.generated.cs" />
+    <Compile Include="TchatGroupUsergag.cs" />
+    <Compile Include="TchatLiveFans.cs" />
+    <Compile Include="TchatLivegiftHis.generated.cs" />
+    <Compile Include="TchatLivegiftPurse.generated.cs" />
+    <Compile Include="TchatLivegiftType.generated.cs" />
+    <Compile Include="TchatLiveroom.generated.cs" />
+    <Compile Include="TchatLiveroomFreezeHis.generated.cs" />
+    <Compile Include="TchatLiveroomPeriodHis.generated.cs" />
+    <Compile Include="TchatLiveroomVisitHis.generated.cs" />
+    <Compile Include="TchatLivesettleHis.generated.cs" />
+    <Compile Include="TchatPublic.cs" />
+    <Compile Include="TchatPublicUser.cs" />
+    <Compile Include="TchatRate.generated.cs" />
+    <Compile Include="TchatRedenveOpenhis.generated.cs" />
+    <Compile Include="TchatRedenvePurse.generated.cs" />
+    <Compile Include="TchatRedenveSendhis.generated.cs" />
+    <Compile Include="Dto\TchatRedenveSendhisDto.cs" />
+    <Compile Include="TchatRoom.generated.cs" />
+    <Compile Include="TchatRoomLog.generated.cs" />
+    <Compile Include="TchatUser.generated.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TchatUserFull.generated.cs" />
+    <Compile Include="TcsChangeHis.generated.cs" />
+    <Compile Include="TfinBilltrans.generated.cs" />
+    <Compile Include="TnetAreacode.generated.cs" />
+    <Compile Include="TnetDriveLicLog.generated.cs" />
+    <Compile Include="TnetInvitehis.generated.cs" />
+    <Compile Include="TnetLockuser.generated.cs" />
+    <Compile Include="TnetNodeconsigneeaddr.generated.cs" />
+    <Compile Include="TnetNodeinfo.generated.cs" />
+    <Compile Include="TnetOpenInfo.generated.cs" />
+    <Compile Include="TnetPurseConfig.generated.cs" />
+    <Compile Include="TnetReginfoCode.generated.cs" />
+    <Compile Include="TnetReginfoExt.generated.cs" />
+    <Compile Include="TnetUepayhis.cs" />
+    <Compile Include="TnetUrlJump.generated.cs" />
+    <Compile Include="TnetUserAgreement.generated.cs" />
+    <Compile Include="TnetUsergrade.generated.cs" />
+    <Compile Include="TchatGroupQuitlog.generated.cs" />
+    <Compile Include="ModelBuilderHelper.cs" />
+    <Compile Include="TnetUserphoto.generated.cs" />
+    <Compile Include="TnetUserProtocal.generated.cs" />
+    <Compile Include="TnetVehicleLicLog.generated.cs" />
+    <Compile Include="TpcnIndexHis.generated.cs" />
+    <Compile Include="TpcnIndexInfo.generated.cs" />
+    <Compile Include="TpcnIndexSettle.generated.cs" />
+    <Compile Include="TpcnIndexUser.generated.cs" />
+    <Compile Include="TpcnThirdPartner.generated.cs" />
+    <Compile Include="TpcnThirdPayhis.generated.cs" />
+    <Compile Include="TpcnUepayconfig.cs" />
+    <Compile Include="TpxinActivity.generated.cs" />
+    <Compile Include="TpxinActivityThirdparty.generated.cs" />
+    <Compile Include="TpxinAmountChangeHis.generated.cs" />
+    <Compile Include="TpxinChargeHis.cs" />
+    <Compile Include="TpxinChargeProduct.cs" />
+    <Compile Include="TpxinCommentHis.generated.cs" />
+    <Compile Include="TpxinCommentHisUser.generated.cs" />
+    <Compile Include="TpxinDarenBrowseHis.generated.cs" />
+    <Compile Include="TpxinDarenDefault.generated.cs" />
+    <Compile Include="TpxinDarenExt1.generated.cs" />
+    <Compile Include="TpxinDarenExt2.generated.cs" />
+    <Compile Include="TpxinDarenInfo.generated.cs" />
+    <Compile Include="TpxinDarenKnowledge.generated.cs" />
+    <Compile Include="TpxinDarenKnowledgeHis.generated.cs" />
+    <Compile Include="TpxinDarenSearch.generated.cs" />
+    <Compile Include="TpxinDarenType.generated.cs" />
+    <Compile Include="TpxinDarenVideo.generated.cs" />
+    <Compile Include="TpxinEmoticonMaterial.generated.cs" />
+    <Compile Include="TpxinEmoticonOrder.generated.cs" />
+    <Compile Include="TpxinEmoticonSearch.generated.cs" />
+    <Compile Include="TpxinInvoiceLimit.generated.cs" />
+    <Compile Include="TpxinLuckDraw.generated.cs" />
+    <Compile Include="TpxinLuckDrawDetail.generated.cs" />
+    <Compile Include="TpxinMessage.generated.cs" />
+    <Compile Include="TpxinMessageUesr.generated.cs" />
+    <Compile Include="TpxinNearby.generated.cs" />
+    <Compile Include="TpxinOctoberActivity.generated.cs" />
+    <Compile Include="TpxinPaiConfig.cs" />
+    <Compile Include="TpxinPaiHis.cs" />
+    <Compile Include="TpxinPaiHisOld.generated.cs" />
+    <Compile Include="TpxinPaiUser.generated.cs" />
+    <Compile Include="TpxinPayhis.generated.cs" />
+    <Compile Include="TpxinPraise.generated.cs" />
+    <Compile Include="TpxinPushData.generated.cs" />
+    <Compile Include="TpxinReport.generated.cs" />
+    <Compile Include="TpxinSvcLimit.generated.cs" />
+    <Compile Include="TpxinUserinfo.generated.cs" />
+    <Compile Include="TpxinYaoyiyao.generated.cs" />
+    <Compile Include="TsmsAlitemplate.generated.cs" />
+    <Compile Include="TssoOpenUser.generated.cs" />
+    <Compile Include="TssoRegcode.generated.cs" />
+    <Compile Include="TssoUsercode.generated.cs" />
+    <Compile Include="Ttqm2Info.generated.cs" />
+    <Compile Include="TueLoginHis.generated.cs" />
+    <Compile Include="TueMessage.generated.cs" />
+    <Compile Include="TzcAuthBindpcn.generated.cs" />
+    <Compile Include="TzcAuthLog.generated.cs" />
+    <Compile Include="TzcIdcardrecLog.generated.cs" />
+    <Compile Include="VblJxsPeiche.cs" />
+    <Compile Include="VchatGroup.cs" />
+    <Compile Include="VnetCity.cs" />
+    <Compile Include="VnetProvince.cs" />
+    <Compile Include="VnetRegion.cs" />
+    <Compile Include="VpxinMessage.cs" />
+    <Compile Include="VpxinOctoberActivity.cs" />
+    <Compile Include="VpxinPayhis.cs" />
+    <Compile Include="VpxinPraise.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,151 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Swagger API文档代码生成器</title>
+    <style type='text/css'>
+
+        table, table td, table th {
+            border: 1px solid #000000;
+            border-collapse: collapse;
+        }
+
+        table {
+            table-layout: fixed;
+            word-break: break-all;
+        }
+
+        tr {
+            height: 20px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div style='width:1000px; margin: 0 auto'>
+        <h1 align="center">接口文档 </h1>
+        <br>
+        <h3>域名：@Model.Host</h3>
+        @foreach (var item in Model.Documents)
+        {
+
+            <h3>@item.ApiDescription</h3>
+            <table border='1' cellspacing='0' cellpadding='0' width='100%' style="table-layout: fixed; word-break: break-all;border: 1px solid #000000;border-collapse: collapse;">
+                <tr style="background-color: rgb(84, 127, 177);" align="center">
+                    <td colspan='5'></td>
+                </tr>
+                <tr style="border: 1px solid #000000;border-collapse: collapse;height: 20px;font-size: 12px;">
+                    <td style="border: 1px solid #000000;border-collapse: collapse;">接口描述</td>
+                    <td colspan='4' style="border: 1px solid #000000;border-collapse: collapse;height: 20px;font-size: 12px; table-layout: fixed; word-break: break-all;">
+                        @item.ApiDescription
+                    </td>
+                </tr>
+                <tr style="border: 1px solid #000000;border-collapse: collapse;">
+                    <td style="border: 1px solid #000000;border-collapse: collapse;">URL</td>
+                    <td colspan='4'>@item.ApiName</td>
+                </tr>
+                <tr style="border: 1px solid #000000;border-collapse: collapse;">
+                    <td style="border: 1px solid #000000;border-collapse: collapse;">请求方式</td>
+                    <td colspan='4'>
+                        @item.RequestWay
+                    </td>
+                </tr>
+                <tr style="border: 1px solid #000000;border-collapse: collapse;">
+                    <td style="border: 1px solid #000000;border-collapse: collapse;">请求类型</td>
+                    <td style="border: 1px solid #000000;border-collapse: collapse;" colspan='4'>
+                        @item.RequestType
+                    </td>
+                </tr>
+                <tr style="border: 1px solid #000000;border-collapse: collapse;">
+                    <td style="border: 1px solid #000000;border-collapse: collapse;text-align:center;font-weight: 900;" colspan='5'>请求参数</td>
+                </tr>
+
+                <tr style="background-color: rgb(84, 127, 177);" align='center'>
+                    <td style="border: 1px solid #000000;border-collapse: collapse;">参数名</td>
+                    <td style="border: 1px solid #000000;border-collapse: collapse;">参数类型</td>
+                    <td style="border: 1px solid #000000;border-collapse: collapse;">是否必填</td>
+                    <td style="border: 1px solid #000000;border-collapse: collapse;" colspan='2'>说明</td>
+                </tr>
+                @foreach (var param in item.RequestDatas)
+                {
+                    <tr align='center' style="border: 1px solid #000000;border-collapse: collapse;">
+                        <td style="border: 1px solid #000000;border-collapse: collapse;">@param.name</td>
+                        <td style="border: 1px solid #000000;border-collapse: collapse;">@param.type</td>
+                        <td style="border: 1px solid #000000;border-collapse: collapse;">@param.required</td>
+                        <td style="border: 1px solid #000000;border-collapse: collapse;" colspan='2'>@param.description</td>
+                    </tr>
+                    @*foreach (var note in param.noteResponse)
+                    {
+                    <tr align='center' style="border: 1px solid #000000;border-collapse: collapse;">
+                        <td style="border: 1px solid #000000;border-collapse: collapse;">@(param.name + "-" + note.name)</td>
+                        <td style="border: 1px solid #000000;border-collapse: collapse;">@note.type</td>
+                        <td style="border: 1px solid #000000;border-collapse: collapse;">@note.required</td>
+                        <td style="border: 1px solid #000000;border-collapse: collapse;" colspan='2'>@note.description</td>
+                    </tr>
+                        foreach (var notes in note.noteResponse)
+                        {
+                    <tr align='center' style="border: 1px solid #000000;border-collapse: collapse;">
+                        <td style="border: 1px solid #000000;border-collapse: collapse;">@(note.name + "-" + notes.name)</td>
+                        <td style="border: 1px solid #000000;border-collapse: collapse;">@notes.type</td>
+                        <td style="border: 1px solid #000000;border-collapse: collapse;">@notes.required</td>
+                        <td style="border: 1px solid #000000;border-collapse: collapse;" colspan='2'>@notes.description</td>
+                    </tr>
+                        }
+                    }*@
+                }
+
+                <tr style="border: 1px solid #000000;border-collapse: collapse;">
+                    <td style="border: 1px solid #000000;border-collapse: collapse; text-align:center;    font-weight: 900;" colspan='5'>返回参数</td>
+                </tr>
+                <tr style="background-color: rgb(84, 127, 177);" align='center'>
+                    <td style="border: 1px solid #000000;border-collapse: collapse;">参数名</td>
+                    <td style="border: 1px solid #000000;border-collapse: collapse;">参数类型</td>
+                    <td style="border: 1px solid #000000;border-collapse: collapse;" colspan='3'>说明</td>
+                </tr>
+                @foreach (var param in item.ResponseDatas.Head)
+                {
+                    <tr align='center' style="border: 1px solid #000000;border-collapse: collapse;">
+                        <td style="border: 1px solid #000000;border-collapse: collapse;">@param.name</td>
+                        <td style="border: 1px solid #000000;border-collapse: collapse;">@param.type</td>
+                        <td style="border: 1px solid #000000;border-collapse: collapse;" colspan='3'>@param.description</td>
+                    </tr>
+                }
+                @foreach (var param in item.ResponseDatas.Content)
+                {
+                    <tr align='center' style="border: 1px solid #000000;border-collapse: collapse;">
+                        <td style="border: 1px solid #000000;border-collapse: collapse;">@param.name</td>
+                        <td style="border: 1px solid #000000;border-collapse: collapse;">@param.type</td>
+                        <td style="border: 1px solid #000000;border-collapse: collapse;" colspan='3'>@param.description</td>
+                    </tr>
+                    @*foreach (var note in param.noteResponse)
+                    {
+                        <tr align='center' style="border: 1px solid #000000;border-collapse: collapse;">
+                            <td style="border: 1px solid #000000;border-collapse: collapse;">@(param.name + "-" + note.name)</td>
+                            <td style="border: 1px solid #000000;border-collapse: collapse;">@note.type</td>
+                            <td style="border: 1px solid #000000;border-collapse: collapse;" colspan='3'>@note.description</td>
+                        </tr>
+                    }*@
+                }
+
+                <tr style="background-color: rgb(84, 127, 177);">
+                    <td style="border: 1px solid #000000;border-collapse: collapse;" colspan='5'>示例</td>
+                </tr>
+                <tr style="height: 40px;" style="border: 1px solid #000000;border-collapse: collapse;">
+                    <td>请求参数</td>
+                    <td style="border: 1px solid #000000;border-collapse: collapse;" colspan='4'>
+                        @item.RequestDatasJson
+                    </td>
+                </tr>
+                <tr style="height: 40px;" style="border: 1px solid #000000;border-collapse: collapse;">
+                    <td>返回值</td>
+                    <td style="border: 1px solid #000000;border-collapse: collapse;" colspan='4'>
+                        @item.ResponseDatasJson
+                    </td>
+                </tr>
+            </table>
+            <br>
+        }
+
+    </div>
+</body>
+</html>

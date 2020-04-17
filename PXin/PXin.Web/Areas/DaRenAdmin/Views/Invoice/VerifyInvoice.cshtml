@@ -1,0 +1,570 @@
+﻿
+@{
+    ViewBag.Title = "VerifyInvoice";
+}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+    <!--bootstrap公共标准库-->
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+    <link rel="stylesheet" href="~/Content/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap/css/bootstrap-theme.min.css" />
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--自定义公共标准库-->
+    <link rel="stylesheet" href="http://global.p.cn/css/base.css" />
+    <script src="http://global.p.cn/js/base.js"></script>
+
+    <!-- 分页控件 -->
+    <script src="~/Content/Scripts/jqPaginator.js"></script>
+
+    <!--Toast提示框-->
+    <link rel="stylesheet" href="http://global.p.cn/css/toastr.min.css" />
+    <script src="http://global.p.cn/js/toastr.min.js"></script>
+
+    <!--通用工具类-->
+    <script src="http://global.p.cn/js/utils.js"></script>
+
+    <title>审核发票</title>
+    <style>
+        #id_table img {
+            height: 30px;
+        }
+
+        .Img a {
+            background: #337ab7;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            padding: 2px 5px;
+        }
+
+        #id_table thead {
+            background: #405467;
+            color: white;
+            font-size: 16px;
+        }
+
+        table th {
+            text-align: center;
+        }
+
+        table tr td {
+            text-align: center;
+        }
+
+        table tr .text {
+            width: 300px;
+        }
+
+        #id_div_tip {
+            color: red;
+            font-size: 12px;
+        }
+
+        .popup {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            z-index: 999;
+            display: none;
+        }
+
+            .popup .bigImg {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+            .popup .detail {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #fff;
+            }
+
+        .table-responsive {
+            padding: 0;
+        }
+
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+            border: none;
+        }
+
+        .nav-tabs > li {
+            box-sizing: border-box;
+        }
+
+            .nav-tabs > li > a:hover {
+                background: #fff;
+                border: none;
+                transform: none;
+            }
+
+            .nav-tabs > li.active {
+                border-bottom: 3px solid #2277ba;
+            }
+
+            .nav-tabs > li > a {
+                color: #666;
+            }
+
+        .pagination > li {
+            display: inline-block;
+        }
+
+        .title {
+            background: #96CAE2;
+            font-size: 16px;
+            color: white;
+            font-weight: 500;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .popup .detail {
+            width: 500px;
+            max-width: 100%;
+            padding: 30px;
+        }
+
+            .popup .detail .closeIco img {
+                width: 30px;
+            }
+
+            .popup .detail .closeIco {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+
+            .popup .detail .info .ops {
+                display: flex;
+                padding: 8px;
+            }
+
+                .popup .detail .info .ops .lft {
+                    width: 100px;
+                    flex-shrink: 0;
+                }
+
+                .popup .detail .info .ops .rgt {
+                    flex: auto;
+                }
+
+        #id_table_body tr td {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <!--全屏显示用container-fluid，否则用container-->
+    <div class="container-fluid bw">
+        <div class="panel-body table-responsive col-md-12 col-xs-12">
+            <div id="id_div_select" class="mt10">
+                <!--查询区-->
+                <div id="id_div_select_content" class="mt10">
+                    <!--查询内容区-->
+                    <!-- 下拉选择 -->
+
+                    <div class="col-md-3 col-xs-12 mt10">
+                        <select class="select2_single form-control" id="id_departmentid">
+                            <option disabled selected style="display: none;">发票状态</option>
+                            <option value="-1">全部</option>
+                            <option value="1">申请中</option>
+                            <option value="2">已通过</option>
+                            <option value="3">审核拒绝</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 col-xs-12 mt10">
+                        <select class="select2_single form-control" id="invoice_type">
+                            <option disabled selected style="display: none;">票据类型</option>
+                            <option value="-1">全部</option>
+                            <option value="1">电子发票</option>
+                            <option value="2">增值税发票</option>
+                        </select>
+                    </div>
+
+                    @*<div class="col-md-3 col-xs-12 mt10">
+                        <select class="select2_single form-control" id="user_type">
+                            <option disabled selected style="display: none;">用户类型</option>
+                            <option value="-1">全部</option>
+                            <option value="0">企业</option>
+                            <option value="1">个人</option>
+                        </select>
+                    </div>*@
+
+
+                    <div class="col-md-3 col-xs-12 mt10">
+                        <!--注意button 不要漏了写type="button",因为默认是submit-->
+                        <button type="button" class="btn btn-primary" id="id_select" type="button">查询</button>
+                    </div>
+                </div>
+            </div>
+            <div id="id_div_table" class="table-responsive col-md-12 col-xs-12 mt10">
+                <table class="table table-striped jambo_table bulk_action" id="id_table">
+                    <thead>
+                    <th>发票抬头</th>
+                    <th>税号</th>
+                    <th>用户类型</th>
+                    <th>用户账号</th>
+                    <th>金额</th>
+                    <th>发票类型</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                    </thead>
+                    <tbody id="id_table_body"></tbody>
+                </table>
+            </div>
+
+            <!--暂无数据,默认隐藏-->
+            <div class="center col-md-12 col-xs-12" style="display: none;" id="id_div_null">
+                <img src="~/Content/images/null.png" alt="暂无数据" />
+            </div>
+        </div>
+
+        <div id="id_div_pagination" class="pagination col-md-12 col-xs-12 mt10 right">
+            <!--分页控件区-->
+        </div>
+        <div class="loading" id="loading">
+            <img src="http://global.p.cn/images/loading.gif" alt="" />
+        </div>
+    </div>
+    <div class="popup" id="detail">
+        <div class="detail">
+            <div class="closeIco"><img src="~/Content/images/close1.png" alt="" /></div>
+            <div class="info">
+                <div class="ops Head">
+                    <div class="lft">发票抬头：</div>
+                    <div class="rgt">Head</div>
+                </div>
+                <div class="ops TaxNum">
+                    <div class="lft">税号：</div>
+                    <div class="rgt">Taxnum</div>
+                </div>
+                <div class="ops NodeCode">
+                    <div class="lft">用户账号：</div>
+                    <div class="rgt">Nodecode</div>
+                </div>
+                <div class="ops Amount">
+                    <div class="lft">金额：</div>
+                    <div class="rgt">Amount</div>
+                </div>
+                <div class="ops Typeid">
+                    <div class="lft">发票类型：</div>
+                    <div class="rgt">Typeid</div>
+                </div>
+
+                <div class="ops Status">
+                    <div class="lft">状态：</div>
+                    <div class="rgt">Status</div>
+                </div>
+                <div class="ops CardNum">
+                    <div class="lft">卡号：</div>
+                    <div class="rgt">CardNum</div>
+                </div>
+                <div class="ops IsPerson">
+                    <div class="lft">用户类型：</div>
+                    <div class="rgt">IsPerson</div>
+                </div>
+                <div class="ops ShowName">
+                    <div class="lft">来源：</div>
+                    <div class="rgt">ShowName</div>
+                </div>
+                <div class="ops Expressno">
+                    <div class="lft">快递单号：</div>
+                    <div class="rgt">Expressno</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--弹出确认提示框-->
+    <!--调用方法参考<a href="#" data-toggle="modal" data-target="#verifyHandle">删除</a>-->
+    <div class="modal fade" id="refuseHandle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">操作提示</h4>
+                </div>
+                <div class="">
+                    <div class="alert alert-success" role="alert">
+                        <span>您正在<span class="red bigfont">拒绝</span>发票资质申请，请输入拒绝原因。</span>
+                    </div>
+                    <div style="padding: 0 30px;"><textarea id="refuse_reason" style="width: 100%; padding: 10px; outline: none; margin-bottom: 10px;" rows="5" placeholder="请输入拒绝原因"></textarea></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">点错了</button>
+                    <button type="button" class="btn btn-primary" id="refuse_verify">拒绝</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="passHandle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">操作提示</h4>
+                </div>
+                <div class="">
+                    <div class="alert alert-success" role="alert">
+                        <span>您正在<span class="red bigfont">通过</span>审核发票资质申请，请输入快递单号。</span>
+                    </div>
+                    <div style="padding: 0 30px;"><input type="text" value="" oninput="value=value.replace(/[\W]/g,'')" id="expressNum" style="margin-bottom: 20px; outline: none; padding: 2px 5px;" placeholder="请输入快递单号" /></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">点错了</button>
+                    <button type="button" class="btn btn-primary" id="pass_verify">通过</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var detailInfo, showList;
+    $(function () {
+        // 配置toastr顶部居中,这一行一定要写在开头
+        toastr.options = {
+            positionClass: 'toast-top-center'
+        };
+
+        // 调用分页控件
+        paginatorFn("#id_div_pagination", 1, 0);
+
+        //查询按钮
+        $("#id_select").click(function () {
+            GetWriteInvioceList($("#invoice_type").val()||-1, $("#user_type").val()||-1, $("#id_departmentid").val()||-1, 1);
+        });
+
+        // 关闭详情信息
+        $("#detail .closeIco").click(function () {
+            $("#detail").hide();
+        });
+
+        // 审核拒绝
+        $("#refuse_verify").click(function() {
+            if (!$("#refuseHandle #refuse_reason").val()) {
+                toastr.error("请输入您的拒绝原因！");
+                return;
+            }
+            VerifyWriteInvioce(0, $("#refuseHandle #refuse_reason").val(), detailInfo.Infoid);
+        });
+
+        // 审核通过
+        $("#pass_verify").click(function() {
+            if (!$("#passHandle #expressNum").val()) {
+                toastr.error("请输入快递单号！");
+                return;
+            }
+            VerifyWriteInvioce(1, $("#passHandle #expressNum").val(), detailInfo.Infoid);
+        });
+
+    });
+
+    function showDetail() {
+    // 点击查看详情
+        $("#id_table_body tr td .showDetail").click(function () {
+            $("#detail").show();
+            detailInfo = showList[$(this).attr('idx')];
+            $("#detail .Head .rgt").html(detailInfo.Head);
+            $("#detail .TaxNum .rgt").html(detailInfo.TaxNum);
+            $("#detail .NodeCode .rgt").html(detailInfo.NodeCode);
+            $("#detail .Amount .rgt").html(detailInfo.Amount);
+            $("#detail .Typeid .rgt").html(detailInfo.Typeid==1?'普通发票':'增值税专用发票');
+            $("#detail .Status .rgt").html(GetStatus(detailInfo.Status));
+            $("#detail .CardNum .rgt").html(detailInfo.CardNum);
+            $("#detail .IsPerson .rgt").html(GetIsPerson(detailInfo.IsPerson));
+            $("#detail .ShowName .rgt").html(detailInfo.ShowName);
+            $("#detail .Expressno .rgt").html(detailInfo.Expressno);
+        });
+    };
+
+    function verify() {
+    // 点击审核
+        $("#id_table_body tr td .verify_refuse").click(function() {
+            detailInfo = showList[$(this).attr('idx')];
+            $('#refuseHandle').modal('show');
+        });
+        $("#id_table_body tr td .verify_pass").click(function() {
+            detailInfo = showList[$(this).attr('idx')];
+            $('#passHandle').modal('show');
+        });
+    };
+
+    async function VerifyWriteInvioce(Status, Note, ID) {
+    // 审核通过/拒绝
+        let params = {
+            url: '/DaRenAdmin/Invoice/VerifyWriteInvioce',
+            data: { Status, Note, ID },
+        };
+        const result = await jqPromiseAjax(params).then(function(res) {
+            $('#verifyHandle').modal('hide');
+            if (res.Result > 0) {
+                toastr.success("审核成功");
+                setTimeout(function() {
+                    location.reload();
+                }, 500)
+            } else {
+                toastr.error(res.Message);
+            }
+        })
+    };
+
+    async function GetWriteInvioceList(Typeid, IsPerson, Status, PageNum) {
+    // 请求发票申请列表
+        $("#loading").show();
+        let params = {
+            url: '/DaRenAdmin/Invoice/GetWriteInvioceList',
+            data: { Typeid, IsPerson, PageSize: 10, Status, PageNum},
+        };
+        const result = await jqPromiseAjax(params).then(function (res) {
+            $("#loading").hide();
+            console.log(res);
+            if (res.Result > 0) {
+                var newtr;
+                showList = res.Data.List;
+                for (var i = 0; i < res.Data.List.length; i++) {
+                    var tab = "<tr>";
+                    tab += "<td><span>" + res.Data.List[i].Head + "</span></td>";
+                    tab += "<td><span>" + res.Data.List[i].TaxNum + "</span></td>";
+                    tab += "<td><span>" + GetIsPerson(res.Data.List[i].IsPerson) + "</span></td>";
+                    tab += "<td><span>" + res.Data.List[i].NodeCode + "</span></td>";
+                    tab += "<td><span>" + res.Data.List[i].Amount + "</span></td>";
+                    if (res.Data.List[i].Typeid==1) {
+                        tab += "<td><span>普通发票</span></td>";
+                    } else if (res.Data.List[i].Typeid==2) {
+                        tab += "<td><span>增值税专用发票</span></td>";
+                    }
+                    tab += "<td><span>" + GetStatus(res.Data.List[i].Status) + "</span></td>";
+                    tab += "<td><a class='btn showDetail' idx='"+i+"'>详情</a>";
+                    if (res.Data.List[i].Status == 1) {
+                        tab += "<a class='btn verify_pass' idx='"+i+"'>通过</a>"
+                        tab += "<a class='btn verify_refuse' idx='"+i+"'>拒绝</a></td>"
+                    } else {
+                        tab += "</td>"
+                    }
+                    newtr += tab;
+                }
+                $("#id_table_body").html(newtr || '');
+                showDetail();   // 详情
+                verify();   // 审核
+                noData();   // 判断无数据
+                // 调用分页控件
+                paginatorFn("#id_div_pagination", res.Data.Num, PageNum);
+            } else {
+                toastr.error(res.Message);
+            }
+        });
+    };
+
+    function GetStatus(status) {
+        return status==1?"申请中":status==3?"审核拒绝":"审核通过" 
+    };
+
+    function GetIsPerson(isPerson) {
+        return isPerson == 0 ? "企业" : "个人或政府";
+    }
+
+    function noData() {
+        if (!showList.length) {
+            $("#id_div_null").show();
+        } else {
+            $("#id_div_null").hide();
+        }
+    };
+
+    function jqPromiseAjax(params) {
+    // ajax请求
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                url: params.url,
+                type: 'POST',
+                dataType: 'json',
+                headers: params.headers || {},
+                data: params.data || {},
+                success(res) {
+                    resolve(res)
+                },
+                error(err) {
+                    reject(err)
+                }
+            })
+
+        })
+    };
+
+    function getQueryVariable(variable) {
+    // url参数
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) { return pair[1]; }
+        }
+        return (false);
+    };
+    function paginatorFn(selector, totalNum, localNum) {
+        // 分页器
+        //初始化的时候赋值的localNum=0,即第一次初始化时没有分页控件
+        if (localNum > 0) {
+            //不是第一次时，将分页控件删除，重新建，因为分页控件不会变更总页码
+            $("#id_div_pagination").jqPaginator('destroy');
+        }
+
+        var width = $(window).width();
+        if (width >= 768) {
+            //toastr.error("大屏幕"+totalNum);
+            //大屏幕时显示10个
+            $.jqPaginator(selector, {
+                totalPages: Math.max(1, Math.ceil(totalNum / 10)),    	// 总页数=总记录条数 除以每页显示10个得到总页码,向上取整
+                visiblePages: 10,   // 最大显示多少给列，大屏幕显示10个
+                currentPage: Math.max(1, localNum),     // 当前页面的页码，与1取大，目的是初始化时赋值的0，显示第一页
+                first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+                prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
+                next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+                last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
+                page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+                onPageChange: function (num, type) {
+                    //toastr.error("总条数="+totalNum);
+                    //toastr.error("你点击了第" + num + "页");
+                    if (localNum == num)//当选中的页码也当前显示的页面一致的时候跳出，避免不停重复
+                        return;
+                    GetWriteInvioceList($("#invoice_type").val()||-1, $("#user_type").val()||-1, $("#id_departmentid").val()||-1, num);
+                }
+            });
+        } else {
+            //小屏幕时显示1个
+            //toastr.error("小屏幕"+totalNum);
+            $.jqPaginator(selector, {
+                totalPages: Math.max(1, Math.ceil(totalNum / 10)),// 总页数=总记录条数 除以每页显示10个得到总页码,向上取整
+                visiblePages: 1,// 最大显示多少给列，小屏幕显示1个
+                currentPage: Math.max(1, localNum),// 当前页面的页码，与1取大，目的是初始化时赋值的0，显示第一页
+                first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+                prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
+                next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+                last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
+                page: '<li class="page"><a href="javascript:;">{{page}}/{{totalPages}}</a></li>',
+                onPageChange: function (num, type) {
+                    // toastr.error("总条数="+totalNum);
+                    // toastr.error("你点击了第" + num + "页");
+                    if (localNum == num) // 当选中的页码也当前显示的页面一致的时候跳出，避免不停重复
+                        return;
+                        GetWriteInvioceList($("#invoice_type").val()||-1, $("#user_type").val()||-1, $("#id_departmentid").val()||-1, num);
+                }
+            });
+        };
+    };
+</script>
+

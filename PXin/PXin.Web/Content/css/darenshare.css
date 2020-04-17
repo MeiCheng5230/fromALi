@@ -1,0 +1,244 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-size: 0.28rem;
+    color: #333;
+    background-color: #fff;
+}
+.expert{
+    padding-bottom: 70px;
+}
+.expert .banner {
+    height: 1.12rem;
+    background: url("../images/bg(1).png") no-repeat;
+    background-size: 100% 100%;
+}
+
+.expert .isolate {
+    background-color: #f2f2f2;
+    height: 0.13rem;
+}
+
+.expert .user {
+    padding: 0 0.3rem 0.3rem 0.3rem;
+    border-bottom: 1px solid #eaeaea;
+    position: relative;
+    z-index: 2;
+}
+
+.expert .user .user-info {
+    border-radius: 6px;
+    margin-top: -0.58rem;
+    padding: 0.3rem 0.4rem 0.12rem 0.3rem;
+    background-color: #fff;
+    box-shadow: 0rem 0.02rem 0.2rem 0rem rgba(172, 198, 213, 0.2);
+    position: relative;
+}
+
+.expert .user .user-info .user-info-name {
+    font-size: 0.3rem;
+    font-weight: bold;
+}
+
+.expert .user .user-info .user-info-job {
+    font-size: 0.24rem;
+    color: #2ea2fa;
+    padding-top: 0.1rem;
+}
+
+.expert .user .user-info .user-info-item {
+    padding: 0.15rem 0;
+    color: #666;
+    font-size: 0.26rem;
+}
+
+.expert .user .user-info .user-info-item img {
+    vertical-align: middle;
+    margin-right: 0.3rem;
+}
+
+.expert .user .user-info .user-info-photo {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.45rem;
+}
+
+.expert .user .user-info .user-info-photo .photo {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.expert .user .user-info .user-info-photo .photo img {
+    width: 100%;
+    height: 100%;
+}
+
+.expert .user .user-info .user-info-photo .icon {
+    position: absolute;
+    right: 0;
+    bottom: -0.18rem;
+}
+
+.expert .user .user-remark {
+    position: relative;
+    z-index: -1;
+    padding: 0.53rem 0.23rem 0.3rem 0.3rem;
+    background-color: #f7f7fc;
+    line-height: 0.5rem;
+    color: #666;
+    font-size: 0.24rem;
+    margin-top: -0.3rem;
+}
+
+.expert .user .user-remark .remark-title {
+    font-size: 0.28rem;
+}
+
+.expert .look {
+    background-color: #fff;
+    padding: 0.3rem 0.3rem 0.2rem 0.3rem;
+}
+
+.expert .look .look-items {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 0.3rem;
+}
+
+.expert .look .look-items .look-items-item {
+    width: 0.53rem;
+    height: 0.53rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 0.18rem;
+}
+
+.expert .look .look-items .look-items-item .look-img {
+    width: 100%;
+    height: 100%;
+}
+
+.expert .look .look-num {
+    color: #666;
+}
+
+.expert .personal {
+    background-color: #fff;
+    padding-left: 0.3rem;
+}
+.expert .personal-title {
+    border-bottom: 1px solid #d1d1d1;
+    padding-top: 0.3rem;
+
+}
+.expert .personal-title span{
+    display: inline-block;
+    padding-bottom: 0.15rem;
+    font-size: 0.36rem;
+    color: #2ea2fa;
+    border-bottom: 2px solid #2ea2fa;
+}
+
+.expert .personal .personal-items .personal-items-item h5 {
+    font-size: 0.3rem;
+    margin: 0;
+    padding: 0.6rem 0 0 0;
+}
+
+.expert .personal .personal-items .personal-items-item h5 .line {
+    display: inline-block;
+    width: 0.1rem;
+    height: 0.34rem;
+    background-color: #2ea2fa;
+    margin-right: 0.15rem;
+    vertical-align: sub;
+    border-radius: 5px;
+}
+
+.expert .personal .personal-items .personal-items-item .personal-item-body {
+    color: #666;
+    padding-top: 0.3rem;
+    padding-right: 0.3rem;
+}
+
+.expert .personal .personal-items .personal-items-item .personal-item-body ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.expert .personal .personal-items .personal-items-item .personal-item-body ul li {
+    background-color: #d5ecfe;
+    width: calc(33.33% - 15px);
+    padding: 0.18rem 0;
+    color: #0a83ff;
+    margin-bottom: 0.3rem;
+    border-radius: 4px;
+}
+
+.expert .personal .personal-items .personal-items-item .personal-item-body .my-img {
+    width: 100%;
+    margin-bottom: 0.3rem;
+}
+.footer{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.5);
+    padding: 0.2rem 0.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+.footer .btn{
+    text-align: center;
+    width: 3.3rem;
+    padding: 0.2rem 0;
+    border-radius: 5px;
+    font-size: 0.32rem;
+}
+.footer .btn.download{
+    background-color: #fff;
+    color: #2ea2fa;
+}
+.footer .btn.open{
+    background-color: #2ea2fa;
+    color: #fff;
+}
+.hintImg{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2000;
+    display: none;
+}
+.hintImg img{
+    width: 100%;
+    height: 100%;
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    display: none;
+    background: rgba(0,0,0,.5);
+    z-index: 9;
+}
+
+.loading img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,43 @@
+﻿.list-page {
+    color: #FF6500;
+    font-size: 80%;
+    margin: 3px;
+    padding: 3px;
+    text-align: center;
+}
+
+    .list-page span.disabled {
+        border-color: #FFE3C6;
+        border-right: 1px solid #FFE3C6;
+        border-style: solid;
+        border-width: 1px;
+        color: #FFE3C6;
+        margin-right: 3px;
+        padding: 5px 7px;
+    }
+
+    .list-page span.current {
+        background-color: #FFBE94;
+        border-color: #FF6500;
+        border-right: 1px solid #FF6500;
+        border-style: solid;
+        border-width: 1px;
+        color: #FF6500;
+        font-weight: bold;
+        margin-right: 3px;
+        padding: 5px 7px;
+    }
+
+    
+.list-page a {
+    background-image: url("images/meneame.jpg");
+    background-position: 50% bottom;
+    border-color: #FF9600;
+    border-right: 1px solid #FF9600;
+    border-style: solid;
+    border-width: 1px;
+    color: #FF6500;
+    margin-right: 3px;
+    padding: 5px 7px;
+    text-decoration: none;
+}

@@ -1,0 +1,655 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+    <!--bootstrap公共标准库-->
+    <script src="http://global.p.cn/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://global.p.cn/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://global.p.cn/css/bootstrap-theme.min.css" />
+    <script src="http://global.p.cn/js/bootstrap.min.js"></script>
+
+    <!--自定义公共标准库-->
+    <link rel="stylesheet" href="http://global.p.cn/css/base.css" />
+    <script src="http://global.p.cn/js/base.js"></script>
+
+    <!--Toast提示框-->
+    <link rel="stylesheet" href="http://global.p.cn/css/toastr.min.css" />
+    <script src="http://global.p.cn/js/toastr.min.js"></script>
+
+    <!-- bootstrap-wysiwyg -->
+    <script src="http://global.ckv-test.sulink.cn/lib/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
+    <script src="http://global.ckv-test.sulink.cn/lib/jquery.hotkeys/jquery.hotkeys.js"></script>
+    <script src="http://global.ckv-test.sulink.cn/lib/google-code-prettify/src/prettify.js"></script>
+    <!-- Custom Theme Scripts -->
+    <link href="http://global.ckv-test.sulink.cn/lib/admin/css/custom.min.css" rel="stylesheet" />
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!--引入vue-->
+    <script src="../Scripts/vue.min.js"></script>
+
+    <script src="http://global.ckv-test.sulink.cn/lib/admin/js/custom.js"></script>
+    <title>达人信息详情</title>
+    <style>
+        body {
+            background: #fff;
+            color: #333;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        .container-fluid {
+            min-height: 100%;
+        }
+
+        #id_table img {
+            height: 30px;
+        }
+
+        #id_table .Img a {
+            background: #337ab7;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            padding: 2px 5px;
+        }
+
+        #id_table thead {
+            background: #405467;
+            color: white;
+            font-size: 16px;
+        }
+
+        #id_div_tip {
+            color: red;
+            font-size: 12px;
+        }
+
+        .popup {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            z-index: 999;
+            display: none;
+        }
+
+            .popup .bigImg {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                max-width: 100%;
+                max-height: 100%;
+            }
+
+        .table-responsive {
+            padding: 0;
+        }
+
+        .nav-tabs > li.active > a,
+        .nav-tabs > li.active > a:focus,
+        .nav-tabs > li.active > a:hover {
+            border: none;
+        }
+
+        .nav-tabs > li {
+            box-sizing: border-box;
+        }
+
+            .nav-tabs > li > a:hover {
+                background: #fff;
+                border: none;
+                transform: none;
+            }
+
+            .nav-tabs > li.active {
+                border-bottom: 3px solid #2277ba;
+            }
+
+            .nav-tabs > li > a {
+                color: #666;
+            }
+
+        .pagination > li {
+            display: inline-block;
+        }
+
+        .publishTask .publish .option {
+            display: flex;
+            /* align-items: center; */
+        }
+
+            .publishTask .publish .option .publish_title {
+                margin-top: 10px;
+                width: 80px;
+                line-height: 34px;
+                flex-shrink: 0;
+            }
+
+        .publishTask {
+            padding: 20px;
+            height: 100%;
+        }
+
+        .publish {
+            height: 100%;
+            padding: 40px;
+            border: 1px solid #ccc;
+        }
+
+        .x_content {
+            padding: 0;
+        }
+
+        .dateinput {
+            margin: 10px;
+            height: 34px;
+            padding: 6px 12px;
+            border: 1px solid #ccc;
+        }
+
+        .handlelist {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+
+            .handlelist .title {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .handlelist .name {
+                font-weight: bold;
+                margin: 0 5px;
+            }
+
+        .gantt-chart {
+            margin: 20px 0;
+        }
+
+
+
+        div.ganttview-vtheader {
+            width: 150px;
+        }
+
+        div.ganttview-vtheader-item {
+            display: flex;
+        }
+
+        div.ganttview-vtheader-series-name {
+            width: 100px;
+        }
+
+        div.ganttview {
+            display: flex;
+        }
+
+        div.ganttview-slide-container {
+            flex: auto;
+        }
+
+        div.ganttview-vtheader {
+            overflow: inherit;
+        }
+
+        div.ganttview-vtheader-item-name {
+            border-right: 1px solid #d0d0d0;
+        }
+
+        .form-border {
+            border: 1px solid #ddd;
+            line-height: 34px;
+        }
+
+            .form-border .bg_cl {
+                background: #2277ba;
+                color: #fff;
+                padding: 2px 5px;
+                border-radius: 2px;
+                margin: 5px 5px 0 0;
+                display: inline-block;
+                box-sizing: border-box;
+                line-height: 20px;
+            }
+
+            .form-border .textImg img {
+                height: 100px;
+            }
+
+            .form-border .item .showdt {
+                line-height: 20px;
+                padding-bottom: 20px;
+            }
+            form-border .item .icon_img {
+                width: 18px;
+            }
+
+            .form-border .item .titshow {
+                cursor: pointer;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+            }
+
+        .btnBx {
+            margin: 20px 0 0 80px;
+        }
+
+        .headImg {
+            padding-left: 0;
+        }
+
+            .headImg img {
+                max-width: 50px;
+                max-height: 50px;
+            }
+        .loading {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            display: none;
+        }
+
+            .loading img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        #showbtn {
+            display: none;
+        }
+        #popup {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+            #popup img {
+                min-height: 100px;
+                min-width: 100px;
+                max-height: 500px;
+                max-width: 500px;
+                cursor: pointer;
+            }
+            @media (max-width: 768px) {
+                .publish {
+                padding: 10px;
+            }
+
+            .publishTask {
+                padding: 10px 0;
+            }
+
+            div.ganttview-vtheader-series-name {
+                width: 70px;
+            }
+
+            div.ganttview-vtheader-item-name {
+                width: 60px;
+            }
+
+            .option img {
+                width: 180px;
+                height: auto;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <!--全屏显示用container-fluid，否则用container-->
+    <div class="container-fluid bw">
+
+        <!--主体内容区-->
+        <div class="publishTask">
+            <div class="publish row" id="vuebx">
+                <div class="option">
+                    <div class="publish_title">姓名：</div>
+                    <div class="col-md-6 col-xs-12 mt10 form-border">{{ info.Name }}</div>
+                </div>
+                <div class="option">
+                    <div class="publish_title">头像：</div>
+                    <div class="col-md-6 col-xs-12 mt10 headImg">
+                        <img @click="showBigImg($event)" :src="info.AppPhoto || 'images/default.png'" alt="">
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="publish_title">签名：</div>
+                    <div class="col-md-6 col-xs-12 mt10 form-border">{{ info.Autograph }}</div>
+                </div>
+                <div class="option">
+                    <div class="publish_title">手机号：</div>
+                    <div class="col-md-6 col-xs-12 mt10 form-border">{{ info.Phone }}</div>
+                </div>
+                <div class="option">
+                    <div class="publish_title">自我介绍：</div>
+                    <div class="col-md-6 col-xs-12 mt10 form-border">
+                        <div class="text">{{ info.SelfIntroduction }}</div>
+                        <div class="textImg">
+                            <img @click="showBigImg($event)" style="max-height: 50px; margin-right: 10px;" v-if="info.Pic" v-for="item in info.Pic" :src="item" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="publish_title">专业领域：</div>
+                    <div class="col-md-6 col-xs-12 mt10 form-border">
+                        <span class="bg_cl" v-if="info.Majors" v-for="item in info.Majors">{{ item }}</span>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="publish_title">教育背景：</div>
+                    <div class="col-md-6 col-xs-12 mt10 form-border">
+                        <div class="item" v-if="info.Edu" v-for="item in info.Edu">
+                            <div class="titshow" @click="setShow(item)">{{ item.SchoolName }}  <img style="width: 18px; margin-left: 10px;" v-show="!item.show" src="images/right.png" /><img style="width: 18px; margin-left: 10px;" v-show="item.show" src="images/down.png" /> </div>
+                            <div class="showdt" v-show="item.show">
+                                <div class="time" v-if="item.Fromtime">{{ item.Fromtime.split(' ')[0] }} 至 {{ item.EndTime.split(' ')[0] }}</div>
+                                <div class="school">{{ item.Education }}</div>
+                                <div class="major">{{ item.Subject }}</div>
+                                <div class="mjImg">
+                                    <img @click="showBigImg($event)" style="max-height: 50px; margin-right: 10px;" v-if="item" v-for="itm in item.Pics" :src="itm" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="publish_title">职业背景：</div>
+                    <div class="col-md-6 col-xs-12 mt10 form-border">
+                        <div v-if="info.Occupation" v-for="item in info.Occupation" class="item">
+                            <div class="titshow" @click="setShow(item)">{{ item.Company }} <img style="width: 18px; margin-left: 10px;" v-show="!item.show" src="images/right.png" /><img style="width: 18px; margin-left: 10px;" v-show="item.show" src="images/down.png" /> </div>
+                            <div class="showdt" v-show="item.show">
+                                <div class="time" v-if="item.Fromtime">{{ item.Fromtime.split(' ')[0] }} 至 {{ item.EndTime.split(' ')[0] }}</div>
+                                <div class="major">{{ item.Position }}</div>
+                                <div class="mjImg">
+                                    <img @click="showBigImg($event)" style="max-height: 50px; margin-right: 10px;" v-if="item" v-for="itm in item.Pics" :src="itm" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="publish_title">专业资格认证：</div>
+                    <div class="col-md-6 col-xs-12 mt10 form-border">
+                        <div v-if="info.ProfessionalPics">
+                            <img @click="showBigImg($event)" style="max-height: 50px; margin-right: 10px;" v-for="item in info.ProfessionalPics" :src="item" alt="">
+                        </div>
+                        <div v-if="info.ID && !info.ProfessionalPics">暂未上传</div>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="publish_title">达人达语：</div>
+                    <div class="col-md-6 col-xs-12 mt10 form-border">
+                        <p style="margin: 0;" v-if="info.Greetings">{{ info.Greetings.split(',')[0] || '' }}</p>
+                        <p style="margin: 0;" v-if="info.Greetings">{{ info.Greetings.split(',')[1] || '' }}</p>
+                        <p style="margin: 0;" v-if="info.Greetings">{{ info.Greetings.split(',')[2] || '' }}</p>
+                    </div>
+                </div>
+                <div class="option">
+                    <div class="publish_title">欢迎语：</div>
+                    <div class="col-md-6 col-xs-12 mt10 form-border">{{ info.Welcome }}</div>
+                </div>
+                <div class="option" v-if="info.Status && info.Status != 1">
+                    <div class="publish_title">当前状态：</div>
+                    <div class="col-md-6 col-xs-12 mt10 form-border">
+                        <span v-if="info.Status == 2">审核拒绝</span>
+                        <span v-if="info.Status == 3">审核已通过</span>
+                    </div>
+                </div>
+                <div class="btnBx" id="showbtn">
+                    <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#reject">拒绝</a>
+                    <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#pass">通过</a>
+
+                </div>
+
+                <button class="btn btn-primary" v-if="info.IsDefultHome == 1" style="margin: 20px 10px 0 80px" onclick="CreateDefultDaRen(0)">达人专区</button>
+                <button class="btn btn-primary" v-if="info.IsDefultChat == 1" style="margin: 20px 0 0 10px" onclick="CreateDefultDaRen(1)">聊一聊</button>
+
+                <div id="popup" v-if="showbig" @click="setClose">
+                    <div style="position: relative;">
+                        <img style="min-width: 40px; min-height: 40px; position: absolute; right: -40px; top: -40px;" src="images/close1.png" />
+                        <img :src="bigImg" alt="查看图片">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="loading" id="loading">
+        <img src="http://global.p.cn/images/loading.gif" alt="">
+    </div>
+
+    <script>
+
+        $(function () {
+
+            // 配置toastr顶部居中
+            toastr.options = {
+                positionClass: 'toast-top-center'
+            };
+
+            //点击显示大图
+            $("#id_table img").click(function () {
+                var src = $(this).attr("src");
+                //alert(src);
+                $(".popup").show();
+                $(".popup").find(".bigImg").attr("src", this.src);
+            });
+
+            //隐藏大图
+            $(".popup").click(function () {
+                $(".popup").hide();
+            });
+
+            $("#loading").show();
+        });
+
+    </script>
+</body>
+</html>
+        
+<!--表格中显示大图-->
+<div class="popup">
+    <img class="bigImg" src="" alt="查看图片">
+</div>
+
+<!--弹出确认提示框-->
+<!--调用方法参考<a href="#" data-toggle="modal" data-target="#myModal">删除</a>-->
+<div class="modal fade" id="reject" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="">操作提示</h4>
+      </div>
+        <input type="hidden" id=""/>
+      <div class="">
+      		<div class="alert alert-success" role="alert">
+				  <div style="color: #333;">
+					  <div style="font-size: 16px; color: #333; margin-bottom: 10px;">请输入拒绝理由</div>
+					  <textarea name="" style="width: 100%; outline: none; resize:none" id="txt_reason" cols="30" rows="10"></textarea>
+				  </div>
+				<!-- <span>你确定要将
+					<span class="red bigfont" id="id_show_name"></span>
+                    <span class="red bigfont" id="id_show_optype"></span>
+					吗，确认无误后点击<span class="red bigfont">[确定]</span>删除
+				</span> -->
+			</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">点错了</button>
+        <button type="button" class="btn btn-primary"  data-dismiss="modal" id="reject_ok">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="pass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="">操作提示</h4>
+            </div>
+            <input type="hidden" id="" />
+            <div class="">
+                <div class="alert alert-success" role="alert">
+                     <span>你确定要通过操作吗，确认无误后点击<span class="red bigfont">[确定]</span>通过
+                    </span> 
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">点错了</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="pass_ok">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var app = new Vue({
+        el: '#vuebx',
+        data: {
+            info: {},
+            bigImg: '',
+            showbig: false,
+        },
+        methods: {
+            setShow(data) {
+                if (!data.show) {
+                    this.$set(data, 'show', true);
+                } else {
+                    this.$set(data, 'show', false);
+                }
+            },
+            showBigImg(e) {
+                this.showbig = true;
+                this.bigImg = e.target.src;
+            },
+            setClose() {
+                this.showbig = false;
+                this.bigImg = '';
+            }
+        }
+    });
+    console.log(app.$data.info)
+    SyncByType(getQueryVariable('nodeid'));
+	//操作确认按钮
+    $("#reject_ok").click(function () {
+        if ($("#txt_reason").val().length <= 0) {
+            toastr.error("请输入拒绝原因！");
+            return false;
+        } 
+        AdminVerifyDaRen({ Nodeid: getQueryVariable('nodeid'), Status: 0, Note: $("#txt_reason").val()})
+    });
+    $("#pass_ok").click(function () {
+        AdminVerifyDaRen({ Nodeid: getQueryVariable('nodeid'), Status: 1 });
+    });
+	
+	/**
+     * jqPromiseAjax
+     * 
+     */
+
+    //聊一聊： 0
+    //达人专区： 1
+    async function CreateDefultDaRen(data) {
+        $("#loading").show();
+        let params = {
+            url: '/DaRenAdmin/DaRen/CreateDefultDaRen',
+            data: { Nodeid: getQueryVariable('nodeid'), Type: 0},
+        };
+        const result = await jqPromiseAjax(params).then(function (res) {
+            $("#loading").hide();
+            if (res.Result > 0) {
+                toastr.success("操作成功！");
+                setTimeout(() => {
+                    location.reload();
+                }, 1000)
+            } else {
+                toastr.error(res.Message);
+            }
+        });
+    };
+
+        function jqPromiseAjax(params) {
+            return new Promise(function (resolve, reject) {
+                $.ajax({
+                    url: params.url,
+                    type: 'POST',
+                    dataType: 'json',
+                    headers: params.headers || {},
+                    data: params.data || {},
+                    success(res) {
+                        resolve(res)
+                    },
+                    error(err) {
+                        reject(err)
+                    }
+                })
+
+            })
+    };
+
+    async function AdminVerifyDaRen(data) {
+        $("#loading").show();
+        let params = {
+            url: '/DaRenAdmin/DaRen/AdminVerifyDaRen',
+            data: data,
+        };
+        const result = await jqPromiseAjax(params).then(function (res) {
+            $("#loading").hide();
+            if (res.Result > 0) {
+                toastr.success("操作成功！");
+                setTimeout(() => {
+                    location.reload();
+                }, 1000)
+                
+            } else {
+                toastr.error(res.Message);
+            }
+        });
+    };
+
+    async function SyncByType(nodeid) {
+        let params = {
+            url: '/DaRenAdmin/DaRen/GetVerifyDaRenDetail',
+            data: { nodeid }
+        };
+        const data = await jqPromiseAjax(params).then(function (res) {
+            console.log(res)
+            $("#loading").hide();
+            if (res.Result > 0) {
+                app.$data.info = res.Data;
+                if (res.Data.Status == 1) {
+                    $("#showbtn").show();
+                }
+            } else {
+                toastr.error(res.Message);
+            }
+        });
+    };
+
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) { return pair[1]; }
+        }
+        return (false);
+    }
+</script> 

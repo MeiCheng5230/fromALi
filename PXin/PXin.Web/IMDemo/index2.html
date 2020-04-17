@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./static/im.css">
+</head>
+
+<body>
+    <div style="position: absolute;left:38%;top:15%">
+        <h2 id="curUser">当前用户：3435980</h2>
+    </div>
+    <div class="rcs-chat-wrapper rcs-chat-im-wrapper">
+        <div class="rongcloud-kefuChat">
+            <div id="header" class="rongcloud-rong-header rongcloud-blueBg rongcloud-online">
+                <div class="rongcloud-infoBar rongcloud-pull-left">
+                    <div class="rongcloud-infoBarTit"> <span class="rongcloud-kefuName">用户：3435973</span> </div>
+                </div>
+                <div class="rongcloud-toolBar rongcloud-headBtn rongcloud-pull-right">
+                    <div class="rongcloud-voice"></div> <a onclick="RCS.minimize()"
+                                                           class="rongcloud-kefuChatBoxHide rongcloud-sprite" title="隐藏"></a> <a onclick="RCS.endConversation()" class="rongcloud-kefuChatBoxClose rongcloud-sprite"
+                                                                                                                                 title="结束对话"></a>
+                </div>
+            </div>
+
+            <div class="rongcloud-outlineBox rcs-connect-status" style="display:none;">
+                <div class="rongcloud-sprite"></div> <span>连接断开,请刷新重连</span>
+            </div>
+
+            <div id="rcs-message-list" class="rcs-message-box">
+                <div class="rong-message-list" id="message-box">
+
+                    <div class="rongcloud-Messages-history" style="display: block;">
+                        <b onclick="PXin.loadHisMessages()">查看历史消息</b>
+                    </div>
+
+                    <div class="rongcloud-Messages-date"> <b>17:00</b> </div>
+
+                    <div class="rongcloud-Message rongcloud-clearfix  rongcloud-Message-send "
+                         id="rcs-templte-message-text">
+                        <div>
+                            <div class="rongcloud-Message-header">
+                                <!--<img class="rongcloud-img rongcloud-Message-avatar rongcloud-avatar"
+                                     src="http://7xo1cb.com1.z0.glb.clouddn.com/rongcloudkefu2.png" alt="">-->
+                                <div class="rongcloud-Message-author rongcloud-clearfix">
+                                    <a class="rongcloud-author">
+                                        我
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rongcloud-Message-body">
+                            <div class="rongcloud-Message-text">
+                                <pre class="rongcloud-Message-entry">这是一条测试各种字符的消息 </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="rcs-chat-box" class="rongcloud-rong-footer">
+                <div class="rongcloud-footer-con">
+                    <div class="rongcloud-text-layout">
+                        <div id="funcPanel" class="rongcloud-funcPanel rongcloud-robotMode">
+                            <div class="rongcloud-mode1">
+                                <div class="rongcloud-MessageForm-tool" id="expressionWrap" style="overflow: visible;">
+                                    <i class="rongcloud-sprite rongcloud-iconfont-smile" id="emoji-btn"></i>
+                                    <div class="rongcloud-expressionWrap" onclick="PXin.chooseEmoji(event)"
+                                         style="display: none;">
+                                        <div class="rongcloud-expressionContent" id="emoji_box">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rongcloud-MessageForm-tool" id="" style="overflow: visible;">
+                                    <i class="rongcloud-sprite rongcloud-iconfont-voice" id="voice-btn"></i>
+
+                                </div>
+                                <div class="rongcloud-MessageForm-tool" id="" style="overflow: visible;">
+                                    <i class="rongcloud-sprite rongcloud-iconfont-upload" id="image-btn">
+                                        <input type="file" multiple="multiple" style="width:24px;height:24px;"
+                                               accept="image/png,image/gif,image/jpeg" onchange="PXin.ImageUpload(event)">
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rongcloud-footer-input">
+                    <div class="rongcloud-footer-textarea">
+                        <textarea id="chatbox-message" class="rongcloud-text rongcloud-grey" placeholder="请输入文字..."
+                                  onfocus="PXin.keyboard(event)" onkeydown="PXin.keySend(event)"></textarea>
+                    </div>
+                    <button type="button" style="background-color: #0099ff;"
+                            class="rongcloud-rong-btn rongcloud-rong-send-btn" id="rong-sendBtn" onclick="">
+                        发送
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.ronghub.com/RongIMLib-2.4.0.min.js"></script>
+
+    <script src="http://cdn.ronghub.com/RongEmoji-2.2.7.min.js"></script>
+
+    <script src="http://cdn.ronghub.com/Libamr-2.2.5.min.js"></script>
+    <script src="http://cdn.ronghub.com/RongIMVoice-2.2.5.min.js"></script>
+    <script src="./static/voice-amr-base64.json"></script>
+
+    <script src="./js/im.js"></script>
+    <script>
+        $(function () {
+
+            var chatbox = document.getElementById("chatbox-message");
+            var emojiBtn = document.getElementById("emoji-btn");
+            var emojiBox = document.getElementById("emoji_box");
+            var voiceBtn = document.getElementById("voice-btn");
+            var imageBtn = document.getElementById("image-btn");
+
+            (function () {
+                var appKey = "4z3hlwrv3n08t"; //"3argexb6r934e";
+                var token =
+                    "tjnkN5K26sqZrZj97hY8gQ0XTuVwUwCtv8w38LCziwwN7azh427pCM1E1q2FkT1EALaZU1RMDlGxDJHPQme5L0qdej6ZfIEc";
+                PXin.init({
+                    appKey: appKey,
+                    token: token,
+                    emojiBox: emojiBox,
+                    chatbox: chatbox,
+                });
+                PXin.startConversation('3435973');
+            })();
+
+            $("#rong-sendBtn").click(function () {
+                let msg = chatbox.value;
+                if (!msg) {
+                    chatbox.focus();
+                    return;
+                }
+                let message = new RongIMLib.TextMessage({
+                    content: msg,
+                    extra: '附加信息'
+                });
+                PXin.sendMessage(message);
+            });
+
+            voiceBtn.onclick = function () {
+                let msg = voice;
+                if (!msg) {
+                    chatbox.focus();
+                    return;
+                }
+
+                var voiceMsg = new RongIMLib.VoiceMessage({
+                    content: msg,
+                    extra: '附加信息'
+                })
+                PXin.sendMessage(voiceMsg);
+            }
+            emojiBtn.onclick = function () {
+                PXin.showEmojiBox(emojiBox);
+                var emojis = PXin.getEmojiDetailList();
+                PXin.bindClickEmoji(emojis);
+                return false;
+            };
+        });
+    </script>
+</body>
+
+</html>

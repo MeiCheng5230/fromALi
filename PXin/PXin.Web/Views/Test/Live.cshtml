@@ -1,0 +1,249 @@
+﻿@{
+    ViewBag.Title = "Live";
+}
+
+<div>
+    <div>主播</div>
+    <div>
+        @*        string roomname, string roompic, string location, string remarks*@
+        nodecode:<input type="text" id="nodecode" name="nodecode" /><br />
+        直播间名称:<input type="text" id="roomname" name="roomname" /><br />
+        直播间图片:<input type="text" id="roompic" name="roompic" /><br />
+        主播位置:<input type="text" id="location" name="location" /><br />
+        直播间简介:<input type="text" id="remarks" name="remarks" /><br />
+        直播间ID:<input type="text" id="roomid" name="roomid" /><br />
+        直播间期次:<input type="text" id="periodnum" name="periodnum" /><br />
+        观看人数:<input type="text" id="livewatchcount" name="livewatchcount" /><br />
+        点赞次数:<input type="text" id="liveadmirecount" name="liveadmirecount" /><br />
+    </div>
+    <div>
+        <input type="button" id="btnCreateRoom" name="btnCreateRoom" value="创建直播间" />
+        <input type="button" id="btnDestoryRoom" name="btnDestoryRoom" value="关闭直播间" />
+        <input type="button" id="btnMasterHead" name="btnMasterHead" value="发送心跳包" />
+        <input type="button" id="btnTimePervious" name="btnTimePervious" value="定时解冻钱包" />
+        @*        <input type="button" id="btnMyGift" name="btnMyGift" value="查看礼物" />*@
+    </div>
+</div>
+
+<div style="height: 50px;">&nbsp;</div>
+<div>
+    <div>游客</div>
+    <div>
+        @*        int visitid, int giftType, int giftNum*@
+        nodecode:<input type="text" id="nodecode2" name="nodecode2" /><br />
+        直播间ID:<input type="text" id="roomid2" name="roomid2" /><br />
+        直播间期次:<input type="text" id="periodnum2" name="periodnum2" /><br />
+        查询关键字:<input type="text" id="key" name="key" /><br />
+        直播间状态:<input type="text" id="status" name="status" />0-所有，1-直播中，2-已关闭<br />
+        访问ID:<input type="text" id="visitid" name="visitid" /><br />
+        礼物ID:<input type="text" id="gifttype" name="gifttype" /><br />
+        礼物数量:<input type="text" id="giftnum" name="giftnum" /><br />
+        礼物信息:<span id="spGift"></span>
+    </div>
+    <div>
+        <input type="button" id="btnJoinRoom" name="btnJoinRoom" value="进入直播间" />
+        <input type="button" id="btnQuitRoom" name="btnQuitRoom" value="退出直播间" />
+        <input type="button" id="btnGiveGift" name="btnGiveGift" value="送礼物" />
+        <input type="button" id="btnQueryRoom" name="btnQueryRoom" value="查询直播间" />
+        <input type="button" id="btnRoomDetail" name="btnRoomDetail" value="查看直播间详情" />
+        <input type="button" id="btnVisitorHead" name="btnVisitorHead" value="发送心跳包" />
+    </div>
+</div>
+
+<div>
+    <textarea id="info" style="width: 100%; height: 500px;"></textarea>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        var imgBase64 = "iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4BpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5QzJFMEIwODE5N0RFNTExODM1NkZBOEQ5RUQ1OTE0MyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBQUZBN0NCNDIwQUQxMUU2ODhBQkU0QkRDQjRCNEVCMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBQUZBN0NCMzIwQUQxMUU2ODhBQkU0QkRDQjRCNEVCMSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNSAoV2luZG93cykiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MDJlZjUzNS0zMDdkLThhNGYtODNmZC1kYjZhYmQzNDMzNjciIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowNWQ3YzU1ZS1mZDVlLTExZTUtOTU4MC04NzY3NTQ0MzA1ODYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5cgvDnAAACwklEQVR42uybz0tUURTHvzONhilFUCphC4XBKCpbRCBEIGFG0ab/IIzIVdIm6B9opbgoGJxaBkIEBZGRCAW1aRGBRFLMGCjSD4nEHzihdr7OfTLUu+ToezTvnfuFL4LvObzzeeeec+91bmL10Xb8oYPibvFZcbP4rxsipiVxTjwszorfl15MlACoFveJr4qTiKdWxIPiXvEif5EqCf6J+DTiLb7YK+K0yfCC96b7FQRfqg6T7WtD4JD8fCfeBl1aFh9NmoKnLXiYmLsJoAt61UUALYoBtCRNB9Cq6iSUywHQDiC19VEkk6rdHcE90ZdMxAAw+BMDAT6SfNaveWBG5mY/PwBTQ8DcC2VDoKoWaGwHWi/JpPUZcOwxUHdKcQ3Y3wmcfCiL81uKiyCz4vC1wCGkQntgjuPZ3AaDqwN2Nm/sXkJYyAdWLMMDwOBfHS+/o9RfBPa2F9PepiM3geeZGA6BwkdgUlL87QVg9IxAzPvfV1MPNN2IeQ1g63stIBa/+l9nlsS+CDIjPt33v7anTUkXmLprHwYqADAL2FH8FMDkKBrzAFs7rT2gBMCOBkt2zCgBYBvvPx4oAGDr97a6EDsA+zrLqwuxAsCFT6NlwvP9TYWvBbYitrf0dft6gOmf769wAKzcrXfK/JsmYFf63yvD3FBxflDRAFi5uaMT+JxAFkjjPQo3RLzguUCKxIZI0Bq/F+ibjwYALoWnXwITg6HtDFfGlpinhWnxpBS4WeDb01C3w8MHsJktsf8g979BB8ABcAAcAAfAAXAAHAAHwAFwABwAjeJ5gVWXAQ6AA6AaQEFx/HMEkFMM4DMBDCsGMEIA/BbSssLgGXOWAMbEGYUAGPOY1wV4lnZEUfCjJub1NshOcE58G8UDxnHVinnz573ul/A5Ps+jtJdRPFDJM4VVEQ+aXyaaMBmeNUN+Xb8FGADRcaDQxlynuQAAAABJRU5ErkJggg==";
+        function GetRandomNum(Min, Max) {
+            var Range = Max - Min;
+            var Rand = Math.random();
+            return (Min + Math.round(Rand * Range));
+        }
+        function writeLog(msg) {
+            console.info(msg);
+            $("#info").val($("#info").val() + "\r\n" + msg);
+        }
+        $(function () {
+            $("#btnCreateRoom").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Live/CreateLiveRoom", {
+                        nodecode: nodecode,
+                        nonce: nonce,
+                        timestamp: timestamp,
+                        signature: signature,
+                        roomname: $("#roomname").val(),
+                        roompic: $("#roompic").val(),
+                        location: $("#location").val(),
+                        remarks: $("#remarks").val()
+                    }, function (data) {
+                        writeLog(JSON.stringify(data));
+                        if (data.Result) {
+                            $("#roomid").val(data.Data.Roomid);
+                            $("#periodnum").val(data.Data.Periodnum);
+                        }
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnDestoryRoom").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Live/DestroyLiveRoom", {
+                        nodecode: nodecode,
+                        nonce: nonce,
+                        timestamp: timestamp,
+                        signature: signature,
+                        roomid: $("#roomid").val()
+                    }, function (data) {
+                        writeLog(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnMasterHead").click(function () {
+                //int liveWatchCount, int liveadmireCount
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Live/MasterHeartbeat", {
+                        nodecode: nodecode,
+                        nonce: nonce,
+                        timestamp: timestamp,
+                        signature: signature,
+                        roomid: $("#roomid").val(),
+                        livewatchcount: $("#livewatchcount").val(),
+                        liveadmirecount: $("#liveadmirecount").val()
+                    }, function (data) {
+                        writeLog(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            function execTest(func) {
+                var timestamp = $.now();
+                var nonce = GetRandomNum(10000, 99999);
+                var nodecode = $("#nodecode").val();
+                $.post("/Rong/TestSign", { nodecode: $("#nodecode").val(), nonce: nonce, timestamp: timestamp }, function (data) {
+                    if (data.Result) {
+                        func(nodecode, nonce, timestamp, data.Data);
+                    } else {
+                        alert(data);
+                    }
+                }, "json");
+            }
+        });
+        $(function () {
+            $("#btnJoinRoom").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Live/JoinLiveRoom", {
+                        nodecode: nodecode,
+                        nonce: nonce,
+                        timestamp: timestamp,
+                        signature: signature,
+                        roomid: $("#roomid2").val()
+                    }, function (data) {
+                        writeLog(JSON.stringify(data));
+                        if (data.Result) {
+                            $("#visitid").val(data.Data.VisitId);
+                            $("#spGift").text(JSON.stringify(data.Data.GiftTypes));
+                        }
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnQuitRoom").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Live/QuitLiveRoom", {
+                        nodecode: nodecode,
+                        nonce: nonce,
+                        timestamp: timestamp,
+                        signature: signature,
+                        visitid: $("#visitid").val()
+                    }, function (data) {
+                        writeLog(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnGiveGift").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Live/GiveGift", {
+                        nodecode: nodecode,
+                        nonce: nonce,
+                        timestamp: timestamp,
+                        signature: signature,
+                        visitid: $("#visitid").val(),
+                        gifttype: $("#gifttype").val(),
+                        giftnum: $("#giftnum").val()
+                    }, function (data) {
+                        writeLog(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnQueryRoom").click(function () {
+                //string key, int status, int pageIndex, int pageSize
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Live/QueryLiveRoom", {
+                        nodecode: nodecode,
+                        nonce: nonce,
+                        timestamp: timestamp,
+                        signature: signature,
+                        key: $("#key").val(),
+                        status: $("#status").val(),
+                        pageIndex: 1,
+                        pageSize: 100
+                    }, function (data) {
+                        writeLog(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnRoomDetail").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Live/LiveRoomDetail", {
+                        nodecode: nodecode,
+                        nonce: nonce,
+                        timestamp: timestamp,
+                        signature: signature,
+                        roomid: $("#roomid2").val()
+                    }, function (data) {
+                        writeLog(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnVisitorHead").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Live/VistorHearbeat", {
+                        nodecode: nodecode,
+                        nonce: nonce,
+                        timestamp: timestamp,
+                        signature: signature,
+                        visitid: $("#visitid").val()
+                    }, function (data) {
+                        writeLog(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnTimePervious").click(function () {
+                $.post("/Live/SyncLiveRoom", {                   
+                }, function (data) {
+                    writeLog(JSON.stringify(data));
+                }, "json");
+            });
+            function execTest(func) {
+                var timestamp = $.now();
+                var nonce = GetRandomNum(10000, 99999);
+                var nodecode = $("#nodecode2").val();
+                $.post("/Rong/TestSign", { nodecode: $("#nodecode2").val(), nonce: nonce, timestamp: timestamp }, function (data) {
+                    if (data.Result) {
+                        func(nodecode, nonce, timestamp, data.Data);
+                    } else {
+                        alert(data);
+                    }
+                }, "json");
+            }
+        });
+    </script>
+}

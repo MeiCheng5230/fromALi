@@ -1,0 +1,715 @@
+﻿@{
+    ViewBag.Title = "LiveDoc";
+}
+    <div>
+        <div>
+            <h1>&nbsp;直播接口说明文档</h1>
+        </div>
+        <div>
+            <table border="1">
+                <tr>
+                    <td style="width: 150px;">总体说明
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>传入参数：
+                    </td>
+                    <td>所有接口地址都包含以下四个参数
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table border="1">
+                            <tr>
+                                <td>参数名
+                                </td>
+                                <td>参数类型
+                                </td>
+                                <td class="style1">参数说明
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>nodecode
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">NodeCode
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>nonce</td>
+                                <td>string</td>
+                                <td class="style1">随机数</td>
+                            </tr>
+                            <tr>
+                                <td>timestamp
+                                </td>
+                                <td>int
+                                </td>
+                                <td class="style1">时间戳 【从1970年1月1日0点0分0秒开始到现在的秒数】
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>signature
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">签名[MD5(nodecode + nonce + timestamp + 密码)]
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>返回值：</td>
+                    <td>
+                        <div>
+                            返回值为JSON格式，例：{"Result":true,"Msg":"加入群组成功","Data":null}
+                        </div>
+                        <table border="1">
+                            <tr>
+                                <td>Result
+                                </td>
+                                <td>bool
+                                </td>
+                                <td class="style1">true-成功，false-失败
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Msg
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">调用结果描述
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Data
+                                </td>
+                                <td>dync
+                                </td>
+                                <td class="style1">不同接口不一样，可能是一个结构体也可能是简单的数据类型，下面的接口说明只对Data作出说明
+                                </td>
+                            </tr>
+                        </table>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>创建直播间:
+                    </td>
+                    <td>http://xxx.xxx.xxxx/Live/CreateLiveRoom</td>
+                </tr>
+                <tr>
+                    <td>传入参数：
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <td>roomname</td>
+                                <td>string
+                                </td>
+                                <td class="style1">直播间名称
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>roompic</td>
+                                <td>string
+                                </td>
+                                <td class="style1">直播间图片
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>location</td>
+                                <td>string
+                                </td>
+                                <td class="style1">主播位置</td>
+                            </tr>
+                            <tr>
+                                <td>remarks</td>
+                                <td>string
+                                </td>
+                                <td class="style1">直播间简介</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>返回值：
+                    </td>
+                    <td>
+                        <div>
+                            {"Result":true,"Msg":"成功","Data":{"Id":3,"Roomid":"15000000","Roomname":"test2","Roompic":"/Content/imgfile/dfe110cf-4962-4740-85c2-42aad05a7e76.png","Remarks":"def","Creater":3434909,"Createtime":"2016-12-09T15:59:31.2593558+08:00","Roomstate":1,"Periodnum":8,"Roomlocation":"abc","Livehbtime":"2016-12-09T15:59:31.2593558+08:00","Livewatchcount":0,"Liveadmirecount":0}}
+                        </div>
+                        <table border="1">
+                            <tr>
+                                <td>Roomid
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">nodecode
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Periodnum</td>
+                                <td>string
+                                </td>
+                                <td class="style1">直播期次，第几期</td>
+                            </tr>
+                            <tr>
+                                <td>Roomname
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">直播间名称
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Roompic
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">直播间图片
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Remarks
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">直播间简介</td>
+                            </tr>
+                            <tr>
+                                <td>Creater</td>
+                                <td>string
+                                </td>
+                                <td class="style1">主播nodeid
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Createtime</td>
+                                <td>string
+                                </td>
+                                <td class="style1">创建时间</td>
+                            </tr>
+                            <tr>
+                                <td>Roomstate</td>
+                                <td>string
+                                </td>
+                                <td class="style1">直播间状态,1-直播中，2-关闭
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Roomlocation</td>
+                                <td>string
+                                </td>
+                                <td class="style1">主播位置</td>
+                            </tr>
+                            <tr>
+                                <td>Livewatchcount</td>
+                                <td>string
+                                </td>
+                                <td class="style1">观看人数</td>
+                            </tr>
+                            <tr>
+                                <td>Liveadmirecount</td>
+                                <td>string
+                                </td>
+                                <td class="style1">点赞次数</td>
+                            </tr>
+                            <tr>
+                                <td>AppPhoto</td>
+                                <td>string
+                                </td>
+                                <td class="style1">用户头像</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;
+                    </td>
+                </tr>
+                <!---->
+
+                <tr>
+                    <td>关闭直播间:
+                    </td>
+                    <td>http://xxx.xxx.xxxx/Live/DestroyLiveRoom</td>
+                </tr>
+                <tr>
+                    <td>传入参数：
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <td>Roomid
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">nodecode
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>返回值：
+                    </td>
+                    <td>
+                        <div>
+                            {"Result":true,"Msg":"成功","Data":null}                    
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;
+                    </td>
+                </tr>
+                <!---->
+
+                <tr>
+                    <td>主播发送心跳包:
+                    </td>
+                    <td>http://xxx.xxx.xxxx/Live/MasterHeartbeat</td>
+                </tr>
+                <tr>
+                    <td>传入参数：
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <td>Roomid
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">nodecode
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Livewatchcount</td>
+                                <td>string
+                                </td>
+                                <td class="style1">观看人数</td>
+                            </tr>
+                            <tr>
+                                <td>Liveadmirecount</td>
+                                <td>string
+                                </td>
+                                <td class="style1">点赞次数</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>返回值：
+                    </td>
+                    <td>{"Result":true,"Msg":"成功","Data":null}                    
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;
+                    </td>
+                </tr>
+                <!---->
+
+                <tr>
+                    <td>游客进入直播间:
+                    </td>
+                    <td>http://xxx.xxx.xxxx/Live/JoinLiveRoom</td>
+                </tr>
+                <tr>
+                    <td>传入参数：
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <td>Roomid
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">直播间id
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>返回值：
+                    </td>
+                    <td>
+                        <div>
+                            {"Result":true,"Msg":"成功","Data":{"GiftTypes":[{"Id":1,"Giftname":"CV礼物1","Giftpic":"a","Giftpurseid":1,"Price":0.1,"Remarks":null},{"Id":2,"Giftname":"PV礼物1","Giftpic":"b","Giftpurseid":2,"Price":10,"Remarks":null},{"Id":3,"Giftname":"CV礼物2","Giftpic":"c","Giftpurseid":1,"Price":0.5,"Remarks":null},{"Id":4,"Giftname":"PV礼物2","Giftpic":"d","Giftpurseid":2,"Price":100,"Remarks":null}],"GiftPurses":[{"Id":1,"Pursename":"CV","Amount":134993.3},{"Id":2,"Pursename":"PV","Amount":6608.5}],"VisitId":26}}                       
+                        </div>
+                        <table border="1">
+                            <tr>
+                                <td>VisitId
+                                </td>
+                                <td>int
+                                </td>
+                                <td class="style1">访问ID
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>GiftTypes
+                                </td>
+                                <td>Data
+                                </td>
+                                <td class="style1">礼物类型列表
+                                </td>
+                            </tr>
+                                                        <tr>
+                                <td>GiftTypes2
+                                </td>
+                                <td>Data
+                                </td>
+                                <td class="style1">礼物类型列表-系统不显示
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Id
+                                </td>
+                                <td>int
+                                </td>
+                                <td class="style1">礼物Id
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Giftname
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">礼物名称
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Giftpic
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">礼物图片</td>
+                            </tr>
+                            <tr>
+                                <td>Price
+                                </td>
+                                <td>decimal
+                                </td>
+                                <td class="style1">礼物单价
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Giftpurseid
+                                </td>
+                                <td>int
+                                </td>
+                                <td class="style1">礼物
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>GiftPurses
+                                </td>
+                                <td>Data
+                                </td>
+                                <td class="style1">礼物钱包及可用余额
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Id
+                                </td>
+                                <td>int
+                                </td>
+                                <td class="style1">礼物钱包Id,GiftPurses.Id = GiftTypes.Giftpurseid
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Pursename
+                                </td>
+                                <td>int
+                                </td>
+                                <td class="style1">钱包名称
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Amount
+                                </td>
+                                <td>decimal
+                                </td>
+                                <td class="style1">钱包余额
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;
+                    </td>
+                </tr>
+                <!---->
+
+                <tr>
+                    <td>游客退出直播间:
+                    </td>
+                    <td>http://xxx.xxx.xxxx/Live/QuitLiveRoom</td>
+                </tr>
+                <tr>
+                    <td>传入参数：
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <td>VisitId
+                                </td>
+                                <td>int
+                                </td>
+                                <td class="style1">访问ID
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>返回值：
+                    </td>
+                    <td>{"Result":true,"Msg":"成功","Data":null}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;
+                    </td>
+                </tr>
+                <!---->
+
+                <tr>
+                    <td>游客送礼物:
+                    </td>
+                    <td>http://xxx.xxx.xxxx/Live/GiveGift</td>
+                </tr>
+                <tr>
+                    <td>传入参数：
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <td>VisitId
+                                </td>
+                                <td>int
+                                </td>
+                                <td class="style1">访问ID
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>gifttype
+                                </td>
+                                <td>int
+                                </td>
+                                <td class="style1">礼物ID
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>giftnum
+                                </td>
+                                <td>int
+                                </td>
+                                <td class="style1">礼物数量
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>返回值：
+                    </td>
+                    <td>
+                        <div>
+                            {"Result":true,"Msg":"成功","Data":134994.9}             
+                        </div>
+                        <table border="1">
+                            <tr>
+                                <td>Data
+                                </td>
+                                <td>decimal
+                                </td>
+                                <td class="style1">所送礼物对应钱包余额
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;
+                    </td>
+                </tr>
+                <!---->
+
+                <tr>
+                    <td>游客心跳包:
+                    </td>
+                    <td>http://xxx.xxx.xxxx/Live/VistorHearbeat</td>
+                </tr>
+                <tr>
+                    <td>传入参数：
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <td>VisitId
+                                </td>
+                                <td>int
+                                </td>
+                                <td class="style1">访问ID
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>返回值：
+                    </td>
+                    <td>
+                        <div>
+                            {"Result":true,"Msg":"成功","Data":null}                 
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;
+                    </td>
+                </tr>
+                <!---->
+
+                <tr>
+                    <td>查询直播间:
+                    </td>
+                    <td>http://xxx.xxx.xxxx/Live/QueryLiveRoom</td>
+                </tr>
+                <tr>
+                    <td>传入参数：
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <td>key
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">查询关键字
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>status</td>
+                                <td>int
+                                </td>
+                                <td class="style1">直播间状态 0-所有，1-直播中，2-已关闭
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pageIndex
+                                </td>
+                                <td>int
+                                </td>
+                                <td class="style1">页码
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>pageSize
+                                </td>
+                                <td>int
+                                </td>
+                                <td class="style1">每页数量
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>返回值：
+                    </td>
+                    <td>
+                        <div>
+                            {"Result":true,"Msg":"成功","Data":{"Item":[{"Id":3,"Roomid":"15000000","Roomname":"test2","Roompic":"/Content/imgfile/dfe110cf-4962-4740-85c2-42aad05a7e76.png","Remarks":"def","Creater":3434909,"Createtime":"2016-12-09T15:59:31","Roomstate":1,"Periodnum":8,"Roomlocation":"abc","Livehbtime":"2016-12-09T15:59:31","Livewatchcount":0,"Liveadmirecount":0,"CreateNodecode":"15000000","CreateNodename":"科技","CreateNickname":null}],"PageInfo":{"PageCount":1,"TotalDataCount":1,"PageIndex":1,"PageSize":100,"HasPreviousPage":false,"HasNextPage":false,"IsFirstPage":true,"IsLastPage":true}}}
+                        </div>
+                        <table border="1">
+                            <tr>
+                                <td>CreateNodecode
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">创建人Nodecode
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CreateNodename
+                                </td>
+                                <td>decimal
+                                </td>
+                                <td class="style1">创建人姓名
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>CreateNickname
+                                </td>
+                                <td>decimal
+                                </td>
+                                <td class="style1">创建人昵称
+                                </td>
+                            </tr>
+                        </table>
+                        <div>其余字段同创建直播间</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;
+                    </td>
+                </tr>
+                <!---->
+
+                <tr>
+                    <td>直播间详情:
+                    </td>
+                    <td>http://xxx.xxx.xxxx/Live/LiveRoomDetail
+                    </td>
+                </tr>
+                <tr>
+                    <td>传入参数：
+                    </td>
+                    <td>
+                        <table border="1">
+                            <tr>
+                                <td>roomid
+                                </td>
+                                <td>string
+                                </td>
+                                <td class="style1">直播间ID
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>返回值：
+                    </td>
+                    <td>
+                        <div>
+                            {"Result":true,"Msg":"成功","Data":{"Id":3,"Roomid":"15000000","Roomname":"test2","Roompic":"/Content/imgfile/dfe110cf-4962-4740-85c2-42aad05a7e76.png","Remarks":"def","Creater":3434909,"Createtime":"2016-12-09T15:59:31","Roomstate":1,"Periodnum":8,"Roomlocation":"abc","Livehbtime":"2016-12-09T15:59:31","Livewatchcount":0,"Liveadmirecount":0,"CreateNodecode":"15000000","CreateNodename":"科技","CreateNickname":null}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;
+                    </td>
+                </tr>
+                <!---->
+            </table>
+        </div>
+    </div>
+    <div>
+        &nbsp;
+    </div>
+
+

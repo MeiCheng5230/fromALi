@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta
+    name="viewport"
+    content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no,viewport-fit=cover"
+  />
+
+    <title>邀请注册</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script type="text/javascript">
+      fnResize();
+      window.onresize = function() {
+        fnResize();
+      };
+
+      function fnResize() {
+        var deviceWidth = document.documentElement.clientWidth || window.innerWidth;
+        if (deviceWidth >= 750) {
+          deviceWidth = 750;
+        }
+        if (deviceWidth <= 320) {
+          deviceWidth = 320;
+        }
+        document.documentElement.style.fontSize = (deviceWidth / 7.5) + 'px';
+      };
+      function IsPC() {
+          var userAgentInfo = navigator.userAgent;
+          var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+          var flag = true;
+          for (var v = 0; v < Agents.length; v++) {
+              if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                  flag = false;
+                  break;
+              }
+          }
+          return flag;
+      }
+
+      if (IsPC()) {
+          location.href='//client.xiang-xin.net/download/index.html'
+      }
+
+    </script>
+  </body>
+</html>

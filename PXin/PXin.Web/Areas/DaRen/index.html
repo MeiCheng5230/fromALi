@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+		<!--bootstrap公共标准库-->
+		<script src="http://global.p.cn/js/jquery.min.js"></script>
+		<link rel="stylesheet" href="http://global.p.cn/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="http://global.p.cn/css/bootstrap-theme.min.css" />
+		<script src="http://global.p.cn/js/bootstrap.min.js"></script>
+		
+		<!--自定义公共标准库-->
+		<link rel="stylesheet" href="http://global.p.cn/css/base.css" />
+		<script src="http://global.p.cn/js/base.js"></script>
+		
+		<!-- 分页控件 -->
+		<script src="js/jqPaginator.js"></script>
+
+		<!--Toast提示框-->
+		<link rel="stylesheet" href="http://global.p.cn/css/toastr.min.css" />
+		<script src="http://global.p.cn/js/toastr.min.js"></script>
+		
+		<!--通用工具类-->
+		<script src="http://global.p.cn/js/utils.js"></script>
+		
+		<title>后台模板页面</title>
+		<style>
+			#id_table img{
+				height: 30px;
+			}
+			.Img a{
+				background: #337ab7;
+			    color: #fff;
+			    border: none;
+			    border-radius: 4px;
+			    font-size: 12px;
+			    padding: 2px 5px;
+			}
+			#id_table thead{
+				background: #405467;
+				color: white;
+				font-size: 16px;
+			}
+			table th {
+				text-align: center;
+			}
+			table tr td {
+				text-align: center;
+			}
+			table tr .text {
+				width: 300px;
+			}
+			#id_div_tip{
+				color: red;
+				font-size: 12px;
+			}
+			
+			.popup {
+			    width: 100%;
+			    height: 100%;
+			    background: rgba(0, 0, 0, 0.5);
+			    position: fixed;
+			    top: 0;
+			    z-index: 999;
+			    display: none;
+			}
+			.popup .bigImg {
+			    position: fixed;
+			    top: 50%;
+			    left: 50%;
+			    transform: translate(-50%, -50%);
+			    max-width: 100%;
+			    max-height: 100%;
+			}
+			.table-responsive {
+				padding: 0;
+			}
+			.nav-tabs>li.active>a, 
+			.nav-tabs>li.active>a:focus, 
+			.nav-tabs>li.active>a:hover {
+				border: none;
+			}
+			.nav-tabs>li {
+				box-sizing: border-box;
+			}
+			.nav-tabs>li>a:hover {
+				background: #fff;
+				border: none;
+				transform: none;
+			}
+			.nav-tabs>li.active {
+				border-bottom: 3px solid #2277ba;
+			}
+			.nav-tabs>li>a {
+				color: #666;
+			}
+			.pagination>li {
+				display: inline-block;
+			}
+			
+			.title{
+				background: #96CAE2;
+				font-size: 16px;
+				color: white;
+				font-weight: 500;
+				padding: 5px;
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--全屏显示用container-fluid，否则用container-->
+		<div class="container-fluid bw">
+		        <div class="panel-body table-responsive col-md-12 col-xs-12">
+		        	<div id="id_div_select" class="mt10">
+						<!--查询区-->
+		                <div id="id_div_select_content" class="mt10">
+							<!--查询内容区-->
+							<!-- 下拉选择 -->
+	                    	<div class="col-md-3 col-xs-12 mt10">
+		                        <select class="select2_single form-control" id="id_departmentid">
+		                            <option value="0">全部</option>
+		                            <option value="1">审核通过</option>
+		                            <option value="2">未审核</option>
+		                            <option value="3">审核拒绝</option>
+		                        </select>
+		                    </div>
+						
+		                    <div class="col-md-3 col-xs-12 mt10">
+		                        <input type="text" maxlength="11" class="form-control" placeholder="账户，例如:19900001234" onkeyup="this.value=isIntegerInput(this.value)" id="id_nodecode"/>
+							</div>
+							
+							<div class="col-md-3 col-xs-12 mt10">
+		                        <input type="text" maxlength="11" class="form-control" placeholder="用户手机号" onkeyup="this.value=isIntegerInput(this.value)" id="id_nodecode"/>
+		                    </div>
+		                    
+		                    
+		                    <div class="col-md-3 col-xs-12 mt10">
+		                    	<!--注意button 不要漏了写type="button",因为默认是submit-->
+			                    <button type="button" class="btn btn-primary" id="id_select" type="button">查询</button>
+		                    </div>
+		            	</div>
+					</div>
+		            <div id="id_div_table" class="table-responsive col-md-12 col-xs-12 mt10">
+		            	<table class="table table-striped jambo_table bulk_action" id="id_table">
+		            		<thead>
+		            			<th>姓名</th>
+		            			<th>手机号</th>
+		            			<th>账户</th>
+		            			<th>专业领域</th>
+		            			<th>教育背景</th>
+								<th>职业背景</th>
+								<th>操作</th>
+		            		</thead>
+		            		<tbody id="id_table_body">
+		            			<tr>
+		            				<td class="">xxx</td>
+		            				<td class="">已认证</td>
+		            				<td class="">19900001234</td>
+		            				<td class="">
+										<span>产后护理</span>
+										<span>洗脚按摩</span>
+									</td>
+		            				<td class="">
+										<div>哈尔滨佛学院</div>
+										<div>蓝翔技校</div>
+									</td>
+		            				<td class="">
+										<div>专业擦鞋员技术员</div>
+										<div>三马路一级乞讨师</div>
+									</td>
+		            				<td class="">
+		            					<a href="detail.html" class="cls_op">查看详情</a>
+		            				</td>
+		            			</tr>
+		            		</tbody>
+		            	</table>
+		            </div>
+		            	
+	            	<!--暂无数据,默认隐藏-->
+					<div class="center hidden col-md-12 col-xs-12" id="id_div_null">
+					    <img src="images/null.png" alt="暂无数据" />
+					</div>
+	            </div>
+	            
+	            <div id="id_div_pagination" class="pagination col-md-12 col-xs-12 mt10 right">
+	            	<!--分页控件区-->
+	            </div>
+            	
+		</div>
+
+		<script>
+			$(function(){
+				// 配置toastr顶部居中,这一行一定要写在开头
+				toastr.options = {
+					positionClass: 'toast-top-center'
+				};
+
+				// 调用分页控件
+				paginatorFn("#id_div_pagination",1,0);
+
+				//点击显示大图 动态控件点击事件要这样写
+                $("body").on("click", "#id_table img", function () {
+					var src = $(this).attr("src");
+					$(".popup").show();
+                	$(".popup").find(".bigImg").attr("src", this.src);
+				});
+				
+				//隐藏大图
+				$(".popup").click(function () {
+	                $(".popup").hide();
+	            });
+				
+			});
+			
+			//显示加载效果
+		    function showDiv() {
+		        $("#loading").css("display", "block");
+		        $("#popDiv").css("display", "block");
+		    }
+		    //取消加载效果
+		    function hiddenDiv() {
+		        $("#loading").css("display", "none");
+		        $("#popDiv").css("display", "none");
+		    }
+
+			function paginatorFn(selector,totalNum,localNum) {
+                // 分页器
+                //初始化的时候赋值的localNum=0,即第一次初始化时没有分页控件
+                if (localNum > 0) {
+                    //不是第一次时，将分页控件删除，重新建，因为分页控件不会变更总页码
+                    $("#id_div_pagination").jqPaginator('destroy');
+                }
+
+				var width = $(window).width();
+                if (width >= 768) {
+                    //toastr.error("大屏幕"+totalNum);
+					//大屏幕时显示10个
+					$.jqPaginator(selector, {
+						totalPages: Math.max(1, Math.ceil(totalNum / 10)),    	// 总页数=总记录条数 除以每页显示10个得到总页码,向上取整
+                        visiblePages: 10,   // 最大显示多少给列，大屏幕显示10个
+                        currentPage: Math.max(1, localNum),     // 当前页面的页码，与1取大，目的是初始化时赋值的0，显示第一页
+						first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+						prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
+						next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+						last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
+						page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
+                        onPageChange: function (num, type) {
+                            //toastr.error("总条数="+totalNum);
+                            //toastr.error("你点击了第" + num + "页");
+                            if (localNum == num)//当选中的页码也当前显示的页面一致的时候跳出，避免不停重复
+                                return;
+							GetData(num);//从服务器获取数据
+						}
+					});
+				} else {
+					//小屏幕时显示1个
+                    //toastr.error("小屏幕"+totalNum);
+                    $.jqPaginator(selector, {
+                        totalPages: Math.max(1, Math.ceil(totalNum / 10)),// 总页数=总记录条数 除以每页显示10个得到总页码,向上取整
+						visiblePages: 1,// 最大显示多少给列，小屏幕显示1个
+						currentPage: Math.max(1, localNum),// 当前页面的页码，与1取大，目的是初始化时赋值的0，显示第一页
+						first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+						prev: '<li class="prev"><a href="javascript:;">前一页</a></li>',
+						next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+						last: '<li class="last"><a href="javascript:void(0);">尾页</a></li>',
+						page: '<li class="page"><a href="javascript:;">{{page}}/{{totalPages}}</a></li>',
+						onPageChange: function (num, type) {
+							//toastr.error("总条数="+totalNum);
+                            //toastr.error("你点击了第" + num + "页");
+                            if (localNum == num)//当选中的页码也当前显示的页面一致的时候跳出，避免不停重复
+                                return;
+							GetData(num);//从服务器获取数据
+						}
+					});
+				};
+			};
+			
+		</script>
+	</body>
+</html>
+
+<!--加载中转转转图标-->
+<!--showDiv();//显示转转转的图标
+hiddenDiv();//隐藏转转转的图标-->
+<div id="popDiv"></div>
+<div id="loading"></div>
+        
+<!--表格中显示大图-->
+<div class="popup">
+    <img class="bigImg" src="#" alt="查看图片" />
+</div>
+
+
+
+<!--弹出确认提示框-->
+<!--调用方法参考<a href="#" data-toggle="modal" data-target="#myModal">删除</a>-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">操作提示</h4>
+      </div>
+        <input type="hidden" id="id_infoid"/>
+      <div class="">
+      		<div class="alert alert-success" role="alert">
+				<span>你确定要将
+					<span class="red bigfont" id="id_show_name"></span>
+                    <span class="red bigfont" id="id_show_optype"></span>
+					吗，确认无误后点击<span class="red bigfont">[确定]</span>删除
+				</span>
+			</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">点错了</button>
+        <button type="button" class="btn btn-primary"  data-dismiss="modal" id="id_ok">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+	//从服务端获取数据
+	// function GetData(index) {
+	// 	//toastr.error("正在从服务端获取数据"+index);
+    //     //获取各个输入参数，并进行基本检查
+    //     var departmentid = $("#id_departmentid").val();
+    //     var nodecode = $("#id_nodecode").val();
+    //     //toastr.error("departmentid="+departmentid+" nodecode="+nodecode);
+
+	// 	//将信息上传到服务器
+    //     showDiv();//显示转转转的图标
+    //   	$.ajax({
+    //       	type: "POST",
+    //       	url: "http://boss2.p.cn/report/ajax.aspx", //这里设置为真实的地址
+    //       	data: "opType=Test",//这里设置为对应的参数
+    //       	dataType: "json",
+    //       	success: function (resp) {
+    //           	hiddenDiv();//隐藏转转转的图标
+    //           	if (resp.Result) {
+    //           		//自己调试代码这里可以先注释，不然看不到数据，测试的ajax返回的是空
+    //               	$("#id_table_body").empty();//清空，重新初始化
+    //               	if (resp.Chats.length == "" || resp.Chats.length <= 0) {
+    //                   	//没有数据，则显示无数据图片和隐藏分页控件
+    //                   	$("#id_div_null").removeClass("hidden");
+    //                   	$("#id_div_pagination").hide();
+    //               	}
+    //               	else {
+    //                  	 //有数据，则隐藏无数据图片和显示分页控件
+    //                  	 $("#id_div_null").addClass("hidden");
+    //                  	 $("#id_div_pagination").show();
+    //                  	 //循环赋值并追加append到表格的主体内容id_table_body中
+    //                  	 for (var i = 0; i < resp.Chats.length; i++) {
+    //                  	    var str = "";
+    //                  	    //这里根据实际情况处理str
+    //                       	//str = "<tr><td class='Img'><img src='" + resp.Chats[i].appphoto + "' alt='头像' onerror='this.src = 'images/default.png''  /> </td><td class=''>" + resp.Chats[i].departmentname + "</td><td class='Img'>" + resp.Chats[i].position + "</td><td class='Img'>" + resp.Chats[i].nodecode + "</td><td class='Img'><a href='index.aspx?nodeid=" + resp.Chats[i].nodeid + "'>" + resp.Chats[i].nodename + "</a></td><td class='Img'>" + resp.Chats[i].mobileno + "</td><td class='Img'>" + resp.Chats[i].right2 + "</td><td class='Img'><a href='#' data-rightid=" + resp.Chats[i].rightid + " data-nodeid=" + resp.Chats[i].nodeid + "  data-nodename=" + resp.Chats[i].nodename + " data-optype=" + resp.Chats[i].showname + " data-toggle='modal' data-target='#myModal' class='cls_op " + resp.Chats[i].hid + "'>" + resp.Chats[i].showname + "</a></td></tr>"
+    //                       	$("#id_table_body").append(str);
+    //                   		}
+
+    //                   	//重新初始化分页控件，因为分页控件自身不会变，必须先毁灭再重建，很麻烦
+    //                   	paginatorFn("#id_div_pagination", resp.Chats[0].totalnum, index);
+    //               	}
+    //           	}
+    //           	else{
+    //       	    	//返回错误的信息
+    //       	    	toastr.error(resp.Msg);
+    //           	}
+    //       	},
+    //       	error: function () {
+    //   	    	//出现未知异常
+    //   	    	hiddenDiv();//隐藏转转转的图标
+    //           	//不可恢复的错误，跳转到错误页面
+    //           	window.location.replace("http://global.p.cn/err.html?type=2&msg=服务器忙,请稍候重试");
+    //       	}
+    //   	})
+	// }
+	
+	$(function(){
+		//查询按钮
+		$("#id_select").click(function(){
+			toastr.error("你点击了查询按钮");
+			
+			//从服务器上获取数据
+			GetData(1);
+        });
+
+        //点击操作按钮
+        $("body").on("click", ".cls_op", function () {
+            toastr.error("你点击了操作按钮");
+        });
+        
+        //点击确认按钮
+        $("#id_ok").click(function(){
+			toastr.error("你点击了确认操作按钮");
+			var curr = new Date; // get current date
+            var first = curr.getDate() - curr.getDay() - 6; // Gets day of the month (e.g. 21) - the day of the week (e.g. wednesday = 3) = Sunday (18th) - 6
+            var last = first + 6; // last day is the first day + 6
+            var startDate = new Date(curr.setDate(first));
+            var endDate = new Date(curr.setDate(last));
+            $("#id_begintime").val(startDate.Format("yyyy-MM-dd"));
+            $("#id_endtime").val(endDate.Format("yyyy-MM-dd"));
+
+		});
+	});
+	
+</script>

@@ -1,0 +1,77 @@
+﻿
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "十月活动送手机";
+    PXin.Facade.Models.Dto.OctoberActivityDto2 octoberActivityDto2 = ViewBag.Detail as PXin.Facade.Models.Dto.OctoberActivityDto2;
+    PXin.Facade.CommonService.ExpressAPI.ExpressResp2 expressResp2 = null;
+    if (!string.IsNullOrWhiteSpace(octoberActivityDto2.Expressno))
+    {
+        expressResp2 = ViewBag.ExpressDetail as PXin.Facade.CommonService.ExpressAPI.ExpressResp2;
+    }
+}
+
+<div style="padding-left:15px;">
+    <div class="row">
+        <div class="col-md-2" style="text-align:right">昵称</div>
+        <div class="col-md-10">@octoberActivityDto2.Nodename</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2" style="text-align:right">账号</div>
+        <div class="col-md-10">@octoberActivityDto2.Nodecode</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2" style="text-align:right">手机号</div>
+        <div class="col-md-10">@octoberActivityDto2.Mobile</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2" style="text-align:right">上级昵称</div>
+        <div class="col-md-10">@octoberActivityDto2.PNodename</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2" style="text-align:right">上级账号</div>
+        <div class="col-md-10">@octoberActivityDto2.PNodecode</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2" style="text-align:right">参与活动</div>
+        <div class="col-md-10">@octoberActivityDto2.Note</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2" style="text-align:right">时间</div>
+        <div class="col-md-10">@octoberActivityDto2.CreateTime.ToString("yyyy-MM-dd HH:mm:ss")</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2" style="text-align:right">状态</div>
+        <div class="col-md-10">@(octoberActivityDto2.Status == 2 ? "已支付" : "已发货")</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2" style="text-align:right">快递单号</div>
+        <div class="col-md-10">@octoberActivityDto2.Expressno</div>
+    </div>
+
+    <div class="row" style="margin-top:30px;">
+        <div class="col-md-2" style="text-align:right">快递查询</div>
+        <div class="col-md-10">@(expressResp2 == null ? "暂无快递信息" : "")</div>
+    </div>
+    @if (expressResp2 != null)
+    {
+        <div class="row">
+            <div class="col-md-2" style="text-align:right">快递</div>
+            <div class="col-md-10">@expressResp2.name</div>
+        </div>
+        <div class="row">
+            <div class="col-md-2" style="text-align:right">快递单号</div>
+            <div class="col-md-10">@expressResp2.no</div>
+        </div>
+        if (expressResp2.list != null && expressResp2.list.Length > 0)
+        {
+            foreach (var item in expressResp2.list)
+            {
+                <div class="row">
+                    <div class="col-md-2" style="text-align:right">@item.time</div>
+                    <div class="col-md-10">@item.content</div>
+                </div>
+            }
+        }
+    }
+</div>

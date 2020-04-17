@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+    <title>达人主页</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="//cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/darenshare.js"></script>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+<div class="expert" id="share" style="display: none;">
+    <div class="banner"></div>
+    <div class="user">
+        <div class="user-info">
+            <div class="user-info-name">{{ userInfo.Name }}</div>
+            <div class="user-info-job">心理医生</div>
+            <div class="user-info-item "><img src="images/ic_phone.png" alt="" height="16">{{ userInfo.Phone }}</div>
+            <div class="user-info-item "><img src="images/ic_believe.png" alt="" height="16">{{ userInfo.NodeCode }}</div>
+            <div class="user-info-item "><img src="images/ic_adress.png" alt="" height="16">{{ userInfo.Company }}</div>
+            <div class="user-info-item "><img src="images/ic_power.png" alt="" height="16">{{ userInfo.Rate }}倍接受倍率</div>
+            <div class="user-info-photo">
+                <div class="photo"><img :src="userInfo.AppPhoto" alt=""></div>
+                <img class="icon" src="images/ic_image.png" alt="" height="26">
+            </div>
+        </div>
+        <div class="user-remark">
+            <span class="remark-title">达人达语</span> <br>
+            & {{ SetGreetings(userInfo.Greetings, 0) }} <br>
+            & {{ SetGreetings(userInfo.Greetings, 1) }} <br>
+            & {{ SetGreetings(userInfo.Greetings, 2) }} <br>
+        </div>
+    </div>
+    <div class="look">
+        <div class="look-items">
+            <div class="look-items-item" v-for="item in userInfo.BrowsePeople"><img class="look-img" :src="item||'http://boss2.p.cn/task/images/default.png'" alt=""></div>
+        </div>
+        <div class="look-num">{{ userInfo.BrowseNum }}人浏览</div>
+    </div>
+    <div class="isolate"></div>
+    <div class="personal">
+        <div class="personal-title"><span>个人信息</span></div>
+        <div class="personal-items">
+            <div class="personal-items-item">
+                <h5><i class="line"></i>擅长领域</h5>
+                <div class="personal-item-body" style="padding-bottom: 0">
+                    <ul>
+                        <li v-for="item in userInfo.Majors">{{ item }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="personal-items-item">
+                <h5 style="padding-top: 0.3rem"><i class="line"></i>自我介绍</h5>
+                <div class="personal-item-body">
+                    {{ userInfo.SelfIntroduction }}
+                </div>
+            </div>
+            <div class="personal-items-item">
+                <h5><i class="line"></i>职业经历</h5>
+                <div class="personal-item-body">
+                    <div v-for="item in userInfo.Occupation">
+                        <div>{{ SetFormatTime(item.Fromtime) }} - {{ SetFormatTime(item.EndTime) }}</div>
+                        <div>{{ item.Company }} · {{ item.Position }}（职位）</div>
+                    </div>
+                </div>
+            </div>
+            <div class="personal-items-item">
+                <h5><i class="line"></i>教育背景</h5>
+                <div class="personal-item-body">
+                    <div class="" v-for="item in userInfo.Edu">{{ item.SchoolName }} · {{ item.Education }}</div>
+                </div>
+            </div>
+            <div class="personal-items-item">
+                <h5><i class="line"></i>我的照片</h5>
+                <div class="personal-item-body">
+                    <img class="my-img" v-for="item in userInfo.Pic" :src="item" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="btn download" id="download">下载APP</div>
+            <div class="btn open" id="openapp">打开相信APP</div>
+        </div>
+    </div>
+    <div class='hintImg'>
+        <img src="" alt="" class='hintInfo'>
+    </div>
+    <div class="loading" id="loading">
+        <img src="http://global.p.cn/images/loading.gif" alt="">
+    </div>
+</div>
+<script>
+    var timer = setInterval(function () {
+        if (Vue) {
+            document.querySelector("#share").style.display = "block";
+            window.clearInterval(timer);
+        }
+    }, 100);
+    var app = new Vue({
+        el: '#share',
+        data: {
+            userInfo: {},
+        },
+        methods: {
+            SetFormatTime(data) {
+                return data.split(' ')[0];
+            },
+            SetGreetings(txt, idx) {
+                if(txt) {
+                    return txt.split(',')[idx];
+                };
+            }
+        }
+    });
+    CreateDefultDaRen();
+    async function CreateDefultDaRen(data) {
+        $("#loading").show();
+        let params = {
+            url: '/DaRenAdmin/DaRen/GetDaRenInfo',
+            data: { NodeCode: getQueryVariable('nodecode')},
+        };
+        const result = await jqPromiseAjax(params).then(function (res) {
+            console.log(res);
+            $("#loading").hide();
+            if (res.Result > 0) {
+                app.$data.userInfo = res.Data;
+            }
+        });
+    };
+    function jqPromiseAjax(params) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                url: params.url,
+                type: 'POST',
+                dataType: 'json',
+                headers: params.headers || {},
+                data: params.data || {},
+                success(res) {
+                    resolve(res)
+                },
+                error(err) {
+                    reject(err)
+                }
+            })
+        })
+    };
+    function getQueryVariable(variable) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++) {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable) { return pair[1]; }
+        }
+        return (false);
+    };
+</script>
+</body>
+</html>

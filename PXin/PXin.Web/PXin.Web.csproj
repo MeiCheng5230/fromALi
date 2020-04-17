@@ -1,0 +1,1465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{795AA888-4DC1-4FE8-B881-4BA1D4F8852C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PXin.Web</RootNamespace>
+    <AssemblyName>PXin.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <DontImportPostSharp>True</DontImportPostSharp>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <LangVersion>latest</LangVersion>
+    <DocumentationFile>bin\PXin.Web.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Balance.Currency, Version=3.0.0.26650, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\NewDll\mvcbase\Balance.Currency.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Mvc">
+      <HintPath>..\..\..\..\NewDll\mvcbase\New\Common.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EncodeDecode, Version=4.1.0.0, Culture=neutral, PublicKeyToken=981f535c22dbbc9a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\NewDll\EncodeDecode.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net.ElasticSearch, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.ElasticSearch.2.5.0\lib\net45\log4net.ElasticSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcPaging">
+      <HintPath>..\..\..\..\NewDll\MvcDll\MvcPaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.18.3.0\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Pxin.InternalService.Protocal, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\NewDll\PxinInternalServicedll\Pxin.InternalService.Protocal.dll</HintPath>
+    </Reference>
+    <Reference Include="Pxin.InternalServiceTCP.Facade, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\NewDll\PxinInternalServicedll\Pxin.InternalServiceTCP.Facade.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Doc, Version=7.8.12.4040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.Doc.7.8.12\lib\net40\Spire.Doc.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.License, Version=1.3.7.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.Doc.7.8.12\lib\net40\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=5.8.8.18040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.Doc.7.8.12\lib\net40\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="SwaggerExport">
+      <HintPath>..\..\..\..\NewDll\mvcbase\SwaggerExport.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.6.0\lib\net40\Swashbuckle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ValueTuple" />
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.6\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\ActivityController.cs" />
+    <Compile Include="Api\AuctionAController.cs" />
+    <Compile Include="Api\ChatController.cs" />
+    <Compile Include="Api\CZMController.cs" />
+    <Compile Include="Api\DaRenController.cs" />
+    <Compile Include="Api\EmoticonController.cs" />
+    <Compile Include="Api\FbApController.cs" />
+    <Compile Include="Api\ExchangeController.cs" />
+    <Compile Include="Api\FriController.cs" />
+    <Compile Include="Api\InvioceController.cs" />
+    <Compile Include="Api\PurseController.cs" />
+    <Compile Include="Api\RedpacketController.cs" />
+    <Compile Include="Api\ShoppingAddrController.cs" />
+    <Compile Include="Api\SysController.cs" />
+    <Compile Include="Api\TestController.cs" />
+    <Compile Include="Api\ThridPayController.cs" />
+    <Compile Include="Api\UserAuthController.cs" />
+    <Compile Include="Api\UserController.cs" />
+    <Compile Include="App_Start\AdminMvcFilter.cs" />
+    <Compile Include="App_Start\ApiSignCheck.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminMenuController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OctoberActivityController.cs" />
+    <Compile Include="Areas\DaRenAdmin\Controllers\DaRenController.cs" />
+    <Compile Include="Areas\DaRenAdmin\Controllers\InvoiceController.cs" />
+    <Compile Include="Areas\DaRenAdmin\Controllers\MvcBaseController.cs" />
+    <Compile Include="Areas\DaRenAdmin\DaRenAdminAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminBaseController.cs" />
+    <Compile Include="Controllers\GoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\UENoticeController.cs" />
+    <Compile Include="Controllers\WXNoticeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\swagger\swagger-common.css" />
+    <EmbeddedResource Include="Content\swagger\swagger-lang.js" />
+    <Content Include="Areas\DaRenShare\css\index.css" />
+    <Content Include="Areas\DaRenShare\images\android.png" />
+    <Content Include="Areas\DaRenShare\images\bg%281%29.png" />
+    <Content Include="Areas\DaRenShare\images\ic_adress.png" />
+    <Content Include="Areas\DaRenShare\images\ic_believe.png" />
+    <Content Include="Areas\DaRenShare\images\ic_image.png" />
+    <Content Include="Areas\DaRenShare\images\ic_more.png" />
+    <Content Include="Areas\DaRenShare\images\ic_phone.png" />
+    <Content Include="Areas\DaRenShare\images\ic_power.png" />
+    <Content Include="Areas\DaRenShare\images\ios.png" />
+    <Content Include="Areas\DaRenShare\index.html" />
+    <Content Include="Areas\DaRenShare\js\darenshare.js" />
+    <Content Include="Areas\DaRenShare\js\vue.min.js" />
+    <Content Include="Areas\DaRen\css\font-awesome.css" />
+    <Content Include="Areas\DaRen\css\font-awesome.min.css" />
+    <Content Include="Areas\DaRen\css\font-awesome\.gitignore" />
+    <Content Include="Areas\DaRen\css\font-awesome\css\font-awesome.css" />
+    <Content Include="Areas\DaRen\css\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Areas\DaRen\css\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\DaRen\css\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Areas\DaRen\css\froala_editor.css" />
+    <Content Include="Areas\DaRen\css\froala_editor.min.css" />
+    <Content Include="Areas\DaRen\css\froala_page.css" />
+    <Content Include="Areas\DaRen\css\froala_page.min.css" />
+    <Content Include="Areas\DaRen\css\layui.css" />
+    <Content Include="Areas\DaRen\css\themes\dark.css" />
+    <Content Include="Areas\DaRen\css\themes\dark.min.css" />
+    <Content Include="Areas\DaRen\css\themes\gray.css" />
+    <Content Include="Areas\DaRen\css\themes\gray.min.css" />
+    <Content Include="Areas\DaRen\css\themes\red.css" />
+    <Content Include="Areas\DaRen\css\themes\red.min.css" />
+    <Content Include="Areas\DaRen\css\themes\royal.css" />
+    <Content Include="Areas\DaRen\css\themes\royal.min.css" />
+    <Content Include="Areas\DaRen\detail.html" />
+    <Content Include="Areas\DaRen\fonts\fontawesome-webfont.svg" />
+    <Content Include="Areas\DaRen\images\close1.png" />
+    <Content Include="Areas\DaRen\images\default.png" />
+    <Content Include="Areas\DaRen\images\image_add_large%402x.png" />
+    <Content Include="Areas\DaRen\images\loading.gif" />
+    <Content Include="Areas\DaRen\images\null.png" />
+    <Content Include="Areas\DaRen\index.html" />
+    <Content Include="Areas\DaRen\js\froala_editor.min.js" />
+    <Content Include="Areas\DaRen\js\froala_editor_ie8.min.js" />
+    <Content Include="Areas\DaRen\js\jqPaginator.js" />
+    <Content Include="Areas\DaRen\js\langs\ar.js" />
+    <Content Include="Areas\DaRen\js\langs\bs.js" />
+    <Content Include="Areas\DaRen\js\langs\cs.js" />
+    <Content Include="Areas\DaRen\js\langs\da.js" />
+    <Content Include="Areas\DaRen\js\langs\de.js" />
+    <Content Include="Areas\DaRen\js\langs\en_ca.js" />
+    <Content Include="Areas\DaRen\js\langs\en_gb.js" />
+    <Content Include="Areas\DaRen\js\langs\en_us.js" />
+    <Content Include="Areas\DaRen\js\langs\es.js" />
+    <Content Include="Areas\DaRen\js\langs\fa.js" />
+    <Content Include="Areas\DaRen\js\langs\fi.js" />
+    <Content Include="Areas\DaRen\js\langs\fr.js" />
+    <Content Include="Areas\DaRen\js\langs\he.js" />
+    <Content Include="Areas\DaRen\js\langs\hr.js" />
+    <Content Include="Areas\DaRen\js\langs\hu.js" />
+    <Content Include="Areas\DaRen\js\langs\id.js" />
+    <Content Include="Areas\DaRen\js\langs\it.js" />
+    <Content Include="Areas\DaRen\js\langs\ja.js" />
+    <Content Include="Areas\DaRen\js\langs\ko.js" />
+    <Content Include="Areas\DaRen\js\langs\me.js" />
+    <Content Include="Areas\DaRen\js\langs\nb.js" />
+    <Content Include="Areas\DaRen\js\langs\nl.js" />
+    <Content Include="Areas\DaRen\js\langs\pl.js" />
+    <Content Include="Areas\DaRen\js\langs\pt_br.js" />
+    <Content Include="Areas\DaRen\js\langs\pt_pt.js" />
+    <Content Include="Areas\DaRen\js\langs\ro.js" />
+    <Content Include="Areas\DaRen\js\langs\ru.js" />
+    <Content Include="Areas\DaRen\js\langs\sr.js" />
+    <Content Include="Areas\DaRen\js\langs\sv.js" />
+    <Content Include="Areas\DaRen\js\langs\th.js" />
+    <Content Include="Areas\DaRen\js\langs\tr.js" />
+    <Content Include="Areas\DaRen\js\langs\zh_cn.js" />
+    <Content Include="Areas\DaRen\js\langs\zh_tw.js" />
+    <Content Include="Areas\DaRen\js\libs\jquery-1.11.1.min.js" />
+    <Content Include="Areas\DaRen\js\MySearch.js" />
+    <Content Include="Areas\DaRen\js\plugins\block_styles.min.js" />
+    <Content Include="Areas\DaRen\js\plugins\char_counter.min.js" />
+    <Content Include="Areas\DaRen\js\plugins\colors.min.js" />
+    <Content Include="Areas\DaRen\js\plugins\file_upload.min.js" />
+    <Content Include="Areas\DaRen\js\plugins\font_family.min.js" />
+    <Content Include="Areas\DaRen\js\plugins\font_size.min.js" />
+    <Content Include="Areas\DaRen\js\plugins\lists.min.js" />
+    <Content Include="Areas\DaRen\js\plugins\media_manager.min.js" />
+    <Content Include="Areas\DaRen\js\plugins\tables.min.js" />
+    <Content Include="Areas\DaRen\js\plugins\video.min.js" />
+    <Content Include="Areas\DaRen\js\vue.min.js" />
+    <Content Include="Areas\DaRen\js\WdatePicker\calendar.js" />
+    <Content Include="Areas\DaRen\js\WdatePicker\config.js" />
+    <Content Include="Areas\DaRen\js\WdatePicker\lang\en.js" />
+    <Content Include="Areas\DaRen\js\WdatePicker\lang\zh-cn.js" />
+    <Content Include="Areas\DaRen\js\WdatePicker\lang\zh-tw.js" />
+    <Content Include="Areas\DaRen\js\WdatePicker\My97DatePicker.htm" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\datePicker.gif" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\default\datepicker.css" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\default\down.jpg" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\default\img.gif" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\default\left.gif" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\default\navLeft.gif" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\default\navRight.gif" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\default\right.gif" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\default\up.jpg" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\WdatePicker.css" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\whyGreen\down.jpg" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\whyGreen\left.gif" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\whyGreen\navLeft.gif" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\whyGreen\navRight.gif" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\whyGreen\other\bg2.jpg" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\whyGreen\other\interface.jpg" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\whyGreen\right.gif" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\whyGreen\up.jpg" />
+    <Content Include="Areas\DaRen\js\WdatePicker\skin\whyGreen\ymbg.jpg" />
+    <Content Include="Areas\DaRen\js\WdatePicker\WdatePicker.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\darenshare.css" />
+    <Content Include="Content\css\font-awesome\.gitignore" />
+    <Content Include="Content\css\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\css\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\css\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Content\images\android.png" />
+    <Content Include="Content\images\bg%281%29.png" />
+    <Content Include="Content\images\close1.png" />
+    <Content Include="Content\images\default.png" />
+    <Content Include="Content\images\down.png" />
+    <Content Include="Content\images\ic_adress.png" />
+    <Content Include="Content\images\ic_believe.png" />
+    <Content Include="Content\images\ic_image.png" />
+    <Content Include="Content\images\ic_more.png" />
+    <Content Include="Content\images\ic_phone.png" />
+    <Content Include="Content\images\ic_power.png" />
+    <Content Include="Content\images\image_add_large%402x.png" />
+    <Content Include="Content\images\ios.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\null.png" />
+    <Content Include="Content\images\right.png" />
+    <Content Include="Content\Scripts\darenshare.js" />
+    <Content Include="Content\Scripts\jqPaginator.js" />
+    <Content Include="Content\Scripts\MySearch.js" />
+    <Content Include="Content\Scripts\vue.min.js" />
+    <Content Include="Content\Site.css" />
+    <Content Include="download\index.html" />
+    <Content Include="download\images\be.png" />
+    <Content Include="download\images\ic_android.png" />
+    <Content Include="download\images\ic_ios.png" />
+    <Content Include="download\images\img_01.png" />
+    <Content Include="download\images\img_02.png" />
+    <Content Include="download\images\img_03.png" />
+    <Content Include="download\images\img_04.png" />
+    <Content Include="download\images\img_05.png" />
+    <Content Include="download\images\img_06.png" />
+    <Content Include="download\images\img_07.png" />
+    <Content Include="download\images\logo.png" />
+    <Content Include="download\images\top_bg.png" />
+    <Content Include="download\images\top_bg_02.png" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="html\auction.html" />
+    <Content Include="html\recharge.html" />
+    <Content Include="html\register.html" />
+    <Content Include="html\signing.html" />
+    <Content Include="Scripts\appNative.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\config.js" />
+    <Content Include="Areas\DaRenAdmin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\DaRenAdmin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\DaRenAdmin\Views\Invoice\Index.cshtml" />
+    <Content Include="Areas\DaRenAdmin\Views\Invoice\VerifyInvoice.cshtml" />
+    <Content Include="Areas\DaRenAdmin\Views\DaRen\Detail.cshtml" />
+    <Content Include="Areas\DaRenAdmin\Views\DaRen\Index.cshtml" />
+    <Content Include="Content\css\font-awesome\.bower.json" />
+    <Content Include="Content\css\font-awesome\.npmignore" />
+    <Content Include="Content\css\font-awesome\bower.json" />
+    <Content Include="Content\css\font-awesome\css\font-awesome.css.map" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\css\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\css\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\css\font-awesome\less\animated.less" />
+    <Content Include="Content\css\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\css\font-awesome\less\core.less" />
+    <Content Include="Content\css\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\css\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\css\font-awesome\less\icons.less" />
+    <Content Include="Content\css\font-awesome\less\larger.less" />
+    <Content Include="Content\css\font-awesome\less\list.less" />
+    <Content Include="Content\css\font-awesome\less\mixins.less" />
+    <Content Include="Content\css\font-awesome\less\path.less" />
+    <Content Include="Content\css\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\css\font-awesome\less\screen-reader.less" />
+    <Content Include="Content\css\font-awesome\less\stacked.less" />
+    <Content Include="Content\css\font-awesome\less\variables.less" />
+    <Content Include="Content\css\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\css\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\css\font-awesome\scss\_core.scss" />
+    <Content Include="Content\css\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\css\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\css\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\css\font-awesome\scss\_list.scss" />
+    <Content Include="Content\css\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\css\font-awesome\scss\_path.scss" />
+    <Content Include="Content\css\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\css\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Content\css\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\css\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\css\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Areas\Admin\Views\AdminMenu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="VueActivity\babel.config.js" />
+    <Content Include="VueActivity\public\favicon.ico" />
+    <Content Include="VueActivity\public\index.html" />
+    <Content Include="VueActivity\src\api\api.js" />
+    <Content Include="VueActivity\src\assets\images\banner.png" />
+    <Content Include="VueActivity\src\assets\images\banner01.png" />
+    <Content Include="VueActivity\src\assets\images\banner02.png" />
+    <Content Include="VueActivity\src\assets\images\ic_seleted_pay.png" />
+    <Content Include="VueActivity\src\assets\images\ic_unseleted_pay.png" />
+    <Content Include="VueActivity\src\assets\images\image_title1.png" />
+    <Content Include="VueActivity\src\assets\images\image_title2.png" />
+    <Content Include="VueActivity\src\assets\images\nodata.png" />
+    <Content Include="VueActivity\src\assets\images\personal_activity.png" />
+    <Content Include="VueActivity\src\global.js" />
+    <Content Include="VueActivity\src\main.js" />
+    <Content Include="VueActivity\src\router\index.js" />
+    <Content Include="VueActivity\src\service\http.js" />
+    <Content Include="VueActivity\src\store\index.js" />
+    <Content Include="VueActivity\src\utlis\utils.js" />
+    <Content Include="VueActivity\vue.config.js" />
+    <Content Include="VueAuction\.gitignore" />
+    <Content Include="VueAuction\build\build.js" />
+    <Content Include="VueAuction\build\check-versions.js" />
+    <Content Include="VueAuction\build\logo.png" />
+    <Content Include="VueAuction\build\utils.js" />
+    <Content Include="VueAuction\build\vue-loader.conf.js" />
+    <Content Include="VueAuction\build\webpack.base.conf.js" />
+    <Content Include="VueAuction\build\webpack.dev.conf.js" />
+    <Content Include="VueAuction\build\webpack.prod.conf.js" />
+    <Content Include="VueAuction\config\dev.env.js" />
+    <Content Include="VueAuction\config\index.js" />
+    <Content Include="VueAuction\config\prod.env.js" />
+    <Content Include="VueAuction\index.html" />
+    <Content Include="VueAuction\src\api\api.js" />
+    <Content Include="VueAuction\src\assets\images\all_check_nor.png" />
+    <Content Include="VueAuction\src\assets\images\all_check_sel.png" />
+    <Content Include="VueAuction\src\assets\images\A_banner.png" />
+    <Content Include="VueAuction\src\assets\images\ic_enter%402x.png" />
+    <Content Include="VueAuction\src\assets\images\ic_selected_pay.png" />
+    <Content Include="VueAuction\src\assets\images\ic_unselected_pay.png" />
+    <Content Include="VueAuction\src\assets\images\nocard%402x.png" />
+    <Content Include="VueAuction\src\assets\images\paimai_ahead.png" />
+    <Content Include="VueAuction\src\assets\images\paimai_check_nor.png" />
+    <Content Include="VueAuction\src\assets\images\paimai_check_sel.png" />
+    <Content Include="VueAuction\src\assets\images\paimai_details_bg.png" />
+    <Content Include="VueAuction\src\assets\images\paimai_hint_bg.png" />
+    <Content Include="VueAuction\src\assets\images\paimai_out.png" />
+    <Content Include="VueAuction\src\assets\images\paimai_unrecorded_bg.png" />
+    <Content Include="VueAuction\src\assets\images\pay_success.png" />
+    <Content Include="VueAuction\src\config\utils.js" />
+    <Content Include="VueAuction\src\global.js" />
+    <Content Include="VueAuction\src\main.js" />
+    <Content Include="VueAuction\src\router\index.js" />
+    <Content Include="VueAuction\static\css\index.css" />
+    <Content Include="VueAuction\static\img\icon_choice_pay.png" />
+    <Content Include="VueAuction\static\img\ic_fail.png" />
+    <Content Include="VueAuction\static\img\ic_sucess.png" />
+    <Content Include="VueAuction\static\js\axios.min.js" />
+    <Content Include="VueAuction\static\js\fastclick.min.js" />
+    <Content Include="VueAuction\static\js\vant.min.js" />
+    <Content Include="VueAuction\static\js\vue-router.min.js" />
+    <Content Include="VueAuction\static\js\vue.min.js" />
+    <Content Include="VueBelieve\.postcssrc.js" />
+    <Content Include="VueBelieve\build\build.js" />
+    <Content Include="VueBelieve\build\check-versions.js" />
+    <Content Include="VueBelieve\build\logo.png" />
+    <Content Include="VueBelieve\build\utils.js" />
+    <Content Include="VueBelieve\build\vue-loader.conf.js" />
+    <Content Include="VueBelieve\build\webpack.base.conf.js" />
+    <Content Include="VueBelieve\build\webpack.dev.conf.js" />
+    <Content Include="VueBelieve\build\webpack.prod.conf.js" />
+    <Content Include="VueBelieve\config\dev.env.js" />
+    <Content Include="VueBelieve\config\index.js" />
+    <Content Include="VueBelieve\config\prod.env.js" />
+    <Content Include="VueBelieve\config\test.env.js" />
+    <Content Include="VueBelieve\index.html" />
+    <Content Include="VueBelieve\src\api\getData.js" />
+    <Content Include="VueBelieve\src\api\getFbApData.js" />
+    <Content Include="VueBelieve\src\api\http.js" />
+    <Content Include="VueBelieve\src\assets\images\1.png" />
+    <Content Include="VueBelieve\src\assets\images\2.png" />
+    <Content Include="VueBelieve\src\assets\images\3.png" />
+    <Content Include="VueBelieve\src\assets\images\4.png" />
+    <Content Include="VueBelieve\src\assets\images\5.png" />
+    <Content Include="VueBelieve\src\assets\images\6.png" />
+    <Content Include="VueBelieve\src\assets\images\7.png" />
+    <Content Include="VueBelieve\src\assets\images\bg_1.png" />
+    <Content Include="VueBelieve\src\assets\images\bg_2.png" />
+    <Content Include="VueBelieve\src\assets\images\bg_3.png" />
+    <Content Include="VueBelieve\src\assets\images\bg_buy_sv.png" />
+    <Content Include="VueBelieve\src\assets\images\bg_SVC.png" />
+    <Content Include="VueBelieve\src\assets\images\bg_sv_top.png" />
+    <Content Include="VueBelieve\src\assets\images\chongzhi_bg.png" />
+    <Content Include="VueBelieve\src\assets\images\detele.png" />
+    <Content Include="VueBelieve\src\assets\images\exchange_delete.png" />
+    <Content Include="VueBelieve\src\assets\images\exchange_pcn.png" />
+    <Content Include="VueBelieve\src\assets\images\exchange_SV1000.png" />
+    <Content Include="VueBelieve\src\assets\images\exchange_SVC1000.png" />
+    <Content Include="VueBelieve\src\assets\images\exchange_SVC2000.png" />
+    <Content Include="VueBelieve\src\assets\images\exchange_yougu.png" />
+    <Content Include="VueBelieve\src\assets\images\fbap_bg.png" />
+    <Content Include="VueBelieve\src\assets\images\fbap_revise.png" />
+    <Content Include="VueBelieve\src\assets\images\hidepwd.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_agree.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_bank_pay.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_cancel%402x.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_cancel.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_close.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_code.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_disagree.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_enter%402x.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_less.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_off.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_on.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_open.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_plus.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_record.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_retaily.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_selected_code.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_selected_pay.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_success%402x.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_unselected_code.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_unselected_pay.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_uv_pay.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_wechat_pay.png" />
+    <Content Include="VueBelieve\src\assets\images\ic_zfb_pay.png" />
+    <Content Include="VueBelieve\src\assets\images\image_add_large%402x.png" />
+    <Content Include="VueBelieve\src\assets\images\image_add_small%402x.png" />
+    <Content Include="VueBelieve\src\assets\images\image_card_1%402x.png" />
+    <Content Include="VueBelieve\src\assets\images\image_card_2%402x.png" />
+    <Content Include="VueBelieve\src\assets\images\image_card_3%402x.png" />
+    <Content Include="VueBelieve\src\assets\images\image_no_card%402x.png" />
+    <Content Include="VueBelieve\src\assets\images\open_account.png" />
+    <Content Include="VueBelieve\src\assets\images\paimai_details_bg.png" />
+    <Content Include="VueBelieve\src\assets\images\paimai_unrecorded_bg.png" />
+    <Content Include="VueBelieve\src\assets\images\pay_success.png" />
+    <Content Include="VueBelieve\src\assets\images\recommend.png" />
+    <Content Include="VueBelieve\src\assets\images\red_packet_bg_award.png" />
+    <Content Include="VueBelieve\src\assets\images\red_packet_bg_strategy.png" />
+    <Content Include="VueBelieve\src\assets\images\red_packet_bg_top.png" />
+    <Content Include="VueBelieve\src\assets\images\red_packet_exchange_icon.png" />
+    <Content Include="VueBelieve\src\assets\images\red_packet_explain_bg_01.png" />
+    <Content Include="VueBelieve\src\assets\images\red_packet_explain_bg_02.png" />
+    <Content Include="VueBelieve\src\assets\images\red_packet_open.png" />
+    <Content Include="VueBelieve\src\assets\images\red_packet_pop_up_bg.png" />
+    <Content Include="VueBelieve\src\assets\images\red_packet_pop_up_delete.png" />
+    <Content Include="VueBelieve\src\assets\images\select_nor.png" />
+    <Content Include="VueBelieve\src\assets\images\select_sel.png" />
+    <Content Include="VueBelieve\src\assets\images\showpwd.png" />
+    <Content Include="VueBelieve\src\assets\images\vip_renew_bg.png" />
+    <Content Include="VueBelieve\src\config\global.js" />
+    <Content Include="VueBelieve\src\config\utils.js" />
+    <Content Include="VueBelieve\src\lang\lang-en.js" />
+    <Content Include="VueBelieve\src\lang\lang-zh-hant.js" />
+    <Content Include="VueBelieve\src\lang\lang-zh.js" />
+    <Content Include="VueBelieve\src\main.js" />
+    <Content Include="VueBelieve\src\router\index.js" />
+    <Content Include="Content\Admin\css\sys.css" />
+    <Content Include="Content\Admin\js\My97DatePicker\calendar.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\config.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\demo.htm" />
+    <Content Include="Content\Admin\js\My97DatePicker\lang\en.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker.htm" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\calendar.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\config.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\lang\en.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\My97DatePicker.htm" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\WdatePicker.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\开发包\lang\en.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\开发包\lang\zh-cn.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\开发包\lang\zh-tw.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\开发包\readme.txt" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\开发包\skin\datePicker.gif" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\开发包\skin\default\datepicker.css" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\开发包\skin\default\img.gif" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\开发包\skin\WdatePicker.css" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\开发包\skin\whyGreen\bg.jpg" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\开发包\skin\whyGreen\datepicker.css" />
+    <Content Include="Content\Admin\js\My97DatePicker\My97DatePicker\开发包\skin\whyGreen\img.gif" />
+    <Content Include="Content\Admin\js\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Content\Admin\js\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Content\Admin\js\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Content\Admin\js\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Content\Admin\js\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Content\Admin\js\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Content\Admin\js\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Content\Admin\js\My97DatePicker\WdatePicker.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\开发包\lang\en.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\开发包\lang\zh-cn.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\开发包\lang\zh-tw.js" />
+    <Content Include="Content\Admin\js\My97DatePicker\开发包\readme.txt" />
+    <Content Include="Content\Admin\js\My97DatePicker\开发包\skin\datePicker.gif" />
+    <Content Include="Content\Admin\js\My97DatePicker\开发包\skin\default\datepicker.css" />
+    <Content Include="Content\Admin\js\My97DatePicker\开发包\skin\default\img.gif" />
+    <Content Include="Content\Admin\js\My97DatePicker\开发包\skin\WdatePicker.css" />
+    <Content Include="Content\Admin\js\My97DatePicker\开发包\skin\whyGreen\bg.jpg" />
+    <Content Include="Content\Admin\js\My97DatePicker\开发包\skin\whyGreen\datepicker.css" />
+    <Content Include="Content\Admin\js\My97DatePicker\开发包\skin\whyGreen\img.gif" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\bootstrap\js\npm.js" />
+    <Content Include="Content\hongbao_main.css" />
+    <Content Include="Content\layermobile\layer.js" />
+    <Content Include="Content\layermobile\need\layer.css" />
+    <Content Include="Content\page.css" />
+    <Content Include="Content\Scripts\bootstrap.js" />
+    <Content Include="Content\Scripts\bootstrap.min.js" />
+    <Content Include="VueBelieve\.babelrc" />
+    <Content Include="VueBelieve\.editorconfig" />
+    <Content Include="VueBelieve\.gitignore" />
+    <Content Include="VueBelieve\package-lock.json" />
+    <Content Include="VueBelieve\package.json" />
+    <Content Include="VueBelieve\README.md" />
+    <Content Include="VueBelieve\src\App.vue" />
+    <Content Include="VueBelieve\src\components\BotPopup.vue" />
+    <Content Include="VueBelieve\src\components\Header.vue" />
+    <Content Include="VueBelieve\src\views\A_auction\BidsAuction.vue" />
+    <Content Include="VueBelieve\src\views\A_auction\index.vue" />
+    <Content Include="VueBelieve\src\views\A_auction\MypointA.vue" />
+    <Content Include="VueBelieve\src\views\A_auction\MyRecord.vue" />
+    <Content Include="VueBelieve\src\views\A_auction\Record.vue" />
+    <Content Include="VueBelieve\src\views\A_auction\Rule.vue" />
+    <Content Include="VueBelieve\src\views\Exchange\index.vue" />
+    <Content Include="VueBelieve\src\views\Exchange\Result.vue" />
+    <Content Include="VueBelieve\src\views\Exchange\SVCtransfer.vue" />
+    <Content Include="VueBelieve\src\views\Exchange\TransferInto.vue" />
+    <Content Include="VueBelieve\src\views\Exchange\TransferOut.vue" />
+    <Content Include="VueBelieve\src\views\Exchange\YGtransfer.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\Index.vue" />
+    <Content Include="VueBelieve\src\views\RedPacket\Exchange.vue" />
+    <Content Include="VueBelieve\src\views\RedPacket\Explain.vue" />
+    <Content Include="VueBelieve\src\views\RedPacket\Opening.vue" />
+    <Content Include="VueBelieve\src\views\RedPacket\Receive.vue" />
+    <Content Include="VueBelieve\src\views\RedPacket\RewardDetail.vue" />
+    <Content Include="VueBelieve\src\views\RedPacket\RewardList.vue" />
+    <Content Include="VueBelieve\src\views\RechargeCode\BuyCode.vue" />
+    <Content Include="VueBelieve\src\views\RechargeCode\MyCode.vue" />
+    <Content Include="VueBelieve\src\views\RechargeCode\Recharge.vue" />
+    <Content Include="VueBelieve\src\views\RechargeCode\RechargeCode.vue" />
+    <Content Include="VueBelieve\src\views\RechargeCode\Record.vue" />
+    <Content Include="VueBelieve\src\views\RechargeCode\Retail.vue" />
+    <Content Include="VueBelieve\src\views\RechargeCode\Transfer.vue" />
+    <Content Include="VueBelieve\static\.gitkeep" />
+    <Content Include="VueBelieve\zbuild.bat" />
+    <Content Include="VueBelieve\zrun.bat" />
+    <Content Include="Areas\DaRenAdmin\Views\web.config" />
+    <Content Include="Areas\DaRen\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\DaRen\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\DaRen\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\DaRen\fonts\FontAwesome.otf" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\OctoberActivity\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\OctoberActivity\Detail.cshtml" />
+    <Content Include="Areas\DaRen\css\font-awesome\.bower.json" />
+    <Content Include="Areas\DaRen\css\font-awesome\.npmignore" />
+    <Content Include="Areas\DaRen\css\font-awesome\bower.json" />
+    <Content Include="Areas\DaRen\css\font-awesome\css\font-awesome.css.map" />
+    <Content Include="Areas\DaRen\css\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\DaRen\css\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Areas\DaRen\css\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Areas\DaRen\css\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Areas\DaRen\css\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\animated.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\core.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\fixed-width.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\font-awesome.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\icons.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\larger.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\list.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\mixins.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\path.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\screen-reader.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\stacked.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\less\variables.less" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\_animated.scss" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\_core.scss" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\_icons.scss" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\_larger.scss" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\_list.scss" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\_mixins.scss" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\_path.scss" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\_stacked.scss" />
+    <Content Include="Areas\DaRen\css\font-awesome\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Content\Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Content\Scripts\jquery-3.3.1.js" />
+    <Content Include="Content\Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Content\Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Content\Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Content\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Content\Scripts\jquery.validate.js" />
+    <Content Include="Content\Scripts\jquery.validate.min.js" />
+    <Content Include="Content\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\Scripts\modernizr-2.8.3.js" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\layer\extend\layer.ext.js" />
+    <Content Include="Content\layer\layer.min.js" />
+    <Content Include="Content\layer\skin\default\icon_ext.png" />
+    <Content Include="Content\layer\skin\default\textbg.png" />
+    <Content Include="Content\layer\skin\default\xubox_ico0.png" />
+    <Content Include="Content\layer\skin\default\xubox_loading0.gif" />
+    <Content Include="Content\layer\skin\default\xubox_loading1.gif" />
+    <Content Include="Content\layer\skin\default\xubox_loading2.gif" />
+    <Content Include="Content\layer\skin\default\xubox_loading3.gif" />
+    <Content Include="Content\layer\skin\default\xubox_title0.png" />
+    <Content Include="Content\layer\skin\layer.css" />
+    <Content Include="Content\layer\skin\layer.ext.css" />
+    <Content Include="html\about.html" />
+    <Content Include="html\protocol.html" />
+    <Content Include="IMDemo\index.html" />
+    <Content Include="IMDemo\index2.html" />
+    <Content Include="IMDemo\js\im.js" />
+    <Content Include="IMDemo\static\im.css" />
+    <Content Include="IMDemo\static\RongEmoji-2.2.6.min.js" />
+    <Content Include="IMDemo\static\RongIMLib-2.3.0.js" />
+    <Content Include="Index.htm" />
+    <Content Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\fonts\iconfont.ttf" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="IMDemo\static\voice-amr-base64.json" />
+    <Content Include="Key\key.pem" />
+    <Content Include="Content\swagger\SwaggerDoc.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Properties\PublishProfiles\112.pubxml" />
+    <None Include="Properties\PublishProfiles\DTF.pubxml" />
+    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\IdCardValidate.js" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="VueCasBelieve\.eslintrc.js" />
+    <Content Include="VueCasBelieve\.gitignore" />
+    <Content Include="VueCasBelieve\.postcssrc.js" />
+    <Content Include="VueCasBelieve\build\build.js" />
+    <Content Include="VueCasBelieve\build\check-versions.js" />
+    <Content Include="VueCasBelieve\build\logo.png" />
+    <Content Include="VueCasBelieve\build\utils.js" />
+    <Content Include="VueCasBelieve\build\vue-loader.conf.js" />
+    <Content Include="VueCasBelieve\build\webpack.base.conf.js" />
+    <Content Include="VueCasBelieve\build\webpack.dev.conf.js" />
+    <Content Include="VueCasBelieve\build\webpack.prod.conf.js" />
+    <Content Include="VueCasBelieve\config\dev.env.js" />
+    <Content Include="VueCasBelieve\config\index.js" />
+    <Content Include="VueCasBelieve\config\prod.env.js" />
+    <Content Include="VueCasBelieve\index.html" />
+    <Content Include="VueCasBelieve\src\api\http.js" />
+    <Content Include="VueCasBelieve\src\api\myData.js" />
+    <Content Include="VueCasBelieve\src\api\sysRequest.js" />
+    <Content Include="VueCasBelieve\src\assets\images\1.png" />
+    <Content Include="VueCasBelieve\src\assets\images\2.png" />
+    <Content Include="VueCasBelieve\src\assets\images\3.png" />
+    <Content Include="VueCasBelieve\src\assets\images\4.png" />
+    <Content Include="VueCasBelieve\src\assets\images\5.png" />
+    <Content Include="VueCasBelieve\src\assets\images\6.png" />
+    <Content Include="VueCasBelieve\src\assets\images\7.png" />
+    <Content Include="VueCasBelieve\src\assets\images\addfried_erweima%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\addfriend_contact%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\addfriend_invite%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\addfriend_saoyisao%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\addfriend_search%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\addfriend_success%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\arrow.png" />
+    <Content Include="VueCasBelieve\src\assets\images\back.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_add%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_addfriend%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_add_open%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_chat_add%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_chat_address%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_chat_camera%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_chat_face%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_chat_photo%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_chat_redpacket%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_chat_smallvoice%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_chat_video%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_chat_voice%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_chat_voiceprompt%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_chat_write%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_groupchat%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_more.png" />
+    <Content Include="VueCasBelieve\src\assets\images\chat_saoyisao%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\discover_dynamic%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\discover_nearpeople%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\discover_shake%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\discover_shake_white%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\discover_shake_white_down%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\discover_shake_white_up%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_choices%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_delete%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_lock%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_more%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_pay%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_photo.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_publish.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_p_nor%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_p_sel%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_radio_nor%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_radio_sel%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_tan_icon%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_tan_nor%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_tan_sel%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_v_nor%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_v_sel%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_zan_icon%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_zan_nor%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\dynamic_zan_sel%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\erweima_bg%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\groupchatting%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\groupchat_addpeople_nor%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\groupchat_addpeople_sel%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\groupchat_detail_add%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\groupchat_detail_delete%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\groupchat_head%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\home_auction%402x%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\home_B%402x%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\home_businessman%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\home_exchange%402x%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\home_rechargecode%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\home_redpack%402x%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\home_wallet%402x%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\icon_hide%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\icon_reminder%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\icon_success.png" />
+    <Content Include="VueCasBelieve\src\assets\images\icon_visible%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\invite_bg%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\invite_bg_02.png" />
+    <Content Include="VueCasBelieve\src\assets\images\invite_delete%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\invite_friendcircle%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\invite_note%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\invite_pcn%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\invite_qq%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\invite_weichat%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\list_add-friends%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\list_broadcast%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\list_contact%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\list_friend%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\list_groupchat%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\list_newfriends%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\list_search%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\login_bg%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\login_check%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\login_check_nor%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\login_code%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\login_passwork%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\login_pcn%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\login_person%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\logo.png" />
+    <Content Include="VueCasBelieve\src\assets\images\main_chat_nor%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\main_chat_sel%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\main_discover_nor%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\main_discover_sel%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\main_list_nor%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\main_list_sel%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\main_personal_nor%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\main_personal_sel%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\nodata%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\number_bg%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_about%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_bg%281%29.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_bg%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_bg.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_erweima%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_exchargecode%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_head_no%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_phone%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_top_bg%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_wallet%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_wallet_bg%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_wallet_p%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_wallet_p_issue%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_wallet_p_reward%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_wallet_p_tan%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_wallet_p_zan%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_wallet_v%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_wallet_v_publish%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\personal_wallet_v_recharge%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\placeholder_logo.png" />
+    <Content Include="VueCasBelieve\src\assets\images\redpacket%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\right_icon.png" />
+    <Content Include="VueCasBelieve\src\assets\images\search_people%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\setting_bg%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\setting_btn_nor%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\setting_btn_sel%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\shouquan_bg.png" />
+    <Content Include="VueCasBelieve\src\assets\images\type_chat%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\waller_dos%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\wallet_bg%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\wallet_code%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\wallet_exchange%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\wallet_exchargecode%402x.png" />
+    <Content Include="VueCasBelieve\src\assets\images\wallet_sv%402x.png" />
+    <Content Include="VueCasBelieve\src\components\lang\en.js" />
+    <Content Include="VueCasBelieve\src\components\lang\F.js" />
+    <Content Include="VueCasBelieve\src\components\lang\zh.js" />
+    <Content Include="VueCasBelieve\src\config\chineseToPinYin.js" />
+    <Content Include="VueCasBelieve\src\config\const.js" />
+    <Content Include="VueCasBelieve\src\config\global.js" />
+    <Content Include="VueCasBelieve\src\config\imService.js" />
+    <Content Include="VueCasBelieve\src\config\signalr.js" />
+    <Content Include="VueCasBelieve\src\config\utils.js" />
+    <Content Include="VueCasBelieve\src\main.js" />
+    <Content Include="VueCasBelieve\src\router\index.js" />
+    <Content Include="VueDaRen\.gitignore" />
+    <Content Include="VueDaRen\.postcssrc.js" />
+    <Content Include="VueDaRen\build\build.js" />
+    <Content Include="VueDaRen\build\check-versions.js" />
+    <Content Include="VueDaRen\build\logo.png" />
+    <Content Include="VueDaRen\build\utils.js" />
+    <Content Include="VueDaRen\build\vue-loader.conf.js" />
+    <Content Include="VueDaRen\build\webpack.base.conf.js" />
+    <Content Include="VueDaRen\build\webpack.dev.conf.js" />
+    <Content Include="VueDaRen\build\webpack.prod.conf.js" />
+    <Content Include="VueDaRen\config\dev.env.js" />
+    <Content Include="VueDaRen\config\index.js" />
+    <Content Include="VueDaRen\config\prod.env.js" />
+    <Content Include="VueDaRen\index.html" />
+    <Content Include="VueDaRen\src\api\getData.js" />
+    <Content Include="VueDaRen\src\assets\images\agreement_top_bg.png" />
+    <Content Include="VueDaRen\src\assets\images\detele.png" />
+    <Content Include="VueDaRen\src\assets\images\detele_mag.png" />
+    <Content Include="VueDaRen\src\assets\images\expert_homepage_lock.png" />
+    <Content Include="VueDaRen\src\assets\images\expert_homepage_more.png" />
+    <Content Include="VueDaRen\src\assets\images\expert_homepage_tan_nor.png" />
+    <Content Include="VueDaRen\src\assets\images\expert_homepage_tan_sel.png" />
+    <Content Include="VueDaRen\src\assets\images\expert_homepage_zan_nor.png" />
+    <Content Include="VueDaRen\src\assets\images\expert_homepage_zan_sel.png" />
+    <Content Include="VueDaRen\src\assets\images\get_expert_bg_01.png" />
+    <Content Include="VueDaRen\src\assets\images\get_expert_bg_02.png" />
+    <Content Include="VueDaRen\src\assets\images\get_expert_bg_03.png" />
+    <Content Include="VueDaRen\src\assets\images\get_expert_top_bg.png" />
+    <Content Include="VueDaRen\src\assets\images\icon_expert_01.png" />
+    <Content Include="VueDaRen\src\assets\images\icon_photo.png" />
+    <Content Include="VueDaRen\src\assets\images\setting_btn_nor%402x.png" />
+    <Content Include="VueDaRen\src\assets\images\setting_btn_sel%402x.png" />
+    <Content Include="VueDaRen\src\assets\js\mobileBUGFix.min.js" />
+    <Content Include="VueDaRen\src\config\baseUrl.js" />
+    <Content Include="VueDaRen\src\config\compressImage.js" />
+    <Content Include="VueDaRen\src\config\global.js" />
+    <Content Include="VueDaRen\src\config\http.js" />
+    <Content Include="VueDaRen\src\config\utils.js" />
+    <Content Include="VueDaRen\src\main.js" />
+    <Content Include="VueDaRen\src\router\index.js" />
+    <Content Include="VueInvoice\babel.config.js" />
+    <Content Include="VueInvoice\public\css\index.css" />
+    <Content Include="VueInvoice\public\favicon.ico" />
+    <Content Include="VueInvoice\public\img\icon_choice_pay.png" />
+    <Content Include="VueInvoice\public\img\ic_fail.png" />
+    <Content Include="VueInvoice\public\img\ic_sucess.png" />
+    <Content Include="VueInvoice\public\index.html" />
+    <Content Include="VueInvoice\public\js\axios.min.js" />
+    <Content Include="VueInvoice\public\js\fastclick.min.js" />
+    <Content Include="VueInvoice\public\js\vant.min.js" />
+    <Content Include="VueInvoice\public\js\vue-router.min.js" />
+    <Content Include="VueInvoice\public\js\vue.min.js" />
+    <Content Include="VueInvoice\public\js\vuex.min.js" />
+    <Content Include="VueInvoice\src\api\api.js" />
+    <Content Include="VueInvoice\src\assets\images\bill_all_select_nor.png" />
+    <Content Include="VueInvoice\src\assets\images\bill_all_select_sel.png" />
+    <Content Include="VueInvoice\src\assets\images\bill_select_nor.png" />
+    <Content Include="VueInvoice\src\assets\images\bill_select_sel.png" />
+    <Content Include="VueInvoice\src\assets\images\bill_top_bg.png" />
+    <Content Include="VueInvoice\src\assets\images\icon_success.png" />
+    <Content Include="VueInvoice\src\assets\images\nodata.png" />
+    <Content Include="VueInvoice\src\global.js" />
+    <Content Include="VueInvoice\src\main.js" />
+    <Content Include="VueInvoice\src\router\index.js" />
+    <Content Include="VueInvoice\src\service\http.js" />
+    <Content Include="VueInvoice\src\store\index.js" />
+    <Content Include="VueInvoice\src\utils\compressImage.js" />
+    <Content Include="VueInvoice\src\utils\mobileBUGFix.min.js" />
+    <Content Include="VueInvoice\src\utils\NativeMethod.js" />
+    <Content Include="VueInvoice\src\utils\utils.js" />
+    <Content Include="VueInvoice\vue.config.js" />
+    <Content Include="VueLuckdraw\.gitignore" />
+    <Content Include="VueLuckdraw\.postcssrc.js" />
+    <Content Include="VueLuckdraw\build\build.js" />
+    <Content Include="VueLuckdraw\build\check-versions.js" />
+    <Content Include="VueLuckdraw\build\dev-client.js" />
+    <Content Include="VueLuckdraw\build\dev-server.js" />
+    <Content Include="VueLuckdraw\build\utils.js" />
+    <Content Include="VueLuckdraw\build\vue-loader.conf.js" />
+    <Content Include="VueLuckdraw\build\webpack.base.conf.js" />
+    <Content Include="VueLuckdraw\build\webpack.dev.conf.js" />
+    <Content Include="VueLuckdraw\build\webpack.prod.conf.js" />
+    <Content Include="VueLuckdraw\config\dev.env.js" />
+    <Content Include="VueLuckdraw\config\index.js" />
+    <Content Include="VueLuckdraw\config\prod.env.js" />
+    <Content Include="VueLuckdraw\index.html" />
+    <Content Include="VueLuckdraw\src\assets\img\award_bg.png" />
+    <Content Include="VueLuckdraw\src\assets\img\award_pointer.png" />
+    <Content Include="VueLuckdraw\src\assets\img\bg.png" />
+    <Content Include="VueLuckdraw\src\assets\img\popout_bg.png" />
+    <Content Include="VueLuckdraw\src\assets\img\tips.png" />
+    <Content Include="VueLuckdraw\src\assets\img\word.png" />
+    <Content Include="VueLuckdraw\src\utils.js" />
+    <Content Include="VueLuckdraw\src\main.js" />
+    <Content Include="VueRegister\.postcssrc.js" />
+    <Content Include="VueRegister\build\build.js" />
+    <Content Include="VueRegister\build\check-versions.js" />
+    <Content Include="VueRegister\build\logo.png" />
+    <Content Include="VueRegister\build\utils.js" />
+    <Content Include="VueRegister\build\vue-loader.conf.js" />
+    <Content Include="VueRegister\build\webpack.base.conf.js" />
+    <Content Include="VueRegister\build\webpack.dev.conf.js" />
+    <Content Include="VueRegister\build\webpack.prod.conf.js" />
+    <Content Include="VueRegister\config\dev.env.js" />
+    <Content Include="VueRegister\config\index.js" />
+    <Content Include="VueRegister\config\prod.env.js" />
+    <Content Include="VueRegister\index.html" />
+    <Content Include="VueRegister\src\assets\img\47.png" />
+    <Content Include="VueRegister\src\assets\img\icon_success.png" />
+    <Content Include="VueRegister\src\assets\img\logo.png" />
+    <Content Include="VueRegister\src\assets\img\select_nor.png" />
+    <Content Include="VueRegister\src\assets\img\select_sel.png" />
+    <Content Include="VueRegister\src\main.js" />
+    <Content Include="VueRegister\src\router\index.js" />
+    <Content Include="VueRegister\static\img\icon_success.png" />
+    <Content Include="VueRegister\static\img\select_nor.png" />
+    <Content Include="VueRegister\static\img\select_sel.png" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Test\Doc.cshtml" />
+    <Content Include="Views\Test\Index1.cshtml" />
+    <Content Include="Views\Test\Index2.cshtml" />
+    <Content Include="Views\Test\Live.cshtml" />
+    <Content Include="Views\Test\LiveDoc.cshtml" />
+    <Content Include="VueRegister\.babelrc" />
+    <Content Include="VueRegister\.editorconfig" />
+    <Content Include="VueRegister\.gitignore" />
+    <Content Include="VueRegister\package-lock.json" />
+    <Content Include="VueRegister\package.json" />
+    <Content Include="VueRegister\README.md" />
+    <Content Include="VueRegister\src\App.vue" />
+    <Content Include="VueRegister\src\components\register.vue" />
+    <Content Include="VueRegister\src\components\succReg.vue" />
+    <Content Include="VueRegister\static\.gitkeep" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="VueBelieve\src\components\404.vue" />
+    <Content Include="VueBelieve\src\components\PayPwd.vue" />
+    <Content Include="VueBelieve\src\views\Exchange\changeHis.vue" />
+    <Content Include="VueBelieve\src\views\RechargeCode\agreement.vue" />
+    <Content Include="VueBelieve\src\views\Exchange\BindAccount.vue" />
+    <Content Include="VueBelieve\src\views\RechargeCode\agreement.vue" />
+    <Content Include="VueBelieve\src\components\noData.vue" />
+    <Content Include="VueBelieve\src\views\Authentication\Company.vue" />
+    <Content Include="VueBelieve\src\views\Authentication\Contract.vue" />
+    <Content Include="VueBelieve\src\views\Authentication\index.vue" />
+    <Content Include="VueBelieve\src\views\Authentication\Personal.vue" />
+    <Content Include="VueBelieve\src\views\Authentication\Replenish.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\Audit.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\FbApList.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\Rename.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\Stock.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\ContractPhotos.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\IdentityCompany.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\IdentityIndex.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\IdentityPerson.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\Material.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\Renew.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\Stockin.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\StockRecord.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\Add.vue" />
+    <Content Include="VueCasBelieve\.babelrc" />
+    <Content Include="VueCasBelieve\.editorconfig" />
+    <Content Include="VueCasBelieve\.eslintignore" />
+    <Content Include="VueCasBelieve\package-lock.json" />
+    <Content Include="VueCasBelieve\package.json" />
+    <Content Include="VueCasBelieve\README.md" />
+    <Content Include="VueCasBelieve\src\App.vue" />
+    <Content Include="VueCasBelieve\src\components\common\footer.vue" />
+    <Content Include="VueCasBelieve\src\components\common\header.vue" />
+    <Content Include="VueCasBelieve\src\components\common\NewSearch.vue" />
+    <Content Include="VueCasBelieve\src\components\common\search.vue" />
+    <Content Include="VueCasBelieve\src\view\AddressBook\AddChat.vue" />
+    <Content Include="VueCasBelieve\src\view\AddressBook\AddGroupChat.vue" />
+    <Content Include="VueCasBelieve\src\view\AddressBook\AddressBookFriends.vue" />
+    <Content Include="VueCasBelieve\src\view\AddressBook\home.vue" />
+    <Content Include="VueCasBelieve\src\view\AddressBook\InviteFriend.vue" />
+    <Content Include="VueCasBelieve\src\view\AddressBook\MsgInvite.vue" />
+    <Content Include="VueCasBelieve\src\view\AddressBook\NewFriend.vue" />
+    <Content Include="VueCasBelieve\src\view\Find\AddTest.vue" />
+    <Content Include="VueCasBelieve\src\view\Find\FindRock.vue" />
+    <Content Include="VueCasBelieve\src\view\Find\Friends.vue" />
+    <Content Include="VueCasBelieve\src\view\Find\Home.vue" />
+    <Content Include="VueCasBelieve\src\view\Find\NearbyFriends.vue" />
+    <Content Include="VueCasBelieve\src\view\Find\Publishs.vue" />
+    <Content Include="VueCasBelieve\src\view\Find\Report.vue" />
+    <Content Include="VueCasBelieve\src\view\Home.vue" />
+    <Content Include="VueCasBelieve\src\view\Home\AddFriend.vue" />
+    <Content Include="VueCasBelieve\src\view\Home\AddressSearch.vue" />
+    <Content Include="VueCasBelieve\src\view\Home\Chats.vue" />
+    <Content Include="VueCasBelieve\src\view\Home\GroupChatInfo.vue" />
+    <Content Include="VueCasBelieve\src\view\Home\Information.vue" />
+    <Content Include="VueCasBelieve\src\view\Home\NewGroupChat.vue" />
+    <Content Include="VueCasBelieve\src\view\Home\Power.vue" />
+    <Content Include="VueCasBelieve\src\view\Home\SetChat.vue" />
+    <Content Include="VueCasBelieve\src\view\Home\TwoCode.vue" />
+    <Content Include="VueCasBelieve\src\view\login\Authorization.vue" />
+    <Content Include="VueCasBelieve\src\view\login\SwitchUser.vue" />
+    <Content Include="VueCasBelieve\src\view\My\About.vue" />
+    <Content Include="VueCasBelieve\src\view\My\AddDetail.vue" />
+    <Content Include="VueCasBelieve\src\view\My\AddV.vue" />
+    <Content Include="VueCasBelieve\src\view\My\Contact.vue" />
+    <Content Include="VueCasBelieve\src\view\My\ForgottenPwd.vue" />
+    <Content Include="VueCasBelieve\src\view\My\Home.vue" />
+    <Content Include="VueCasBelieve\src\view\My\Wallet.vue" />
+    <Content Include="VueCasBelieve\src\view\My\PersonalInformation.vue" />
+    <Content Include="VueCasBelieve\src\view\My\ReplaceLoginPwd.vue" />
+    <Content Include="VueCasBelieve\src\view\My\SetNotes.vue" />
+    <Content Include="VueCasBelieve\src\view\My\SwitchLang.vue" />
+    <Content Include="VueCasBelieve\src\view\My\TestPhone.vue" />
+    <Content Include="VueCasBelieve\src\view\My\UE_Replace.vue" />
+    <Content Include="VueCasBelieve\src\view\My\UserSafety.vue" />
+    <Content Include="VueCasBelieve\src\view\My\WalletDetail.vue" />
+    <Content Include="VueCasBelieve\static\.gitkeep" />
+    <Content Include="VueCasBelieve\src\components\common\404.vue" />
+    <Content Include="VueBelieve\src\views\RechargeCode\Mid.vue" />
+    <Content Include="VueCasBelieve\src\view\My\ChangePhone.vue" />
+    <Content Include="VueBelieve\src\views\InvitationCode\index.vue" />
+    <Content Include="VueBelieve\src\views\InvitationCode\inviteList.vue" />
+    <Content Include="VueRegister\src\components\region.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\Agent.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\agentReq.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\agree.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\ApplyCzs.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\ChangeInfo.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\Signing.vue" />
+    <Content Include="VueLuckdraw\.babelrc" />
+    <Content Include="VueLuckdraw\.editorconfig" />
+    <Content Include="VueLuckdraw\package-lock.json" />
+    <Content Include="VueLuckdraw\package.json" />
+    <Content Include="VueLuckdraw\README.md" />
+    <Content Include="VueLuckdraw\src\App.vue" />
+    <Content Include="VueLuckdraw\src\components\redLottery.vue" />
+    <Content Include="VueLuckdraw\static\.gitkeep" />
+    <Content Include="VueDaRen\.babelrc" />
+    <Content Include="VueDaRen\.editorconfig" />
+    <Content Include="VueDaRen\package.json" />
+    <Content Include="VueDaRen\README.md" />
+    <Content Include="VueDaRen\src\App.vue" />
+    <Content Include="VueDaRen\src\components\upload.vue" />
+    <Content Include="VueDaRen\src\views\info\education.vue" />
+    <Content Include="VueDaRen\src\views\info\explain.vue" />
+    <Content Include="VueDaRen\src\views\info\fillEducation.vue" />
+    <Content Include="VueDaRen\src\views\info\fillVocation.vue" />
+    <Content Include="VueDaRen\src\views\info\identify.vue" />
+    <Content Include="VueDaRen\src\views\info\index.vue" />
+    <Content Include="VueDaRen\src\views\info\introduce.vue" />
+    <Content Include="VueDaRen\src\views\info\remarks.vue" />
+    <Content Include="VueDaRen\src\views\info\signature.vue" />
+    <Content Include="VueDaRen\src\views\info\sort.vue" />
+    <Content Include="VueDaRen\src\views\info\vocation.vue" />
+    <Content Include="VueDaRen\src\views\open\agreement.vue" />
+    <Content Include="VueDaRen\src\views\open\index.vue" />
+    <Content Include="VueDaRen\static\.gitkeep" />
+    <Content Include="VueBelieve\src\views\FbAp\logistics.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\OctActivity.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\OctActivityList.vue" />
+    <Content Include="VueBelieve\src\views\FbAp\Generate.vue" />
+    <Content Include="VueDaRen\src\views\knowledge\additional.vue" />
+    <Content Include="VueDaRen\src\views\knowledge\detail.vue" />
+    <Content Include="VueDaRen\src\views\knowledge\index.vue" />
+    <Content Include="VueDaRen\src\views\knowledge\video.vue" />
+    <Content Include="VueDaRen\src\components\audio.vue" />
+    <Content Include="VueDaRen\src\components\sound.vue" />
+    <Content Include="VueAuction\.babelrc" />
+    <Content Include="VueAuction\.editorconfig" />
+    <Content Include="VueAuction\package-lock.json" />
+    <Content Include="VueAuction\package.json" />
+    <Content Include="VueAuction\README.md" />
+    <Content Include="VueAuction\src\App.vue" />
+    <Content Include="VueAuction\src\components\ListNoData.vue" />
+    <Content Include="VueAuction\src\components\noData.vue" />
+    <Content Include="VueAuction\src\components\Result.vue" />
+    <Content Include="VueAuction\src\views\AddPrice.vue" />
+    <Content Include="VueAuction\src\views\BidsAuction.vue" />
+    <Content Include="VueAuction\src\views\Charts.vue" />
+    <Content Include="VueAuction\src\views\Index.vue" />
+    <Content Include="VueAuction\src\views\MypointA.vue" />
+    <Content Include="VueAuction\src\views\MyRecord.vue" />
+    <Content Include="VueAuction\src\views\Record.vue" />
+    <Content Include="VueAuction\src\views\Rule.vue" />
+    <Content Include="VueAuction\static\.gitkeep" />
+    <Content Include="VueActivity\.env" />
+    <Content Include="VueActivity\.env.production" />
+    <Content Include="VueActivity\package-lock.json" />
+    <Content Include="VueActivity\package.json" />
+    <Content Include="VueActivity\README.md" />
+    <Content Include="VueActivity\src\App.vue" />
+    <Content Include="VueActivity\src\components\ListItem.vue" />
+    <Content Include="VueActivity\src\components\NoData.vue" />
+    <Content Include="VueActivity\src\views\Home.vue" />
+    <Content Include="VueActivity\src\views\Nov\Index.vue" />
+    <Content Include="VueActivity\src\views\Nov\List.vue" />
+    <Content Include="Views\Home\DaRenShare.cshtml" />
+    <Content Include="VueInvoice\src\App.vue" />
+    <Content Include="VueInvoice\src\components\NoData.vue" />
+    <Content Include="VueInvoice\src\views\Add.vue" />
+    <Content Include="VueInvoice\src\views\Apply.vue" />
+    <Content Include="VueInvoice\src\views\Detail.vue" />
+    <Content Include="VueInvoice\src\views\Home.vue" />
+    <Content Include="VueInvoice\src\views\Result.vue" />
+    <Content Include="VueInvoice\.env" />
+    <Content Include="VueInvoice\.env.production" />
+    <Content Include="VueInvoice\package-lock.json" />
+    <Content Include="VueInvoice\package.json" />
+    <Content Include="VueInvoice\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\DaRenAdmin\Models\" />
+    <Folder Include="Areas\DaRenAdmin\Views\MvcBase\" />
+    <Folder Include="Content\imgfile\" />
+    <Folder Include="Content\imgtemp\" />
+    <Folder Include="images2\tempfile\" />
+    <Folder Include="Views\AdminBase\" />
+    <Folder Include="Views\UserAuth\" />
+    <Folder Include="Views\WXNotice\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PXin.DB\PXin.DB.csproj">
+      <Project>{2a5ec8db-b5b8-4e35-a9a1-6bd7ca7abf65}</Project>
+      <Name>PXin.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PXin.Facade\PXin.Facade.csproj">
+      <Project>{8a0afbef-4e60-427e-9852-305af71dd598}</Project>
+      <Name>PXin.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PXin.Model\PXin.Model.csproj">
+      <Project>{1ad43322-f3ac-4281-baf9-995f911c8c31}</Project>
+      <Name>PXin.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RongCloudServerSDK\RongCloudServerSDK.csproj">
+      <Project>{e9a5242e-1da9-4b52-8299-e15f51d6adfc}</Project>
+      <Name>RongCloudServerSDK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>4778</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4778/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\PostSharp.3.1.33\tools\PostSharp.targets" Condition="Exists('..\packages\PostSharp.3.1.33\tools\PostSharp.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

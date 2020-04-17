@@ -1,0 +1,37 @@
+﻿<h2>后台菜单页面</h2>
+<div>nodie:<input type="text" id="nodeid" name="nodeid" value="3434909" /></div>
+<button id="btn_daren">达人审核详情页面</button>
+<button id="btn_invoice">发票增票资质审核</button>
+<button id="btn_invoicep">发票开票审核</button>
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script >
+    $(function () {
+
+        $("#btn_daren").click(function () {
+
+            var nodeid = $("#nodeid").val();
+            if (nodeid.length <= 0) {
+                alert("请输入nodeid");
+                return;
+            }
+
+            window.open("/DaRenAdmin/daren/detail?nodeid="+nodeid);
+                
+        });
+
+        $("#btn_invoice").click(function () {
+
+            window.open("/DaRenAdmin/invoice/index");
+                
+        });
+
+        $("#btn_invoicep").click(function () {
+
+            window.open("/DaRenAdmin/invoice/verifyinvoice");
+                
+        });
+
+    })
+
+</script>

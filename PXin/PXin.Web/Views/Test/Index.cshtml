@@ -1,0 +1,617 @@
+﻿@{
+    ViewBag.Title = "测试";
+}
+
+<div>
+    <div>@ViewBag.PushString</div>
+    <div>@ViewBag.PushResult</div>
+    <div><a href='@Url.Action("doc")' target="_blank">接口说明</a></div>
+    <div>
+        nodecode:<input type="text" id="nodecode" name="nodecode" />
+        pwd:<input type="text" id="userpwd" name="userpwd" />
+        好友ndoecode/userid:<input type="text" id="fnodecode" name="fnodecode" />
+        好友确认[1-同意，2-拒绝]:<input type="text" id="fconfig" name="fconfig" /><br />
+        gtclientid:<input type="text" id="gtclientid" name="gtclientid" />
+        devicetoken:<input type="text" id="devicetoken" name="devicetoken" /><br />
+        昵称:<input type="text" id="nickname" name="nickname" /><br />
+        查询关键字:<input type="text" id="querykey" name="querykey" /><br />
+        群组id:<input type="text" id="groupid" name="groupid" />
+        群组号:<input type="text" id="groupcode" name="groupcode" />
+        群组名称:<input type="text" id="groupname" name="groupname" /><br />
+        群组描述:<input type="text" id="groupdescript" name="groupdescript" />
+        广播码:<input type="text" id="activecode" name="activecode" /><br />
+        群组用户ids:<input type="text" id="userids" name="userids" />
+        群组禁言时长:<input type="text" id="minutes" name="minutes" />
+        <br />
+        聊天室id:<input type="text" id="roomid" name="roomid" />
+        聊天室名称:<input type="text" id="roomname" name="roomname" />
+        聊天室描述:<input type="text" id="roomdesc" name="roomdesc" />
+        聊天室密码:<input type="text" id="roompwd" name="roompwd" />
+        支付密码/聊天室旧密码:<input type="text" id="paypwd" name="paypwd" />
+        查询聊天室myroom:<input type="text" id="roommy" name="roommy" />
+        <br />
+    </div>
+    <div>
+        <input type="button" id="btnLogin" name="btnLogin" value="登录/获取用户信息" />
+        <input type="button" id="btnUserInfo" name="btnUserInfo" value="根据userid获取用户信息" />
+        <input type="button" id="btnUpateMyNick" name="btnUpateMyNick" value="修改我的昵称" />
+        <input type="button" id="btnQueryFriend" name="btnQueryFriend" value="找人" />
+        <input type="button" id="btnMyFriend" name="btnMyFriend" value="我的好友" />
+        <input type="button" id="btnAddFriend" name="btnAddFriend" value="添加好友" />
+        <input type="button" id="btnAddFriendConfirm" name="btnAddFriendConfirm" value="添加好友确认" />
+        <input type="button" id="btnDeleteFriend" name="btnDeleteFriend" value="删除好友" />
+        <input type="button" id="btnUpdateRemarks" name="btnUpdateRemarks" value="修改好友备注" /><br />
+        <br />
+        @*<input type="button" id="btnChangeGroupCreator" name="btnChangeGroupCreator" value="改变群组创建者" />*@
+        <input type="button" id="btnCreateGroup" name="btnCreateGroup" value="创建群组" />
+        <input type="button" id="btnCreateGroup2" name="btnCreateGroup2" value="创建群组2" />
+        <input type="button" id="btnUpdateGroup" name="btnUpdateGroup" value="修改群组" />
+        <input type="button" id="btnQueryGroup" name="btnQueryGroup" value="找群" />
+        <input type="button" id="btnMyGroup" name="btnMyGroup" value="我的群组" />
+        <input type="button" id="btnJoinGroup" name="btnJoinGroup" value="加入群组" />
+        <input type="button" id="btnJoinConfirm" name="btnJoinConfirm" value="加入群组确认" />
+        <input type="button" id="btnInvitation" name="btnInvitation" value="拉人入群" />
+        <input type="button" id="btnQuitGroup" name="btnQuitGroup" value="退出群组" />
+        <input type="button" id="btnRemoveGroup" name="btnRemoveGroup" value="移出群组" />
+        <input type="button" id="btnDismissGroup" name="btnDismissGroup" value="解散群组" />
+        <input type="button" id="btnGroupUser" name="btnGroupUser" value="查询群组成员" />
+        <input type="button" id="btnGroupGagAdd" name="btnGroupGagAdd" value="群组禁言" />
+        <input type="button" id="btnGroupGagRemove" name="btnGroupUser" value="群组禁言移除" />
+        <input type="button" id="btnGroupGagQuery" name="btnGroupUser" value="群组禁言查询" />
+        <br />
+        <br />
+        <input type="button" id="btnCreateRoom" name="btnCreateRoom" value="创建聊天室" />
+        <input type="button" id="btnCreateRoom2" name="btnCreateRoom2" value="创建聊天室2" />
+        <input type="button" id="btnUpdateRoom" name="btnUpdateRoom" value="修改聊天室" />
+        <input type="button" id="btnUpdateRoomPwd" name="btnUpdateRoomPwd" value="修改聊天室密码" />
+        <input type="button" id="btnQueryRoom" name="btnQueryRoom" value="找聊天室" />
+        <input type="button" id="btnJoinRoom" name="btnJoinRoom" value="加入聊天室" />
+        <input type="button" id="btnQueryRoomCount" name="btnQueryRoomCount" value="查询聊天室人数" />
+        <input type="button" id="btnQuitRoom" name="btnQuitRoom" value="退出聊天室" />
+        <input type="button" id="btnDestroyRoom" name="btnDestroyRoom" value="销毁聊天室" /><br />
+        <br />
+        <input type="button" id="btnQueryPublic" name="btnQueryPublic" value="找公众号" />
+        <br />
+        <input type="button" id="btnProvince" name="btnProvince" value="获取省份" />
+        <input type="button" id="btnCity" name="btnCity" value="获取城市" />
+        <br />
+        <input type="button" id="btnConcernAdd" name="btnConcernAdd" value="添加关注" />
+        <input type="button" id="btnConcernCancel" name="btnConcernCancel" value="取消关注" />
+        <input type="button" id="btnMyFans" name="btnCity" value="我的粉丝" />
+        <input type="button" id="btnMyConcern" name="btnCity" value="我的关注" />
+        @*        <br />
+            <input type="button" id="btnSendMsg" name="btnSendMsg" value="发送消息" />
+            <input type="button" id="btnBroadcast" name="btnBroadcast" value="广播消息" />*@
+        <br />
+        <input type="button" id="btnCreateGroup3" name="btnCreateGroup3" value="创建广播号" />
+        <input type="button" id="btnMyGroup3" name="btnMyGroup3" value="我的广播号" />
+        <input type="button" id="btnQueryGroup3" name="btnQueryGroup3" value="查询广播号" />
+        <input type="button" id="btnSendMsgHisGroup" name="btnSendMsgHisGroup" value="写发送广播历史" />
+        <input type="button" id="btnAllowSendMsgGroup" name="btnAllowSendMsgGroup" value="是否允许发送广播消息" />
+        <br />
+        <input type="button" id="btnUploadFile" name="btnUploadFile" value="上传文件" />
+        <input type="button" id="cheackapi" name="cheackapi" value="测试api验证" />
+        @*<input type="button" id="upfile" name="upfile" value="zy测试api上传视频" />
+        <input type="hidden" id="base64image" name="base64image"  value="@ViewBag.base64image" />*@
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        var imgBase64 = "iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4BpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5QzJFMEIwODE5N0RFNTExODM1NkZBOEQ5RUQ1OTE0MyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBQUZBN0NCNDIwQUQxMUU2ODhBQkU0QkRDQjRCNEVCMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBQUZBN0NCMzIwQUQxMUU2ODhBQkU0QkRDQjRCNEVCMSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxNSAoV2luZG93cykiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2MDJlZjUzNS0zMDdkLThhNGYtODNmZC1kYjZhYmQzNDMzNjciIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDowNWQ3YzU1ZS1mZDVlLTExZTUtOTU4MC04NzY3NTQ0MzA1ODYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5cgvDnAAACwklEQVR42uybz0tUURTHvzONhilFUCphC4XBKCpbRCBEIGFG0ab/IIzIVdIm6B9opbgoGJxaBkIEBZGRCAW1aRGBRFLMGCjSD4nEHzihdr7OfTLUu+ToezTvnfuFL4LvObzzeeeec+91bmL10Xb8oYPibvFZcbP4rxsipiVxTjwszorfl15MlACoFveJr4qTiKdWxIPiXvEif5EqCf6J+DTiLb7YK+K0yfCC96b7FQRfqg6T7WtD4JD8fCfeBl1aFh9NmoKnLXiYmLsJoAt61UUALYoBtCRNB9Cq6iSUywHQDiC19VEkk6rdHcE90ZdMxAAw+BMDAT6SfNaveWBG5mY/PwBTQ8DcC2VDoKoWaGwHWi/JpPUZcOwxUHdKcQ3Y3wmcfCiL81uKiyCz4vC1wCGkQntgjuPZ3AaDqwN2Nm/sXkJYyAdWLMMDwOBfHS+/o9RfBPa2F9PepiM3geeZGA6BwkdgUlL87QVg9IxAzPvfV1MPNN2IeQ1g63stIBa/+l9nlsS+CDIjPt33v7anTUkXmLprHwYqADAL2FH8FMDkKBrzAFs7rT2gBMCOBkt2zCgBYBvvPx4oAGDr97a6EDsA+zrLqwuxAsCFT6NlwvP9TYWvBbYitrf0dft6gOmf769wAKzcrXfK/JsmYFf63yvD3FBxflDRAFi5uaMT+JxAFkjjPQo3RLzguUCKxIZI0Bq/F+ibjwYALoWnXwITg6HtDFfGlpinhWnxpBS4WeDb01C3w8MHsJktsf8g979BB8ABcAAcAAfAAXAAHAAHwAFwABwAjeJ5gVWXAQ6AA6AaQEFx/HMEkFMM4DMBDCsGMEIA/BbSssLgGXOWAMbEGYUAGPOY1wV4lnZEUfCjJub1NshOcE58G8UDxnHVinnz573ul/A5Ps+jtJdRPFDJM4VVEQ+aXyaaMBmeNUN+Xb8FGADRcaDQxlynuQAAAABJRU5ErkJggg==";
+        function GetRandomNum(Min, Max) {
+            var Range = Max - Min;
+            var Rand = Math.random();
+            return (Min + Math.round(Rand * Range));
+        }
+        $(function () {
+            $("#upfile").click(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: "http://pxin.ckv-test.sulink.cn/Api/Sys/UploadFile",
+                    data: {
+                        "nodeid": 3434909, "Content": $("#base64image").val(), "Typeid": "mp4", "sid": 81123,
+                        "tm": "20181109152322",
+                        "sign": "45f57904a54e8e10ba52974434a26cc0"
+                    },
+                    success: function (data) {
+                        alert(JSON.stringify(data));
+                    },
+                    error: function (data) {
+                        alert(JSON.stringify(data));
+                        console.info(arguments);
+                    }
+                });
+            });
+            $("#cheackapi").click(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: "/Api/Test/Index",
+                    data: { "nodeid": 3434909, "sid": 81123, "tm": "20181109152322", "sign": "1ca69e2bad88577e4758ab96b116c435" },
+                    success: function (data) {
+                        alert(JSON.stringify(data));
+                    },
+                    error: function (data) {
+                        alert(JSON.stringify(data));
+                        console.info(arguments);
+                    }
+                });
+            });
+            $("#btnChangeGroupCreator").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Rong/ChangeGroupCreator", {
+                        nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature,
+                        pwd: $("#userpwd").val(),
+                        groupid: $("#groupid").val(),
+                        destNodeid: $("#userids").val()
+                    }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnBroadcast").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Rong/SendBroadcast", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, message: $("#querykey").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+
+
+
+            $("#btnSendMsg").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Rong/SendMessage", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, userid: $("#fnodecode").val(), message: $("#querykey").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            //string nodecode, string nonce, string timestamp, string signature
+            $("#btnLogin").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Rong/Login", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, gtclientid: $("#gtclientid").val(), deviceToken: $("#devicetoken").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnUpateMyNick").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Rong/UpdateMyInfo", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, paramType: "1", paramValue: $("#nickname").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnUserInfo").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    $.post("/Rong/QueryUserInfo", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, userids: $("#fnodecode").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnQueryFriend").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string key, int pageIndex, int pageSize
+                    $.post("/Rong/QueryFriend", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, key: $("#querykey").val(), pageIndex: 1, pageSize: 100 }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnMyFriend").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string usercode, string remarks
+                    $.post("/Rong/MyFriend", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnAddFriendConfirm").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string usercode, string remarks
+                    $.post("/Rong/AddFriendConfirm", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, usercode: $("#fnodecode").val(), status: $("#fconfig").val(), remarks: "" }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnAddFriend").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string usercode, string remarks
+                    $.post("/Rong/AddFriend", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, usercode: $("#fnodecode").val(), remarks: "" }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+
+            $("#btnUpdateRemarks").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string usercode, string remarks
+                    $.post("/Rong/UpdateMyFriendInfo", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, usercode: $("#fnodecode").val(), paramType: "1", paramValue: $("#nickname").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+
+            $("#btnDeleteFriend").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string usercode, string remarks
+                    $.post("/Rong/DeleteFriend", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, usercode: $("#fnodecode").val(), remarks: "" }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnCreateGroup").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string groupname, string groupdesc
+                    $.post("/Rong/CreateGroup", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, groupname: $("#groupname").val(), descript: "" }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnCreateGroup2").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string groupname, string groupdesc
+                    $.post("/Rong/CreateGroup2", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, groupname: $("#groupname").val(), descript: "" }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            //btnUpdateGroup
+            $("#btnUpdateGroup").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string groupname, string groupdesc
+                    $.post("/Rong/UpdateGroup", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, groupid: $("#groupid").val(), groupname: $("#groupname").val(), descript: "" }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnQueryGroup").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string groupname, string groupdesc
+                    $.post("/Rong/QueryGroup", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, key: $("#querykey").val(), pageIndex: 1, pageSize: 100 }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnMyGroup").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string usercode, string remarks
+                    $.post("/Rong/MyGroup", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnJoinGroup").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/JoinGroup", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, groupid: $("#groupid").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnJoinConfirm").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/JoinGroupConfirm", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, groupid: $("#groupid").val(), usercode: $("#fnodecode").val(), status: $("#fconfig").val(), remarks: '' }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnInvitation").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/JoinGroupInvitation", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, groupid: $("#groupid").val(), userids: $("#fnodecode").val(), remarks: '' }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnQuitGroup").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/QuitGroup", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, groupid: $("#groupid").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnRemoveGroup").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/RemoveGroupUser", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, groupid: $("#groupid").val(), usercode: $("#fnodecode").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnDismissGroup").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/DismissGroup", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, groupid: $("#groupid").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnGroupUser").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/QueryGroupUser", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, groupid: $("#groupid").val(), pageindex: 1, pageSize: 100 }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnGroupGagQuery").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/GagUserQueryGroup", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, groupid: $("#groupid").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnGroupGagAdd").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/GagUserAddGroup", {
+                        nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature,
+                        groupid: $("#groupid").val(),
+                        userids: $("#userids").val(),
+                        minute: $("#minutes").val()
+                    }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnGroupGagRemove").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/GagUserRemoveGroup", {
+                        nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature,
+                        groupid: $("#groupid").val(),
+                        userids: $("#userids").val()
+                    }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            //聊天室
+            $("#btnCreateRoom").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/CreateChatRoom", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, roomname: $("#roomname").val(), descript: $("#roomdesc").val(), roompwd: $("#roompwd").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnCreateRoom2").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/CreateChatRoom2", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, roomname: $("#roomname").val(), descript: $("#roomdesc").val(), roompwd: $("#roompwd").val(), paypwd: $("#paypwd").val(), roompic: encodeURI(imgBase64) }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnUpdateRoom").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/UpdateChatRoom", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, roomid: $("#roomid").val(), roomname: $("#roomname").val(), descript: $("#roomdesc").val(), roompwd: $("#roompwd").val(), roompic: encodeURI(imgBase64) }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnQueryRoom").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/QueryChatRoom", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, key: $("#querykey").val(), myroom: $("#roommy").val(), pageIndex: 1, pageSize: 100 }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnJoinRoom").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/JoinChatRoom", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, roomid: $("#roomid").val(), roompwd: $("#roompwd").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnQuitRoom").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/QuitChatRoom", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, roomid: $("#roomid").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnDestroyRoom").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/DestroyChatRoom", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, roomid: $("#roomid").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnQueryRoomCount").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/QueryChatRoomUserCount", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, roomid: $("#roomid").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnUpdateRoomPwd").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/UpdateChatRoomPwd", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, roomid: $("#roomid").val(), oldpwd: $("#paypwd").val(), roompwd: $("#roompwd").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnQueryPublic").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string key, int pageIndex, int pageSize
+                    $.post("/Rong/QueryPublic", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, key: $("#querykey").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnProvince").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string key, int pageIndex, int pageSize
+                    $.post("/Rong/ProvinceList", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnCity").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string key, int pageIndex, int pageSize
+                    $.post("/Rong/CityList", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnConcernAdd").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string key, int pageIndex, int pageSize
+                    $.post("/Rong/ConcernAdd", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, concernCode: $("#fnodecode").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnConcernCancel").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string key, int pageIndex, int pageSize
+                    $.post("/Rong/ConcernCancel", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, concernCode: $("#fnodecode").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnMyFans").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string key, int pageIndex, int pageSize
+                    $.post("/Rong/MyFans", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, pageIndex: 1, pageSize: 100 }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnMyConcern").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string key, int pageIndex, int pageSize
+                    $.post("/Rong/MyConcerns", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, pageIndex: 1, pageSize: 100 }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnCreateGroup3").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string groupname, string groupdesc
+                    $.post("/Rong/CreateGroup3", {
+                        nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature,
+                        groupcode: $("#groupcode").val(),
+                        groupname: $("#groupname").val(),
+                        grouppic: imgBase64,
+                        activecode: $("#activecode").val(),
+                        descript: $("#groupdescript").val()
+                    }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnQueryGroup3").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string groupname, string groupdesc
+                    $.post("/Rong/QueryGroup3", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, key: $("#querykey").val(), pageIndex: 1, pageSize: 100 }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnMyGroup3").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //string usercode, string remarks
+                    $.post("/Rong/MyGroup3", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnSendMsgHisGroup").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/GoupSendMsgHis", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, groupid: $("#groupid").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnAllowSendMsgGroup").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/GoupAllowSendMsg", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, groupid: $("#groupid").val() }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            $("#btnUploadFile").click(function () {
+                var getUser = function (nodecode, nonce, timestamp, signature) {
+                    //int groupid
+                    $.post("/Rong/UploadPic", { nodecode: nodecode, nonce: nonce, timestamp: timestamp, signature: signature, img: imgBase64 }, function (data) {
+                        alert(JSON.stringify(data));
+                    }, "json");
+                }
+                execTest(getUser);
+            });
+            function execTest(func) {
+                var timestamp = $.now();
+                var nonce = GetRandomNum(10000, 99999);
+                var nodecode = $("#nodecode").val();
+                $.post("/Rong/TestSign", { nodecode: $("#nodecode").val(), nonce: nonce, timestamp: timestamp }, function (data) {
+                    if (data.Result) {
+                        func(nodecode, nonce, timestamp, data.Data);
+                    } else {
+                        alert(data);
+                    }
+                }, "json");
+            }
+        });
+    </script>
+}

@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A0AFBEF-4E60-427E-9852-305AF71DD598}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PXin.Facade</RootNamespace>
+    <AssemblyName>PXin.Facade</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <LangVersion>latest</LangVersion>
+    <DocumentationFile>bin\Debug\PXin.Facade.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=7.2.1.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Cells.7.2.1\lib\net40-client\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="Balance.Currency, Version=2.4.0.25642, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\NewDll\mvcbase\Balance.Currency.dll</HintPath>
+    </Reference>
+    <Reference Include="Balance.Entities, Version=2.12.0.16650, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\NewDll\mvcbase\Balance.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="BalanceWcfClient, Version=3.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\NewDll\mvcbase\BalanceWcfClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Mvc">
+      <HintPath>..\..\..\..\NewDll\mvcbase\New\Common.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EncodeDecode">
+      <HintPath>..\..\..\..\NewDll\EncodeDecode.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="GetuiServerApiSDK, Version=4.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\NewDll\GetuiServerApiSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.ProtocolBuffers">
+      <HintPath>..\..\..\..\NewDll\Google.ProtocolBuffers.dll</HintPath>
+    </Reference>
+    <Reference Include="MediatR, Version=5.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MediatR.5.0.1\lib\net45\MediatR.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcPaging">
+      <HintPath>..\..\..\..\NewDll\MvcDll\MvcPaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.18.3.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.18.3, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.18.3.0\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="SmsCenter.SmsServiceClient">
+      <HintPath>..\..\..\..\NewDll\SmsCenter.SmsServiceClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\ApiAuth.cs">
+      <Link>ApiAuthCore\ApiAuth.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Auth\AcsURLEncoder.cs">
+      <Link>ApiAuthCore\Auth\AcsURLEncoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Auth\Credential.cs">
+      <Link>ApiAuthCore\Auth\Credential.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Auth\ICredentialProvider.cs">
+      <Link>ApiAuthCore\Auth\ICredentialProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Auth\ISignatureComposer.cs">
+      <Link>ApiAuthCore\Auth\ISignatureComposer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Auth\ISigner.cs">
+      <Link>ApiAuthCore\Auth\ISigner.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Auth\RoaSignatureComposer.cs">
+      <Link>ApiAuthCore\Auth\RoaSignatureComposer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Auth\RpcSignatureComposer.cs">
+      <Link>ApiAuthCore\Auth\RpcSignatureComposer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Auth\ShaHmac1.cs">
+      <Link>ApiAuthCore\Auth\ShaHmac1.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Auth\ShaHmac256.cs">
+      <Link>ApiAuthCore\Auth\ShaHmac256.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Http\FormatType.cs">
+      <Link>ApiAuthCore\Http\FormatType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Http\HttpRequest.cs">
+      <Link>ApiAuthCore\Http\HttpRequest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Http\HttpResponse.cs">
+      <Link>ApiAuthCore\Http\HttpResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Http\MethodType.cs">
+      <Link>ApiAuthCore\Http\MethodType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Http\PositionType.cs">
+      <Link>ApiAuthCore\Http\PositionType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Http\ProtocolType.cs">
+      <Link>ApiAuthCore\Http\ProtocolType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Utils\DictionaryUtil.cs">
+      <Link>ApiAuthCore\Utils\DictionaryUtil.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\ApiAuthCore\Utils\ParameterHelper.cs">
+      <Link>ApiAuthCore\Utils\ParameterHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\Helper\CurrencyConfig.cs">
+      <Link>CurrencyConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\Helper\ExcelHelper.cs">
+      <Link>ExcelHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\Helper\FacadeBase.cs">
+      <Link>FacadeBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\Helper\Helper.cs">
+      <Link>Helper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\Helper\VPHelper.cs">
+      <Link>VPHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\Models\Reqbase.cs">
+      <Link>Models\Reqbase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\Models\Respbase.cs">
+      <Link>Models\Respbase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\UEPay\Dto.cs">
+      <Link>UEPay\Dto.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\UEPay\UeApi.cs">
+      <Link>UEPay\UeApi.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\..\NewDll\mvcbase\PublicFacade\UEPay\UENoticeBase.cs">
+      <Link>UEPay\UENoticeBase.cs</Link>
+    </Compile>
+    <Compile Include="AdminFacade.cs" />
+    <Compile Include="ApiFacade\AuctionAFacade.cs" />
+    <Compile Include="ApiFacade\AuthFacade.cs" />
+    <Compile Include="ApiFacade\Business\ExChangeRechargeCode.cs" />
+    <Compile Include="ApiFacade\ChatFacade.cs" />
+    <Compile Include="ApiFacade\CommentDispatchService.cs" />
+    <Compile Include="ApiFacade\CZMFacade.cs" />
+    <Compile Include="ApiFacade\DaRenFacade.cs" />
+    <Compile Include="ApiFacade\EmoticonFacade.cs" />
+    <Compile Include="ApiFacade\FbApFacade.cs" />
+    <Compile Include="ApiFacade\ExchangeFacade.cs" />
+    <Compile Include="ApiFacade\InvioceFacade.cs" />
+    <Compile Include="ApiFacade\MsgDispatchService.cs" />
+    <Compile Include="ApiFacade\NoticeService.cs" />
+    <Compile Include="ApiFacade\ActivityFacade.cs" />
+    <Compile Include="ApiFacade\RedpacketFacade.cs" />
+    <Compile Include="ApiFacade\ShoppingAddrFacede.cs" />
+    <Compile Include="ApiFacade\SmsFacade.cs" />
+    <Compile Include="ApiFacade\ThridPayFacade.cs" />
+    <Compile Include="ApiFacade\UserAuthFacade.cs" />
+    <Compile Include="ApiFacade\UserFacade.cs" />
+    <Compile Include="ApiFacade\FriFacade.cs" />
+    <Compile Include="Bus\EnumerableExtend.cs" />
+    <Compile Include="Bus\Event\AddFriendNoticeEvent.cs" />
+    <Compile Include="Bus\Event\AddFriendNoticeEventHandler.cs" />
+    <Compile Include="Bus\Models\CommonEventArgs.cs" />
+    <Compile Include="Bus\EventBus.cs" />
+    <Compile Include="Bus\Interface\IEvent.cs" />
+    <Compile Include="Bus\Interface\IEventBus.cs" />
+    <Compile Include="Bus\Interface\IEventHandler.cs" />
+    <Compile Include="Bus\Interface\IEventPublisher.cs" />
+    <Compile Include="Bus\Interface\IEventSubscriber.cs" />
+    <Compile Include="CommonService\AliyunOCR.cs" />
+    <Compile Include="CommonService\BaiduLicense.cs" />
+    <Compile Include="CommonService\EnumCollect.cs" />
+    <Compile Include="CommonService\ExpressAPI.cs" />
+    <Compile Include="CommonService\FileService.cs" />
+    <Compile Include="CommonService\IdCardPicRecognise.cs" />
+    <Compile Include="CommonService\IdCardService.cs" />
+    <Compile Include="CommonService\InvoiceAPI.cs" />
+    <Compile Include="CommonService\ScanLicense.cs" />
+    <Compile Include="CommonService\StringExtensions.cs" />
+    <Compile Include="FacadeBaseExt.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="InternalFacade\ChatHubFacade.cs" />
+    <Compile Include="Models\Dto\AuctionADto.cs" />
+    <Compile Include="Models\Chat.cs" />
+    <Compile Include="Models\Dto\BexponentDto.cs" />
+    <Compile Include="Models\Dto\CZMDto.cs" />
+    <Compile Include="Models\Dto\DaRenDto.cs" />
+    <Compile Include="Models\Dto\EmoticonDto.cs" />
+    <Compile Include="Models\Dto\FbApDto.cs" />
+    <Compile Include="Models\Dto\InvioceDto.cs" />
+    <Compile Include="Models\Dto\OctoberActivityDto.cs" />
+    <Compile Include="Models\Dto\RedpacketDto.cs" />
+    <Compile Include="Models\Dto\ShoppingAddrsDto.cs" />
+    <Compile Include="Models\Dto\SysDto.cs" />
+    <Compile Include="Models\Dto\ThirdPayDto.cs" />
+    <Compile Include="Models\Dto\UserAuthDto.cs" />
+    <Compile Include="Models\Dto\UserDto.cs" />
+    <Compile Include="Models\Dto\UserPurseDto.cs" />
+    <Compile Include="Models\Enum\AmountChangeReason.cs" />
+    <Compile Include="Models\Enum\RedpacketEnum.cs" />
+    <Compile Include="Models\Enum\FbApEnum.cs" />
+    <Compile Include="Models\Helper\RSACryptoServiceProviderExtension.cs" />
+    <Compile Include="Models\Helper\FbAp\PcnApiResult.cs" />
+    <Compile Include="Models\Helper\FbAp\RechargeCodeRuleInfo.cs" />
+    <Compile Include="Models\Dto\ExchangeDto.cs" />
+    <Compile Include="Models\Req\EmoticonReq.cs" />
+    <Compile Include="Models\Req\InvioceReq.cs" />
+    <Compile Include="Models\Req\ReqAuctionA.cs" />
+    <Compile Include="Models\ReqConfig.cs" />
+    <Compile Include="Models\Req\BexponentReq.cs" />
+    <Compile Include="Models\Req\DaRenReq.cs" />
+    <Compile Include="Models\Req\RedpacketReq.cs" />
+    <Compile Include="Models\Req\ReqCzm.cs" />
+    <Compile Include="Models\ReqExchange.cs" />
+    <Compile Include="Models\ReqFri.cs" />
+    <Compile Include="Models\ReqSms.cs" />
+    <Compile Include="Models\ReqUploadFile.cs" />
+    <Compile Include="Models\ReqVerificationCode.cs" />
+    <Compile Include="Models\Req\FbApReq.cs" />
+    <Compile Include="Models\Req\ShoppingAddrsReq.cs" />
+    <Compile Include="Models\Req\SysReq.cs" />
+    <Compile Include="Models\Req\ThirdPayReq.cs" />
+    <Compile Include="Models\Req\UserAuthReq.cs" />
+    <Compile Include="Models\Req\UserPurseReq.cs" />
+    <Compile Include="Models\Req\UserReq.cs" />
+    <Compile Include="SignalR\Protocal\ChatFee.cs" />
+    <Compile Include="SignalR\Protocal\ChatFeePush.cs" />
+    <Compile Include="SignalR\Protocal\ChatFeeRateQuery.cs" />
+    <Compile Include="SignalR\Models\ChatUser.cs" />
+    <Compile Include="SignalR\Models\Common.cs" />
+    <Compile Include="SignalR\Models\Helper.cs" />
+    <Compile Include="SignalR\Protocal\Login.cs" />
+    <Compile Include="SignalR\Protocal\MessageBase.cs" />
+    <Compile Include="SignalR\Models\PushPDian.cs" />
+    <Compile Include="SignalR\Models\SignalRClient.cs" />
+    <Compile Include="Pingpp\Exception\PingppException.cs" />
+    <Compile Include="Pingpp\GetCharges.cs" />
+    <Compile Include="Pingpp\Models\Agreement.cs" />
+    <Compile Include="Pingpp\Models\AgreementList.cs" />
+    <Compile Include="Pingpp\Models\BalanceBonus.cs" />
+    <Compile Include="Pingpp\Models\BalanceBonusList.cs" />
+    <Compile Include="Pingpp\Models\BalanceSettlement.cs" />
+    <Compile Include="Pingpp\Models\BalanceSettlementList.cs" />
+    <Compile Include="Pingpp\Models\BalanceTransaction.cs" />
+    <Compile Include="Pingpp\Models\BalanceTransactionList.cs" />
+    <Compile Include="Pingpp\Models\BalanceTransfer.cs" />
+    <Compile Include="Pingpp\Models\BalanceTransferList.cs" />
+    <Compile Include="Pingpp\Models\BatchRefund.cs" />
+    <Compile Include="Pingpp\Models\BatchRefundList.cs" />
+    <Compile Include="Pingpp\Models\BatchTransfer.cs" />
+    <Compile Include="Pingpp\Models\BatchTransferList.cs" />
+    <Compile Include="Pingpp\Models\BatchWithdrawal.cs" />
+    <Compile Include="Pingpp\Models\BatchWithdrawalList.cs" />
+    <Compile Include="Pingpp\Models\Card.cs" />
+    <Compile Include="Pingpp\Models\CardInfo.cs" />
+    <Compile Include="Pingpp\Models\CardList.cs" />
+    <Compile Include="Pingpp\Models\Charge.cs" />
+    <Compile Include="Pingpp\Models\ChargeList.cs" />
+    <Compile Include="Pingpp\Models\Coupon.cs" />
+    <Compile Include="Pingpp\Models\CouponList.cs" />
+    <Compile Include="Pingpp\Models\CouponTemplate.cs" />
+    <Compile Include="Pingpp\Models\CouponTemplateList.cs" />
+    <Compile Include="Pingpp\Models\Customs.cs" />
+    <Compile Include="Pingpp\Models\Deleted.cs" />
+    <Compile Include="Pingpp\Models\DeletedSubAppChannel.cs" />
+    <Compile Include="Pingpp\Models\Error.cs" />
+    <Compile Include="Pingpp\Models\Event.cs" />
+    <Compile Include="Pingpp\Models\EventList.cs" />
+    <Compile Include="Pingpp\Models\Identification.cs" />
+    <Compile Include="Pingpp\Models\Order.cs" />
+    <Compile Include="Pingpp\Models\OrderList.cs" />
+    <Compile Include="Pingpp\Models\OrderRefund.cs" />
+    <Compile Include="Pingpp\Models\OrderRefundList.cs" />
+    <Compile Include="Pingpp\Models\Recharge.cs" />
+    <Compile Include="Pingpp\Models\RechargeList.cs" />
+    <Compile Include="Pingpp\Models\RechargeRefund.cs" />
+    <Compile Include="Pingpp\Models\RedEnvelope.cs" />
+    <Compile Include="Pingpp\Models\RedEnvelopeList.cs" />
+    <Compile Include="Pingpp\Models\Refund.cs" />
+    <Compile Include="Pingpp\Models\RefundList.cs" />
+    <Compile Include="Pingpp\Models\Royalty.cs" />
+    <Compile Include="Pingpp\Models\RoyaltyList.cs" />
+    <Compile Include="Pingpp\Models\RoyaltySettlement.cs" />
+    <Compile Include="Pingpp\Models\RoyaltySettlementList.cs" />
+    <Compile Include="Pingpp\Models\RoyaltyTemplate.cs" />
+    <Compile Include="Pingpp\Models\RoyaltyTemplateList.cs" />
+    <Compile Include="Pingpp\Models\RoyaltyTransaction.cs" />
+    <Compile Include="Pingpp\Models\RoyaltyTransactionList.cs" />
+    <Compile Include="Pingpp\Models\SettleAccount.cs" />
+    <Compile Include="Pingpp\Models\SettleAccountList.cs" />
+    <Compile Include="Pingpp\Models\SmsCode.cs" />
+    <Compile Include="Pingpp\Models\SubApp.cs" />
+    <Compile Include="Pingpp\Models\SubAppChannel.cs" />
+    <Compile Include="Pingpp\Models\SubAppList.cs" />
+    <Compile Include="Pingpp\Models\Token.cs" />
+    <Compile Include="Pingpp\Models\Transfer.cs" />
+    <Compile Include="Pingpp\Models\TransferList.cs" />
+    <Compile Include="Pingpp\Models\User.cs" />
+    <Compile Include="Pingpp\Models\UserList.cs" />
+    <Compile Include="Pingpp\Models\Webhooks.cs" />
+    <Compile Include="Pingpp\Models\Withdrawal.cs" />
+    <Compile Include="Pingpp\Models\WithdrawalList.cs" />
+    <Compile Include="Pingpp\Net\Mapper.cs" />
+    <Compile Include="Pingpp\Net\Requestor.cs" />
+    <Compile Include="Pingpp\Pingpp.cs" />
+    <Compile Include="Pingpp\Utils\OAuthResult.cs" />
+    <Compile Include="Pingpp\Utils\RSAUtils.cs" />
+    <Compile Include="Pingpp\Utils\WxLiteOauthResult.cs" />
+    <Compile Include="Pingpp\Utils\WxPubUtils.cs" />
+    <Compile Include="ApiFacade\PurseFacade.cs" />
+    <Compile Include="PXinResult.cs" />
+    <Compile Include="AppConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="PxinCache.cs" />
+    <Compile Include="PxinSerivce.cs" />
+    <Compile Include="Rong\RongApi.cs" />
+    <Compile Include="TimedPush.cs" />
+    <Compile Include="UEPay\UePayHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PXin.DB\PXin.DB.csproj">
+      <Project>{2a5ec8db-b5b8-4e35-a9a1-6bd7ca7abf65}</Project>
+      <Name>PXin.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PXin.Model\PXin.Model.csproj">
+      <Project>{1ad43322-f3ac-4281-baf9-995f911c8c31}</Project>
+      <Name>PXin.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RongCloudServerSDK\RongCloudServerSDK.csproj">
+      <Project>{e9a5242e-1da9-4b52-8299-e15f51d6adfc}</Project>
+      <Name>RongCloudServerSDK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

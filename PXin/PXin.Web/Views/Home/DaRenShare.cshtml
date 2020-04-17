@@ -1,0 +1,40 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>分享页</title>
+</head>
+<body>
+    <div>
+    分享页
+    </div>
+    <button id="btn_see">查看当前环境</button>
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn_see").click(function () {
+                var u = navigator.userAgent;
+
+                //Android终端
+                var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+
+                //iOS终端
+                var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+
+                if (isAndroid) {
+                    alert("Android");
+                } else if (isiOS) {
+                    alert("IOS");
+                } else {
+                    alert("Windows");
+                }
+            })
+        });
+    </script>
+</body>
+</html>

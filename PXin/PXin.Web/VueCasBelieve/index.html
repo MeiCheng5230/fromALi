@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no,viewport-fit=cover"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <title>相信</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script src="http://global.ckv-test.sulink.cn/js/appnative.js"></script>
+    <script>
+      fnResize();
+      window.onresize = function() {
+        fnResize();
+      };
+
+      function fnResize() {
+        var deviceWidth =
+          document.documentElement.clientWidth || window.innerWidth;
+        if (deviceWidth >= 750) {
+          deviceWidth = 750;
+        }
+        if (deviceWidth <= 320) {
+          deviceWidth = 320;
+        }
+        document.documentElement.style.fontSize = deviceWidth / 7.5 + "px";
+      }
+      var signalrUrl = "http://cas.xiang-xin.net/signalr";
+    </script>
+
+    <script src="http://global.ckv-test.sulink.cn/js/appnative.js"></script>
+    <!-- <script type="text/javascript" src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script> -->
+    <!--im库-->
+    <script src="http://cdn.ronghub.com/RongIMLib-2.4.0.min.js"></script>
+    <!--表情库 -->
+    <script src="http://cdn.ronghub.com/RongEmoji-2.2.7.min.js"></script>
+    <!--获取官方声音库-->
+    <script src="http://cdn.ronghub.com/Libamr-2.2.5.min.js"></script>
+    <script src="http://cdn.ronghub.com/RongIMVoice-2.2.5.min.js"></script>
+  </body>
+</html>

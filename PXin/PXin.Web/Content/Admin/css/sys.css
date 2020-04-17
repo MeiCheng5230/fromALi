@@ -1,0 +1,153 @@
+h3 {
+  margin-bottom: 50px;
+}
+
+.search {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-top: 10px !important;
+}
+
+.m-t-10 {
+  margin-top: 10px;
+}
+
+.why {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: red
+}
+
+.whyImg, .why label {
+  color: #999999;
+}
+
+.whyImg img {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+.appealDetails{
+  display: none;
+}
+.appealDetails td{
+  padding: 30px 20px;
+}
+.modal-footer{
+  text-align: center;
+}
+.page_box{
+  height: 24px;
+  float: right;
+  margin: 20px 47px 20px 0;
+  line-height: 20px;
+  color: #999;
+  font-size: 14px;
+}
+.page_count{
+  float: left;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.page_count em{
+ font-style: normal;
+}
+.page_box div{
+  height: 100%;
+  line-height: 24px;
+  text-align: center;
+  box-sizing: border-box;
+  border: solid 1px #ddd;
+  float: left;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.prevpage,.nextpage{
+  width: 50px;
+}
+.page_box .nextpage{
+  margin-right: 10px;
+}
+.page_box .page_div{
+  width: 20px;
+  border: none;
+  background: #5bc0de;
+  color: #fff;
+}
+.prevpage:hover{
+  background: #f5f5f5;
+}
+.nextpage:hover{
+  background: #f5f5f5;
+}
+.page_input{
+  width: 30px;
+  height: 100%;
+  text-align: center;
+  border: solid 1px #ddd;
+  box-sizing: border-box;
+  margin: 0 5px 0;
+}
+.cause{
+  display: block;
+  width: 400px;
+  word-break:keep-all;/* 不换行 */
+
+  white-space:nowrap;/* 不换行 */
+
+  overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+
+  text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+
+}
+
+.navbar .container .nav {
+    display: flex;
+    padding: 20px 0px;
+    margin-right: 0;
+}
+
+.nav .icon-divider {
+    display: inline-block;
+    vertical-align: middle;
+    font-style: normal;
+    width: 1px;
+    height: 15px;
+    margin: 2px 10px;
+    background-color: #000;
+}
+
+.nav .user {
+    margin-right: 10px;
+}
+
+.navbar {
+    background-color: #fff;
+    min-height: 80px;
+}
+
+
+.list-page {
+    float: right;
+}
+
+    .list-page span, .list-page a {
+        display: inline-block;
+        width: 20px;
+        height: 24px;
+        line-height: 24px;
+        border: 1px solid #ddd;
+        text-align: center;
+        margin-right: 5px;
+        color: #999;
+    }
+
+    .list-page .current {
+        border: none;
+        background: #5bc0de;
+        color: #fff;
+    }
+

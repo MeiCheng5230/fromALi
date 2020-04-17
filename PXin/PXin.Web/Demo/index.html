@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="curUser"></h2>
+    <div>
+        <label>消息文本:</label>
+        <input type="text" name="" id="msg" />
+        <button type="button" id="sendBtn">发送</button>
+        <div></div>
+        <label>接收信息：</label>
+        <div id="receiveMsg">
+
+        </div>
+    </div>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.ronghub.com/RongIMLib-2.4.0.min.js"></script>
+    <script src="./js/im.js"></script>
+    <script>
+        $(function () {
+            (function () {
+                var appKey = "4z3hlwrv3n08t"; //"3argexb6r934e";
+                var token =
+                    "M41t4uaTadex3ApOZvkcuQ0XTuVwUwCtv8w38LCziwxDXqAki6hDdoA59jt+nqcCmIqtoiKpFdguVORrs7SNV0qdej6ZfIEc";
+                PXin.init({
+                    appKey: appKey,
+                    token: token,
+                });
+                PXin.startConversation('3435980');
+            })();
+
+            $("#sendBtn").click(function () {
+                var msg = $("#msg").val();
+                PXin.sendMessage(msg);
+            });
+        });
+    </script>
+</body>
+
+</html>
